@@ -1,34 +1,66 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="css/style.css" media="screen" title="no title" charset="utf-8">
-    <title>OASIS 2016 | OF GODS AND MEN</title>
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/style.css" media="screen" title="no title" charset="utf-8">
+  <title>OASIS 2016 | OF GODS AND MEN</title>
+</head>
+<body>
+  <div class="nav-wrapper">
     <div class="nav">
       <div class="logo">
-        <div class="logo-img" alt="" >
-        </div>
+        <img src="img/logo.png">
+      </div>
+      <div class="menu">
+        Menu
       </div>
       <ul class="nav-list">
         <li class="nav-item">
-            Home
+          Home
         </li>
         <li class="nav-item">
-            Events
+          Events
         </li>
         <li class="nav-item">
-            Sponsors
+          Sponsors
         </li>
         <li class="nav-item">
-            Contact
+          Contact
         </li>
         <li class="nav-item">
-            Gallery
+          Gallery
         </li>
 
       </ul>
     </div>
-  </body>
+
+    <div class="nav-mob">
+    <ul class="nav-list-mob">
+        <li class="nav-item-mob">
+          Home
+        </li>
+        <li class="nav-item-mob">
+          Events
+        </li>
+        <li class="nav-item-mob">
+          Sponsors
+        </li>
+        <li class="nav-item-mob">
+          Contact
+        </li>
+        <li class="nav-item-mob">
+          Gallery
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script type="text/javascript">
+    $('.menu').click(function() {
+        $('.nav-mob').toggle(0);
+    });
+  </script>
+</body>
 </html>
