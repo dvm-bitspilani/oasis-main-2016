@@ -9,7 +9,8 @@ html,body{
   top:0;
   height: 10vh;
   width: 100vw;
-  background: black;
+  background: url('../img/navpat.png') repeat;
+  background-position: center;
   display: flex;
   justify-content: flex-start;
 }
@@ -48,4 +49,19 @@ background-size: auto 100%;
 top: 2%;
 background-position: center;
 }
+/*
+
+.nav-bg-pattern{
+  position: absolute;
+  top:10vh;
+  width: 100vw;
+  height: 13vh;
+background: url('../img/navpat.png') repeat;
+background-position: center;
+}*/
+
+.nav-tip{
+  position: absolute;
+  top:10vh;
+  background: url(../img/navtip.png);
 }
