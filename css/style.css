@@ -29,10 +29,29 @@ html,body{
 
 .nav-list li{
   display: inline;
-  padding-right: 3vw;
+  margin-right: 3vw;
   font-size: 1em;
+  height: 1.2em;
+  text-decoration: none;
 }
 
+.nav-list li:after 
+{
+content: '';
+display: block;
+height: 3px;
+width: 0;
+background: transparent;
+transition: width .5s ease, background-color .5s ease; /* .5 seonds for changes to the width and background-color */
+-webkit-transition: width .5s ease, background-color .5s ease; /* Chrome and Safari */
+-moz-transition: width .5s ease, background-color .5s ease; /* FireFox */
+}
+/* Change the width and background on hover, aka sliding out */
+.nav-list li:hover:after 
+{
+width: 100%;
+background: #62dcff;
+}
 
 .logo{
   display: flex;
@@ -120,3 +139,11 @@ background-position: center;
   }
 
 }
+
+/*.nav-list li
+{
+text-decoration:none;
+display: inline-block;
+color:black;
+}*/
+/* add a empty string after the elment with class .nav-list li */
