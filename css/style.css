@@ -1,41 +1,47 @@
-html,body{
-  margin: 0;
-  font-family: 'Verdana',sans-serif;
-  padding: 0;
+.paint{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  width: 100%;
+  height: 100%;
+  /*background: url('paint/Comp 1_00019.png') no-repeat 0 0;*/
+  background-size: 100% 100%;
+}
+
+.startAnim{
+  width: 2500%;
+  transform: translateY(-50%) translateX(-2%);
+  background: url('../img/paint/out.png') no-repeat 0 0;
+  background-size: 100% 100%;
+  animation: cd-sprite 1.5s steps(24);
+  animation-fill-mode: forwards;
+  animation-delay: 0.5s;
+}
+
+
+.midAnim{
+  /*transform: translateY(-48%) translateX(-50%);*/
+}
+/*.paint{
+  position: absolute;
+  width: 1280px;
+  height: 720px;
+  background: url('paint/out.png') no-repeat 0 0;
+}*/
+
+
+.transition-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  height: 100%;
+  width: 100%;
   overflow: hidden;
 }
 
-.nav{
-  position: absolute;
-  /* top: 0; */
-  height: 10vh;
-  width: 100vw;
-  background: url('../img/navpat.png') repeat;
-  background-position: center;
-  display: flex;
-  justify-content: space-between;
-}
-
-
-.nav-list{
-  list-style: none;
-  color: white;
-  margin: auto 3vw;
-  font-family: 'Verdana',sans-serif;
-  width: 60%;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.nav-list li{
-  display: inline;
-  margin-right: 3vw;
-  font-size: 1em;
-  height: 1.2em;
-  text-decoration: none;
-}
-
-.nav-list li:after 
+.nav-list li:after
 {
 content: '';
 display: block;
@@ -47,97 +53,71 @@ transition: width .5s ease, background-color .5s ease; /* .5 seonds for changes 
 -moz-transition: width .5s ease, background-color .5s ease; /* FireFox */
 }
 /* Change the width and background on hover, aka sliding out */
-.nav-list li:hover:after 
+.nav-list li:hover:after
 {
 width: 100%;
 background: #62dcff;
 }
 
-.logo{
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  height: inherit;
-  flex-direction: column;
-  margin-left: 15px;
+
+@keyframes cd-sprite {
+  0% {
+    transform: translateY(-50%) translateX(-2%);
+  }
+  100% {
+    transform: translateY(-50%) translateX(-98%);
+  }
 }
 
-.logo img{
-  position: relative;
-  width: auto;
-  height: 7vh;
-  left: 10px;
-}
-/*
 
-.nav-bg-pattern{
+.content{
+  /*background: url('moseshi.jpg');*/
   position: absolute;
-  top:10vh;
+  top:0;
+  left: 0;
   width: 100vw;
-  height: 13vh;
-background: url('../img/navpat.png') repeat;
-background-position: center;
-}*/
+  /*background-size: 100% 100%;*/
+}
 
-.nav-tip{
+#blurImg{
   position: absolute;
-  top:10vh;
-  background: url(../img/navtip.png);
-}
-.menu {
-  display: none;
-}
-
-.nav-mob {
-  display: none;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  filter: blur(5px);
 }
 
-.show {
-  display: block;
+
+#plainImg img,#blurImg img{
+  position: absolute;
+  top:0;
+  width: 100%;
 }
 
-@media only screen and (max-width: 500px) {
-  .nav-wrapper {
-    background: rgba(0,0,0,0.7);
-    width: 100vw;
-    height: 100vh;
-  }
-  .menu {
-    color: white;
-    margin: auto 3vw;
-    font-family: 'Verdana',sans-serif;
-    width: 60%;
-    display: flex;
-    justify-content: flex-end;
-    cursor: pointer;
-  }
+body{
+  margin: 0;
+  overflow-x: hidden;
+  width: 100vw;
+  height: 100vh;
+}
 
-  .nav-list {
-    display: none;
-  }
 
-  .nav-list-mob {
-    position: relative;
-    top: 10vh;
-    list-style: none;
-    display: inline-flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    flex-direction: row;
-    margin: 0;
-    padding: 0;
-    color: white;
-  }
+.section-3 .text-wrapper {
+    max-width: 600px;
+    margin: auto;
+    font-size: 2em;
+    line-height: 1.5em;
+    margin-top: 4%;
 
-  .nav-item-mob {
-    display: flex;
-    text-align: center;
-    flex-direction: column;
-    justify-content: center;
-    width: calc(100vw / 2);
-    height:calc(90vh / 3);
-  }
+}
 
+.section-3 .text-wrapper span {
+    opacity: 0;
+    -webkit-transition: opacity 0.2s;
+}
+
+.section-3 .text-wrapper span.visible {
+    opacity: 1;
 }
 
 /*.nav-list li
@@ -427,7 +407,7 @@ color:black;
   -moz-animation-delay: 0.25s;
   animation-delay: 0.25s;
 }
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -441,8 +421,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
   margin: 0;
@@ -453,7 +433,7 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section, main {
   display: block;
 }

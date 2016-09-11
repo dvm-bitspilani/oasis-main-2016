@@ -1,88 +1,83 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="css/style.css" media="screen" title="no title" charset="utf-8">
-  <script src="js/main.js"></script>
-  <title>OASIS 2016 | OF GODS AND MEN</title>
-</head>
-<body>
-  <div class="nav-wrapper">
-    <div class="nav">
-      <div class="logo">
-        <img src="img/logo.png">
-      </div>
-      <div class="menu">
-          <nav class="cd-stretchy-nav">
-            <a class="cd-nav-trigger" href="#0">
-              Menu
-              <span aria-hidden="true"></span>
-            </a>
-
-            <ul>
-              <li><a href="#0" class="active"><span>Home</span></a></li>
-              <li><a href="#0"><span>Portfolio</span></a></li>
-              <li><a href="#0"><span>Services</span></a></li>
-              <li><a href="#0"><span>Store</span></a></li>
-              <li><a href="#0"><span>Contact</span></a></li>
-            </ul>
-
-            <span aria-hidden="true" class="stretchy-nav-bg"></span>
-          </nav>
-      </div>
-      <ul class="nav-list">
-        <li class="nav-item" id="home">
-            Home
-        </li>
-        <li class="nav-item" id="events">
-            Events
-        </li>
-        <li class="nav-item" id="sponsors">
-            Sponsors
-        </li>
-        <li class="nav-item" id="contact">
-            Contact
-        </li>
-        <li class="nav-item" id="gallery">
-            Gallery
-
-
-      </ul>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="css/style.css" media="screen" title="no title" charset="utf-8">
+  </head>
+  <body>
+    <div  id="plainImg" class="content">
+      <img src="img/moseshi.jpg">
     </div>
-
-    <div class="nav-tip">
-      <!-- <img src="img/navtip.png" /> -->
-
+    <div id="blurImg">
+      <img src="img/moseshi.jpg" alt="" />
     </div>
-
-
-    <div class="nav-mob">
-    <ul class="nav-list-mob">
-        <li class="nav-item-mob">
-          Home
-        </li>
-        <li class="nav-item-mob">
-          Events
-        </li>
-        <li class="nav-item-mob">
-          Sponsors
-        </li>
-        <li class="nav-item-mob">
-          Contact
-        </li>
-        <li class="nav-item-mob">
-          Gallery
-        </li>
-
-      </ul>
-    </div>
+    <div class="transition-layer">
+    <div class="paint"> </div>
   </div>
-
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-   <script src="js/main.js"></script>
+  <script src="js/jquery.min.js"></script>
+ <script src="js/jquery.ba-throttle-debounce.js"></script>
   <script type="text/javascript">
-    $('.menu').click(function() {
+    $(document).ready(function(){
+      $('.paint').addClass('startAnim');
     });
+
+    var checkScrollSpeed = (function(settings){
+    settings = settings || {};
+
+    var lastPos, newPos, timer, delta,
+        delay = settings.delay || 50; // in "ms" (higher means lower fidelity )
+
+    function clear() {
+      lastPos = null;
+      delta = 0;
+    }
+
+    clear();
+
+    return function(){
+      newPos = window.scrollY;
+      if ( lastPos != null ){ // && newPos < maxScroll
+        delta = newPos -  lastPos;
+      }
+      lastPos = newPos;
+      clearTimeout(timer);
+      timer = setTimeout(clear, delay);
+      return delta;
+    };
+})();
+
+// // listen to "scroll" event
+// window.onscroll = function(){
+//    speed = checkScrollSpeed();
+//    console.log(speed);
+//  };
+var time1,time2;
+ $(window).scroll(function(){
+   speed = checkScrollSpeed();
+   console.log(speed);
+   if(Math.abs(speed)>50){
+     $('.paint').addClass('startAnim');
+    time1 = new Date().getTime();
+   }
+   else {
+    time2 = new Date().getTime();
+    if(time2-time1>1500){
+     $('.paint').removeClass('startAnim');
+   }
+   $('.paint').addClass('midAnim');
+   }
+ });
+ $(window).scroll($.debounce( 250, true, function(){
+   $('#blurImg').fadeIn();
+
+
+} ) );
+$(window).scroll($.debounce( 250, function(){
+ $('#blurImg').fadeOut();
+
+} ) );
+
   </script>
-</body>
+  </body>
 </html>
