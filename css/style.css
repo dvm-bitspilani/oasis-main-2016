@@ -96,6 +96,39 @@ background-position: center;
   display: block;
 }
 
+#ham {
+  position: absolute;
+  top:10px;
+  left:10px;
+  width: 50px;
+  height: 50px;
+  background: url("../img/ham.svg") no-repeat;
+  background-size: 50px 50px;
+}
+
+#logo {
+  position: absolute;
+  top:100px;
+  left:10px;
+  width: 200px;
+  height: 200px;
+  background: url("../img/logo.svg") no-repeat;
+  background-size: 200px 200px;
+}
+
+#scroll {
+  position: absolute;
+}
+
+#buttons {
+  position: absolute;
+  top:330px;
+  left:10px;
+  width: 200px;
+  height: 150px;
+  background: url("../img/buttons.svg") no-repeat;
+  background-size: 200px 150px;
+}
 
 @media only screen and (max-width: 500px) {
   .nav-wrapper {
@@ -770,7 +803,7 @@ header.is-fixed {
   /* the secondary navigation is covered by the main element */
   z-index: 5;
   width: 260px;
-  background-color: #fff;
+  background-color: #292929;
   overflow: none;
   padding: 0;
   margin: 0;
@@ -787,11 +820,7 @@ header.is-fixed {
   -o-transform: translateX(-260px);
   transform: translateX(-260px);
 }
-svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
+
 #cd-lateral-nav .cd-navigation {
   margin: 10px 0 16px;
 }
