@@ -1,3 +1,8 @@
+ @font-face {
+    font-family: 'Big Noodle';
+    src: url('../fonts/big_noodle_titling.ttf');
+}
+
 .paint{
   position: absolute;
   top: 50%;
@@ -478,4 +483,232 @@ a {
 
 img {
   max-width: 100%;
+}
+
+
+/*nav*/
+
+.story{
+  display: none;
+}
+
+.side-nav{
+  position: fixed;
+  top:0;
+  left: 0;
+  height: 100vh;
+min-width: 195px;
+width: 14vw;
+  background:rgba(41,41,41,0.9);
+  transition: all 0.5s;
+  z-index: 3;
+  transform:translateX(-30vh);
+}
+
+.ham{
+  cursor: pointer;
+  position: absolute;
+  top: -1vh;
+left: -1vh;
+width: 13vh;
+height: 13vh;
+/*background-image: url('../img/ham.svg');
+background-size: contain;
+background-repeat: no-repeat;*/
+z-index: 4;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+path {
+  fill: none;
+  -webkit-transition: stroke-dashoffset 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25), stroke-dasharray 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25);
+  -moz-transition: stroke-dashoffset 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25), stroke-dasharray 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25);
+  -o-transition: stroke-dashoffset 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25), stroke-dasharray 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25);
+  -ms-transition: stroke-dashoffset 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25), stroke-dasharray 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25);
+  transition: stroke-dashoffset 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25), stroke-dasharray 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25);
+  stroke-width: 20.2727px;
+  stroke-linecap: round;
+  stroke: #fff;
+  opacity: 0.4;
+  stroke-dashoffset: 0px;
+}
+path#top,
+path#bottom {
+  stroke-dasharray: 240px 950px;
+}
+path#middle {
+  stroke-dasharray: 240px 240px;
+}
+.cross path#top,
+.cross path#bottom {
+  stroke-dashoffset: -650px;
+  stroke-dashoffset: -650px;
+}
+.cross path#middle {
+  stroke-dashoffset: -115px;
+  stroke-dasharray: 1px 220px;
+}
+
+
+
+
+.logo{
+  position: absolute;
+  top: 11vh;
+left: 7vh;
+width: 16vh;
+height: 16vh;
+background-image: url('../img/logo.svg');
+background-size: contain;
+background-repeat: no-repeat;
+}
+
+.storyType{
+  position: absolute;
+top: 30vh;
+left: 4.6vh;
+width: 20vh;
+height: 18vh;
+}
+
+.storyType svg{
+    height: 100%;
+    width: 100%;
+}
+
+.bar{
+  position: absolute;
+  top: 51vh;
+left: 15%;
+width: 70%;
+height: 3px;
+background:rgb(191, 191, 191);
+opacity:0.9;
+}
+
+.menuList {
+  position: absolute;
+top: 56vh;
+left: 5.6vh;
+width: 20vh;
+height: 18vh;
+}
+
+.menuList ul{
+  list-style: none;
+  color:white;
+}
+
+.menuList ul li:nth-of-type(1){
+  color: #fbb040;
+
+}
+  .menuList ul li{
+    cursor: pointer;
+  font-family: 'Lato', sans-serif;
+  margin: 12px 0;
+  opacity: 0.7;
+  font-size:1.2em;
+}
+
+.sideBar{
+  position: absolute;
+top: 10vh;
+height: 86vh;
+width: 1vh;
+background: #eee;
+left: 1vh;
+opacity: 0.2;
+z-index: 4;
+}
+
+
+.scroll{
+
+  position: absolute;
+top: 10vh;
+height: 86vh;
+width: 1vh;
+right: 1vh;
+/*opacity: 0.2;*/
+}
+
+.nav{
+  position: fixed;
+  width: 94vw;
+left: 3vw;
+height: 30vh;
+z-index: 3;
+top: -1vh;
+}
+
+.navWrap{
+  position: absolute;
+  left: 0;
+  top: 8vh;
+width: 100%;
+height: 11vh;
+  background: rgba(255,255,255,0.4);
+
+}
+.leftNav{
+  position: absolute;
+left: 0;
+width: 43%;
+height: 100%;
+  border-top: solid 5px #231f20;
+  border-bottom: solid 5px #231f20;
+}
+
+
+.logoNav{
+  position: absolute;
+  top: 2vh;
+  left: 44%;
+width: 11vw;
+height: 30vh;
+  /*height: 100%;*/
+  /*background: url('../img/logo.svg');*/
+  /*background-size: contain;*/
+}
+
+.rightNav{
+  position: absolute;
+right: 0;
+width: 43%;
+height: 100%;
+  border-top: solid 5px #231f20;
+  border-bottom: solid 5px #231f20;
+
+}
+
+.navItem{
+font-size: 2.4em;
+  color: #2B1A15;
+    font-family: 'Big Noodle';
+  display: inline-block;
+  height: 100%;
+  width: 32%;
+  text-align: center;
+  padding: 2vh;
+}
+
+.landing{
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-image: url('../img/landing-02.jpg');
+  background-size: 100% 100%;
 }

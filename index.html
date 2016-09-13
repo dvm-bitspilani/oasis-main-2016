@@ -4,8 +4,105 @@
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" href="css/style.css" media="screen" title="no title" charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400" rel="stylesheet"> 
   </head>
   <body>
+  <div class="nav">
+  <div class="navWrap">
+    <div class="leftNav">
+      <div class="navItem">ABOUT</div>
+      <div class="navItem">EVENTS</div>
+      <div class="navItem">SPONSOR</div>
+    </div>
+    <div class="rightNav">
+      <div class="navItem">CONTACT</div>
+      <div class="navItem">ARCHIVE</div>
+      <div class="navItem">REGISTER</div>
+    </div>
+    </div>
+    <div class="logoNav">
+    <img src="img/logo.svg" alt="">
+    </div>
+
+  </div>
+  <div class="ham">
+    <svg viewBox="0 0 800 600">
+<rect
+     x="69.654"
+     height="420.341"
+     width="420.344"
+     y="229.936"
+     transform="matrix(0.7071 -0.7071 0.7071 0.7071 -82.9689 199.9064)"
+     stroke-miterlimit="10"
+     id="rect4"
+     stroke-width="12.2727"
+     stroke="#FFFFFF"
+     fill="none"
+     opacity="0.7" />
+  <path
+     d="M300,220 C300,220 520,220 540,220 C740,220 640,540 520,420 C440,340 300,200 300,200"
+     id="top" />
+  <path
+     d="M300,320 L540,320"
+     id="middle" />
+  <path
+     d="M300,210 C300,210 520,210 540,210 C740,210 640,530 520,410 C440,330 300,190 300,190"
+     id="bottom"
+     transform="translate(480, 320) scale(1, -1) translate(-480, -318) " />
+  </svg>
+  </div>
+  <div class="side-nav">
+  <div class="logo"></div>
+  <div class="storyType">
+    <svg version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   width="400px" height="400px" viewBox="0 0 400 400" enable-background="new 0 0 400 400" >
+<g>
+  <polygon opacity="0.4" fill="#FFFFFF" points="277.68,101.426 86.74,101.426 122.003,15.352 312.943,15.352  "/>
+  <polygon opacity="0.4" fill="#FFFFFF" points="277.68,196.2 86.74,196.2 122.003,110.128 312.943,110.128  "/>
+  <polygon opacity="0.4" fill="#FFFFFF" points="277.68,290.973 86.74,290.973 122.003,204.901 312.943,204.901  "/>
+  <polygon opacity="0.4" fill="#FFFFFF" points="277.68,385.505 86.74,385.505 122.003,299.432 312.943,299.432  "/>
+</g>
+</svg>
+
+  </div>
+
+<div class="menuList">
+  <ul>
+    <li>ABOUT</li>
+    <li>REGISTER</li>
+    <li>EVENTS</li>
+    <li>ARCHIVES</li>
+    <li>SPONSORS</li>
+    <li>CONTACTS</li>
+  </ul>
+</div>
+  <div class="bar"></div>
+  <div class="sideBar"></div>
+  <div class="scroll">
+    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   width="20px" height="300px"  >
+<g opacity="0.8">
+  <ellipse fill="#FFFFFF" cx="200" cy="49" rx="4.451" ry="4.007"/>
+  <ellipse fill="#FFFFFF" cx="200" cy="108" rx="4.451" ry="4.007"/>
+  <ellipse fill="#FFFFFF" cx="200" cy="168" rx="4.451" ry="4.007"/>
+  
+    <ellipse opacity="0.7" fill="none" stroke="#FBB040" stroke-width="2" stroke-miterlimit="10" cx="200" cy="168" rx="8.526" ry="7.674"/>
+  <ellipse fill="#FFFFFF" cx="200" cy="228" rx="4.451" ry="4.006"/>
+  <ellipse fill="#FFFFFF" cx="200" cy="290" rx="4.451" ry="4.006"/>
+  <ellipse fill="#FFFFFF" cx="200" cy="351" rx="4.451" ry="4.006"/>
+  <line fill="none" stroke="#FFFFFF" stroke-width="0.7583" stroke-miterlimit="10" x1="200" y1="49" x2="200" y2="108.65"/>
+  <line fill="none" stroke="#FFFFFF" stroke-width="0.7583" stroke-miterlimit="10" x1="200" y1="108" x2="200" y2="167.65"/>
+  <line fill="none" stroke="#FFFFFF" stroke-width="0.7583" stroke-miterlimit="10" x1="200" y1="168" x2="200" y2="227.65"/>
+  <line fill="none" stroke="#FFFFFF" stroke-width="0.7583" stroke-miterlimit="10" x1="200" y1="228" x2="200" y2="287.65"/>
+  <line fill="none" stroke="#FFFFFF" stroke-width="0.7583" stroke-miterlimit="10" x1="200" y1="289" x2="200" y2="348.65"/>
+</g>
+</svg>
+
+  </div>
+  </div>
+  <div class="landing">
+  </div>
+  <div class="story">
     <div  id="plainImg" class="content">
       <img src="img/moseshi.jpg">
     </div>
@@ -14,6 +111,7 @@
     </div>
     <div class="transition-layer">
     <div class="paint"> </div>
+  </div>
   </div>
   <script src="js/jquery.min.js"></script>
  <script src="js/jquery.ba-throttle-debounce.js"></script>
@@ -77,6 +175,26 @@ $(window).scroll($.debounce( 250, function(){
  $('#blurImg').fadeOut();
 
 } ) );
+
+var menu="on";
+$('.ham').click(function(){
+  if(menu=="on"){
+    $('.side-nav').css({
+       transform:'translateX(0vh)'
+    });
+    menu="off";
+  }
+  else{
+    $('.side-nav').css({
+       transform:'translateX(-30vh)'
+    });
+    menu="on";
+  }
+});
+
+ $(".ham").click(function() {
+    return $(".ham").toggleClass("cross");
+  });
 
   </script>
   </body>
