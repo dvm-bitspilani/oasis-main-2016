@@ -518,7 +518,7 @@ background-repeat: no-repeat;*/
 z-index: 4;
 }
 
-svg {
+.ham svg {
   width: 100%;
   height: 100%;
   cursor: pointer;
@@ -647,7 +647,7 @@ right: 1vh;
   width: 94vw;
 left: 3vw;
 height: 30vh;
-z-index: 3;
+z-index: 6;
 top: -1vh;
 }
 
@@ -692,6 +692,7 @@ height: 100%;
 }
 
 .navItem{
+  cursor: pointer;
 font-size: 2.4em;
   color: #2B1A15;
     font-family: 'Big Noodle';
@@ -700,6 +701,11 @@ font-size: 2.4em;
   width: 32%;
   text-align: center;
   padding: 2vh;
+  transition: all 0.3s;
+}
+
+.navItem:hover{
+  background:rgba(255,255,255,0.6);
 }
 
 .landing{
@@ -711,4 +717,151 @@ font-size: 2.4em;
   overflow: hidden;
   background-image: url('../img/landing-02.jpg');
   background-size: 100% 100%;
+}
+
+html,body{
+  margin: 0;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+#inner{
+  position: relative;
+  z-index: 3;
+}
+
+
+#midOuter{
+  transform-origin: 50% 50% 0;
+  -moz-transform-origin: 50% 50% 0;
+  transform: scale(0,0);
+  animation: sc 1s forwards;
+  animation-delay: 1s;
+}
+
+@keyframes sc{
+  from{
+    transform: scale(0,0);
+  }
+  to{
+    transform: scale(1,1);
+  }
+}
+
+g[id^='eve']{
+  cursor: pointer;
+  
+  opacity: 0;
+}
+
+#eve1{
+  animation: show 0.1s forwards;
+  animation-delay: 2s;
+}
+#eve2{
+  animation: show 0.1s forwards;
+  animation-delay: 2.1s;
+}
+#eve3{
+  animation: show 0.1s forwards;
+  animation-delay: 2.2s;
+}
+#eve4{
+  animation: show 0.1s forwards;
+  animation-delay: 2.3s;
+}
+#eve5{
+  animation: show 0.1s forwards;
+  animation-delay: 2.4s;
+}
+#eve6{
+  animation: show 0.1s forwards;
+  animation-delay: 2.5s;
+}
+#eve7{
+  animation: show 0.1s forwards;
+  animation-delay: 2.6s;
+}
+#eve8{
+  animation: show 0.1s forwards;
+  animation-delay: 2.8s;
+}
+
+@keyframes show{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
+#Layer_1{
+  width: 100vw;
+  height: 100vh;
+}
+
+#outerRight,#midRight,#outerLeft,#midLeft{
+  transition: all 0.65s;
+}
+#outerRight,#midRight{
+  transform-origin: 0% 50%;
+  -moz-transform-origin:0% 50%;
+}
+#outerLeft,#midLeft{
+  transform-origin: 100% 50%;
+  -moz-transform-origin:100% 50%;
+}
+
+.moveRightOuter{
+  transform: translate(50vw,0);
+}
+
+.moveRightMid{
+  transform: translate(26vw,0);
+}
+
+
+.moveLeftOuter{
+  transform: translate(-50vw,0);
+}
+
+.moveLeftMid{
+  transform: translate(-26vw,0);
+}
+
+.events{
+  display: none;
+}
+
+.eventData{
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  height: 70%;
+  /*width:40%;*/
+  background: url('paper.png');
+  background-position: center;
+  background-size: 100% 100%;
+  /*background-repeat: repeat;*/
+  z-index:-1;
+
+}
+
+.rocktaves{
+position: absolute;
+z-index: 4;
+top: 13vh;
+width: 205px;
+height: 472px;
+background: url('../img/Rocktavessprite(1).png') left center;
+animation: play 3s steps(22) infinite;
+/*animation-timing-function: linear;*/
+left: 5vh;
+}
+
+@keyframes play {
+   100% { background-position: -4510px; }
 }
