@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.cd-transition-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 15;
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+  /*visibility: hidden;*/
+  overflow: hidden;
+}
+.cd-transition-layer .bg-layer {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateY(-50%) translateX(-1.78%);
+  height: 100%;
+  /* our sprite is composed of 25 frames */
+  width: 2800%;
+  background: url('out3.png') no-repeat 0 0;
+  background-size: 100% 100%;
+}
+
+.inkAnim{
+animation: cd-sprite 2s steps(27);
+animation-fill-mode: forwards;
+}
+
+@keyframes cd-sprite {
+  0% {
+    transform: translateY(-50%) translateX(-1.78%);
+  }
+  100% {
+    transform: translateY(-50%) translateX(-98.22%);
+  }
+}
+
+
+#storyWrap{
+  height: 100vh;
+  width: 100vw;
+  position: initial !important;
+}
+canvas {
+  /*position: absolute;*/
+    height: 96vh;
+    width: 100vw;
+    /*display: block;*/
+}
+#fakeScroll{
+  position: relative;;
+  height: 7000px;
+  /*width: 100vw;*/
+  display: block;
+}
+.wrap{
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+/*.blurImg{
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+}
+.blurImg imgstroke: rgb(44, 62, 80);
+stroke-dasharray: 820;
+stroke-dashoffset: 820;
+stroke-width: 17;
+fill: transparent;{
+  width: 100vw;
+}*/
+
+
+.loader{
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  background:url('bg2.jpg');
+  background-size: cover;
+}
+
+
+.loader svg{
+  width: 50vw;
+  height: 50vh;
+  transform: translate(50%,50%);
+
+
+}
+
+/*.loader #path5{
+  stroke: rgb(44, 62, 80);
+stroke-dasharray: 820;
+stroke-dashoffset: 820;
+stroke-width: 17;
+fill: transparent;
+}*/
+
+.loader #animateRing{
+  fill:none;
+  stroke:#780303;
+  stroke-width:10.71;
+  stroke-opacity:1;
+  stroke-dasharray: 1360;
+  stroke-dashoffset: 1360;
+
+  /*animation: dash 5s linear forwards;*/
+  /*animation-delay: 2s;*/
+
+}
+
+@keyframes dash {
+to {
+  stroke-dashoffset:0;
+}
+}
+
+.lineMO{
+  stroke: rgb(44, 62, 80);
+  stroke-dasharray: 820;
+  stroke-dashoffset: 820;
+  stroke-width: 17;
+  fill: transparent;
+}
