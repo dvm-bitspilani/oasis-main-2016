@@ -1,0 +1,18 @@
+body{
+  overflow-x: hidden;
+  margin: 0;
+}
+
+#blurImg{
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  filter: blur(5px);
+}
+
+#plainImg{
+  position: absolute;
+  top: 0;
+  width: 100vw;
+
+}

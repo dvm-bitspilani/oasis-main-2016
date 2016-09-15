@@ -1,0 +1,48 @@
+<html>
+<head>
+  <title>Catmull-Rom Drawing Toy</title>
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink" onclick="setDot(evt)">
+
+  <rect id="background" x="-1000" y="-1000" width="3000" height="3000" fill="white" stroke="none" />
+
+  <path id="spline" stroke-width="2" stroke="black" fill="none" stroke-linecap="round" d=""/>
+  
+  
+  <text x="10" y="20" font-size="20" fill="crimson" font-family="Garamond, sans-serif" font-style="italic">Click on the canvas a few times to drive yourself dotty.</text>
+  
+  
+</svg>
+<script type="text/javascript" src="catmullrom2bezier.js"></script>
+<script type="text/javascript">
+  var svgns = "http://www.w3.org/2000/svg";
+  var p = document.getElementById("spline");
+  var d = "";
+  var i = 0;
+
+  function setDot(evt)
+  {
+    var el = document.createElementNS(svgns, "circle");
+    el.setAttribute( "cx", evt.clientX );
+    el.setAttribute( "cy", evt.clientY );
+    el.setAttribute( "r", "3" );
+    el.setAttribute( "fill", "red" );
+    document.documentElement.appendChild( el );
+
+    if ( 0 == i ) {
+      d = "M" + evt.clientX + "," + evt.clientY;
+    } else if ( 1 == i ) {
+      d += " R" + evt.clientX + "," + evt.clientY;
+    } else {
+      d += " " + evt.clientX + "," + evt.clientY;
+    }
+    p.setAttribute("d", d);
+
+    parsePath( p );
+    i++;
+  }
+</script>
+</body>
+</html>
