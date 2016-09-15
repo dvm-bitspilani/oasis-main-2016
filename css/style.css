@@ -17,6 +17,16 @@ body{
   src: url('../fonts/big_noodle_titling.ttf');
 }
 
+@font-face {
+    font-family: "Moon";
+    src: url("../fonts/Moon Light.otf");
+}
+@font-face {
+    font-family: "Moon-Bold";
+    src: url("../fonts/Moon Bold.otf");
+    /*font-weight: bold;*/
+}
+
 .paint{
   position: absolute;
   top: 50%;
@@ -139,30 +149,38 @@ body{
     display: none;
   }
 
-  .side-nav{
-    position: fixed;
-    top:0;
-    left: 0;
-    height: 100vh;
-    min-width: 195px;
-    width: 14vw;
-    background:rgba(41,41,41,0.9);
-    transition: all 0.5s;
-    z-index: 3;
-    transform:translateX(-30vh);
-  }
+  
 
-  .ham{
-    cursor: pointer;
-    position: absolute;
-    top: 2vh;
-    left: 1vw;
-    width: 80px;
-    /* height: 13vh; */
-    /*background-image: url('../img/ham.svg');
+.side-nav{
+  display: none;
+  position: fixed;
+  top:0;
+  left: 0;
+  height: 100vh;
+  min-width: 195px;
+  width: 14vw;
+  background:rgba(41,41,41,0.9);
+  transition: all 0.5s;
+  z-index: 10;
+  display: flex;
+  transform:translateX(-190px);
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.ham{
+  display: none;
+  cursor: pointer;
+  position: absolute;
+  top: 2vh;
+  left: 1vw;
+  width: 80px;
+  height: 80px;
+  /* height: 13vh; */
+  /*background-image: url('../img/ham.svg');
 background-size: contain;
 background-repeat: no-repeat;*/
-    z-index: 40;
+  z-index: 15;
 }
 
 .ham svg {
@@ -208,64 +226,29 @@ path#middle {
 
 
 
-.logo{
-  position: absolute;
-  top: 11vh;
-  left: 7vh;
-  width: 16vh;
-  height: 16vh;
-  background-image: url('../img/oasis-logo.svg');
-  background-size: contain;
-  background-repeat: no-repeat;
-}
+.logo{/* position: absolute; *//* top: 11vh; *//* left: 7vh; */width: 195px;height: 31.35vh;background-image: url('../img/oasis-logo.svg');background-size: contain;background-repeat: no-repeat;background-position: center bottom;}
 
-.storyType{
-  position: absolute;
-  top: 30vh;
-  left: 4.6vh;
-  width: 20vh;
-  height: 18vh;
-}
+.storyType{/* position: absolute; *//* top: 30vh; *//* left: 4.6vh; */width: 195px;height: 25vh;margin-bottom: 10px;}
 
 .storyType svg{
   height: 100%;
   width: 100%;
 }
 
-.bar{
-  position: absolute;
-  top: 51vh;
-  left: 15%;
-  width: 70%;
-  height: 3px;
-  background:rgb(191, 191, 191);
-  opacity:0.9;
-}
+.bar{/* position: absolute; *//* top: 51vh; *//* left: 15%; */width: 75%;margin: 0 auto;height: 4px;background:rgb(191, 191, 191);opacity:0.9;}
 
-.menuList {
-  position: absolute;
-  top: 56vh;
-  left: 5.6vh;
-  width: 20vh;
-  height: 18vh;
-}
+.menuList {/* position: absolute; *//* top: 56vh; *//* left: 5.6vh; *//* width: 20vh; *//* height: 18vh; */}
 
 .menuList ul{
   list-style: none;
   color:white;
 }
 
-.menuList ul li:nth-of-type(1){
+.menuList ul .active{
   color: #fbb040;
 
 }
-.menuList ul li{
-  cursor: pointer;
-  font-family: 'Lato', sans-serif;
-  margin: 12px 0;
-  opacity: 0.7;
-  font-size:1.2em;
-}
+.menuList ul li{cursor: pointer;font-family: 'Moon-Bold', sans-serif;margin: 8px 0;opacity: 0.7;font-size: 3vh;}
 
 .sideBar{
   position: absolute;
@@ -278,16 +261,16 @@ path#middle {
   z-index: 4;
 }
 
-
-.scroll{
-
-  position: absolute;
-  top: 10vh;
-  height: 86vh;
-  width: 1vh;
-  right: 1vh;
-  /*opacity: 0.2;*/
+@font-face {
+  font-family: "Moon";
+  src: url("../fonts/Moon Light.otf");
 }
+@font-face {
+  font-family: "Moon-Bold";
+  src: url("../fonts/Moon Bold.otf");
+  /*font-weight: bold;*/
+}
+
 
 .nav{
   display: flex;
@@ -471,7 +454,7 @@ g[id^='eve']{
   }
 }
 
-#Layer_1{
+#hamburger{
   width: 100vw;
   height: 100vh;
 }
@@ -663,3 +646,20 @@ justify-content: space-between;
 
 
 /*--------------------------------*/
+
+
+@media only screen and (max-width: 600px) {
+    
+.side-nav {
+  display: block;
+}
+
+.ham {
+  display: block;
+}
+
+.nav {
+  display: none;
+}
+
+}
