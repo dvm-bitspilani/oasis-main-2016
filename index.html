@@ -25,25 +25,25 @@
     </div>
 
   </div>
-  <div class="scroll">
-      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-       width="100%" height="100%" viewBox="0 0 250 150" enable-background="new 0 0 400 400" xml:space="preserve">
-    <g opacity="0.8">
-      <ellipse fill="#FFFFFF" cx="200" cy="49" rx="4.451" ry="4.007"/>
-      <ellipse fill="#FFFFFF" cx="200" cy="108" rx="4.451" ry="4.007"/>
-      <ellipse fill="#FFFFFF" cx="200" cy="168" rx="4.451" ry="4.007"/>
-      
-        <ellipse opacity="0.7" fill="none" stroke="#FBB040" stroke-width="2" stroke-miterlimit="10" cx="200" cy="168" rx="8.526" ry="7.674"/>
-      <ellipse fill="#FFFFFF" cx="200" cy="228" rx="4.451" ry="4.006"/>
-      <ellipse fill="#FFFFFF" cx="200" cy="290" rx="4.451" ry="4.006"/>
-      <ellipse fill="#FFFFFF" cx="200" cy="351" rx="4.451" ry="4.006"/>
-      <line fill="none" stroke="#FFFFFF" stroke-width="0.7583" stroke-miterlimit="10" x1="200" y1="49" x2="200" y2="108.65"/>
-      <line fill="none" stroke="#FFFFFF" stroke-width="0.7583" stroke-miterlimit="10" x1="200" y1="108" x2="200" y2="167.65"/>
-      <line fill="none" stroke="#FFFFFF" stroke-width="0.7583" stroke-miterlimit="10" x1="200" y1="168" x2="200" y2="227.65"/>
-      <line fill="none" stroke="#FFFFFF" stroke-width="0.7583" stroke-miterlimit="10" x1="200" y1="228" x2="200" y2="287.65"/>
-      <line fill="none" stroke="#FFFFFF" stroke-width="0.7583" stroke-miterlimit="10" x1="200" y1="289" x2="200" y2="348.65"/>
-    </g>
-    </svg>
+  <div  class="scroll">
+    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+       width="100%" height="100%" viewBox="0 0 50 400" enable-background="new 0 0 50 400" xml:space="preserve">
+      <g opacity="0.8">
+        <ellipse fill="#FFFFFF" cx="25" cy="14.772" rx="5.46" ry="4.915"/>
+        <ellipse fill="#FFFFFF" cx="25" cy="87.146" rx="5.46" ry="4.915"/>
+        <ellipse fill="#FFFFFF" cx="25" cy="160.746" rx="5.46" ry="4.915"/>
+        
+          <ellipse opacity="0.7" fill="none" stroke="#FBB040" stroke-width="2.4533" stroke-miterlimit="10" cx="25" cy="160.746" rx="10.459" ry="9.413"/>
+        <ellipse fill="#FFFFFF" cx="25" cy="234.347" rx="5.46" ry="4.914"/>
+        <ellipse fill="#FFFFFF" cx="25" cy="310.4" rx="5.46" ry="4.914"/>
+        <ellipse fill="#FFFFFF" cx="25" cy="385.228" rx="5.46" ry="4.913"/>
+        <line fill="none" stroke="#FFFFFF" stroke-width="0.9301" stroke-miterlimit="10" x1="25" y1="14.772" x2="25" y2="87.944"/>
+        <line fill="none" stroke="#FFFFFF" stroke-width="0.9301" stroke-miterlimit="10" x1="25" y1="87.146" x2="25" y2="160.317"/>
+        <line fill="none" stroke="#FFFFFF" stroke-width="0.9301" stroke-miterlimit="10" x1="25" y1="160.746" x2="25" y2="233.918"/>
+        <line fill="none" stroke="#FFFFFF" stroke-width="0.9301" stroke-miterlimit="10" x1="25" y1="234.347" x2="25" y2="307.519"/>
+        <line fill="none" stroke="#FFFFFF" stroke-width="0.9301" stroke-miterlimit="10" x1="25" y1="309.174" x2="25" y2="382.345"/>
+      </g>
+</svg>
 
   </div>
   <div class="ham" id="ham">
@@ -186,9 +186,12 @@ $(window).scroll($.debounce( 250, function(){
 var menu="off";
 $('.ham').click(function(){
   if(menu=="off"){
+    $("#side-nav").css("opacity","100");    
     $('.side-nav').css({
      transform:'translateX(0px)'
    });
+
+      
     menu="on";
     var div = document.createElement('div');
     // div.textContent = "Sup, y'all?";
@@ -214,6 +217,9 @@ $('.ham').click(function(){
     $('.side-nav').css({
      transform:'translateX(-190px)'
    });
+    setTimeout(function(){
+    $("#side-nav").css("opacity","0");  
+    },500);    
     menu="off";
     $('.newdiv').remove();
   }
