@@ -1,0 +1,159 @@
+html,body{
+  margin: 0;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+#inner{
+  position: relative;
+  z-index: 3;
+}
+
+/*#outerLeft,#outerRight{
+  display: none;
+}*/
+
+#inner{
+  display: none;
+}
+#midWrap{
+  transform-origin: 50% 50% 0;
+  -moz-transform-origin: 50% 50% 0;
+  transform: scale(0,0);
+  animation: sc 1s forwards;
+  animation-delay: 1s;
+}
+
+@keyframes sc{
+  from{
+    transform: scale(0,0);
+  }
+  to{
+    transform: scale(1,1);
+  }
+}
+
+g[id^='cat']{
+  cursor: pointer;
+  transition: transform 0.3s;
+  /*display: none;*/
+  opacity: 0 ;
+}
+/*
+#cat1{
+  animation: show 0.1s forwards,opac 0.1s 2s forwards ;
+  animation-delay: 2s;
+}*/
+#cat1{
+  /*transform: scale(1.1,1.1);*/
+  /*transform-origin: 0% 71%  !important;*/
+  animation: show 0.4s 2s forwards,opac 0.4s 2s forwards ;
+}
+#cat2{
+  transform: rotate(-45deg);
+  /*transform-origin: -2% -1% !important;*/
+  animation: show 0.4s 2.4s forwards,opac 0.1s 2.4s forwards ;
+}
+#cat3{
+  animation: show 0.4s 2.8s forwards,opac 0.1s 2.8s forwards ;
+  transform: rotate(-45deg);
+}
+#yourID {
+    animation-name: myAnimation;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+    transform-origin: right bottom;
+}
+@keyframes myAnimation {
+    from {transform: none;}
+    to {transform: rotate(270deg) scaleX(0.5) translateX(100px);}
+}
+#cat4{
+  transform: rotate(-45deg);
+  /*transform-origin: 101% -2% !important;*/
+  animation: show 0.4s 3.2s forwards,opac 0.1s 3.2s forwards ;
+}
+#cat5{
+  transform: rotate(-45deg);
+  /*transform-origin: 102% 0% !important;*/
+  animation: show 0.4s 3.6s forwards,opac 0.1s 3.6s forwards ;
+}
+#cat6{
+  transform: rotate(-45deg);
+  /*transform-origin: 102% 101% !important;*/
+
+  animation: show 0.4s 4s forwards,opac 0.1s 4s forwards ;
+}
+#cat7{
+  transform: rotate(-45deg);
+  /*transform-origin: 102% 102% !important;*/
+  animation: show 0.4s 4.4s forwards,opac 0.1s 4.4s forwards ;
+}
+#cat8{
+  transform: rotate(-45deg);
+  /*transform-origin: 102% 102% !important;*/
+  animation: show 0.4s 4.8s forwards,opac 0.1s 4.8s forwards ;
+}
+@keyframes show{
+  100%{
+    transform: rotate(0deg);
+  }
+}
+
+
+@keyframes opac{
+  0%{
+    opacity: 0
+  }
+  100%{
+    opacity: 1
+  }
+}
+#Layer_1{
+  width: 100vw;
+  height: 100vh;
+}
+
+#outerRight,#midRight,#outerLeft,#midLeft{
+  transition: all 0.65s;
+}
+/*#outerRight,#midRight{
+  transform-origin: 0% 50%;
+  -moz-transform-origin:0% 50%;
+}
+#outerLeft,#midLeft{
+  transform-origin: 100% 50%;
+  -moz-transform-origin:100% 50%;
+}*/
+
+/*.moveRightOuter{
+  transform: translate(50vw,0);
+}
+
+.moveRightMid{
+  transform: translate(26vw,0);
+}
+
+
+.moveLeftOuter{
+  transform: translate(-50vw,0);
+}
+
+.moveLeftMid{
+  transform: translate(-26vw,0);
+}*/
+
+
+.eventData{
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  height: 70%;
+  /*width:40%;*/
+  background: url('paper.png');
+  background-position: center;
+  background-size: 100% 100%;
+  /*background-repeat: repeat;*/
+  z-index:-1;
