@@ -119,6 +119,9 @@
     </div>
   </div>
 </div>
+<div class="lampglow">
+  
+</div>
 
 
 <script src="js/jquery.min.js"></script>
@@ -173,7 +176,42 @@
       $('#inkCanvas').fadeOut();
     }
   }
-  context.globalCompositeOperation = "xor"
+  context.globalCompositeOperation = "xor";
+
+  // Sprite Animation
+
+// var start = null;
+// var element = document.getElementsByClassName('b1');
+// // element.style.position = 'absolute';
+
+// function step(timestamp) {
+//   if (!start) start = timestamp;
+//   var progress = timestamp - start;
+//   $('.b1').addClass('ban'+i)
+//   if (progress < 40) {
+//     window.requestAnimationFrame(step);
+//   }
+// }
+
+// window.requestAnimationFrame(step);
+
+var i=0;
+
+function repeatOften() {
+  $('.b1').addClass('ban'+i);
+  if (i!=0)
+  $('.b1').removeClass('ban'+(i-1));
+  i++;
+  if (i==26) {
+    i=0;
+  $('.b1').removeClass('ban25');
+  }
+  setTimeout(function () {
+  requestAnimationFrame(repeatOften);
+  }, 2000/25);
+}
+
+requestAnimationFrame(repeatOften);
 
 
 
@@ -292,6 +330,13 @@ $('.menuList ul li').click(function() {
   $('.menuList ul .active').removeClass('active');
   $(this).addClass('active');
 });
+
+setInterval(function () {
+  $('.lampglow').fadeOut(2000);
+  setTimeout(function () {
+     $('.lampglow').fadeIn(2000); 
+  }, 1500);
+}, 7000);
 
 
 </script>

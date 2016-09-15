@@ -395,6 +395,16 @@ height: 22vh;
   background-position: center;
 }
 
+.lampglow {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../img/lampglow.png');
+  background-size: 100% 100%;
+  background-position: center;
+  opacity: 0.5;
+}
+
 html,body{
   margin: 0;
   overflow: hidden;
@@ -615,13 +625,41 @@ flex-direction: row;
 justify-content: space-between;
 }
 
-.b1 {
+/*.b1 {
   background: url('../img/banner1.png');
-  height: inherit;
+  height: 300px;
   width: 7vw;
   background-size: contain;
   background-repeat: no-repeat;
-}
+}*/
+
+.b1 { background: url('../img/ban1.png') no-repeat top left; width: calc(89vw / 12.8);background-size: cover; height: calc(300vw / 12.8);  } 
+.b1.ban0 { background-position: 0 0; } 
+.b1.ban1 { background-position: calc(-89vw / 12.8) 0; } 
+.b1.ban2 { background-position: calc(-178vw / 12.8) 0; } 
+.b1.ban3 { background-position: calc(-267vw / 12.8) 0; } 
+.b1.ban4 { background-position: calc(-356vw / 12.8) 0; } 
+.b1.ban5 { background-position: calc(-445vw / 12.8) 0; } 
+.b1.ban6 { background-position: calc(-534vw / 12.8) 0; } 
+.b1.ban7 { background-position: calc(-623vw / 12.8) 0; } 
+.b1.ban8 { background-position: calc(-712vw / 12.8) 0; } 
+.b1.ban9 { background-position: calc(-801vw / 12.8) 0; } 
+.b1.ban10 { background-position: calc(-890vw / 12.8) 0; } 
+.b1.ban11 { background-position: calc(-979vw / 12.8) 0; } 
+.b1.ban12 { background-position: calc(-1068vw / 12.8) 0; } 
+.b1.ban13 { background-position: calc(-1157vw / 12.8) 0; } 
+.b1.ban14 { background-position: calc(-1246vw / 12.8) 0; } 
+.b1.ban15 { background-position: calc(-1335vw / 12.8) 0; } 
+.b1.ban16 { background-position: calc(-1424vw / 12.8) 0; } 
+.b1.ban17 { background-position: calc(-1513vw / 12.8) 0; } 
+.b1.ban18 { background-position: calc(-1602vw / 12.8) 0; } 
+.b1.ban19 { background-position: calc(-1691vw / 12.8) 0; } 
+.b1.ban20 { background-position: calc(-1780vw / 12.8) 0; } 
+.b1.ban21 { background-position: calc(-1869vw / 12.8) 0; } 
+.b1.ban22 { background-position: calc(-1958vw / 12.8) 0; } 
+.b1.ban23 { background-position: calc(-2047vw / 12.8) 0; } 
+.b1.ban24 { background-position: calc(-2136vw / 12.8) 0; } 
+
 
 .b2 {
   background: url('../img/banner2.png');
