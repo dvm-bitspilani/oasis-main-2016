@@ -21,8 +21,38 @@ html,body{
   transform-origin: 50% 50% 0;
   -moz-transform-origin: 50% 50% 0;
   transform: scale(0,0);
+  transition: all 1.2s;
+}
+
+.animateEve{
+  animation: sc3 1s forwards;
+}
+
+.scaleMid{
+  animation: sc2 1s forwards;
+}
+
+.animateMid{
   animation: sc 1s forwards;
   animation-delay: 1s;
+}
+
+.animateMidRev{
+  animation: sc 1s reverse forwards;
+  /*animation-delay: 1s;*/
+}
+
+#eventListWrap{
+  /*transform-origin: 50% 50% 0;*/
+  transform-origin: 50% 50% 0;
+  -moz-transform-origin: 50% 50% 0;
+  transform: scale(0,0);
+  transition: all 1.2s;
+
+}
+
+#eventSelect{
+  cursor: pointer;
 }
 
 @keyframes sc{
@@ -34,11 +64,33 @@ html,body{
   }
 }
 
+@keyframes sc2{
+  from{
+    transform: scale(1,1);
+  }
+  to{
+    transform: scale(1.5,1.5);
+  }
+}
+
+@keyframes sc3{
+  from{
+    transform: scale(0,0);
+  }
+  to{
+    transform: scale(0.7,0.7);
+  }
+}
+
 g[id^='cat']{
   cursor: pointer;
-  transition: transform 0.3s;
   /*display: none;*/
   opacity: 0 ;
+}
+
+g[id^="cat"] g{
+  transition: transform 0.3s;
+
 }
 /*
 #cat1{
@@ -106,24 +158,24 @@ g[id^='cat']{
   height: 100vh;
 }
 
-#outerRight,#midRight,#outerLeft,#midLeft{
+#outerRightIn ,.eventListRightIn,#outerLeftIn,.eventListLeftIn{
   transition: all 0.65s;
 }
-/*#outerRight,#midRight{
+#outerRightIn,.eventListRightIn{
   transform-origin: 0% 50%;
   -moz-transform-origin:0% 50%;
 }
-#outerLeft,#midLeft{
+#outerLeftIn,.eventListLeftIn{
   transform-origin: 100% 50%;
   -moz-transform-origin:100% 50%;
-}*/
+}
 
-/*.moveRightOuter{
+.moveRightOuter,.moveRightEventList{
   transform: translate(50vw,0);
 }
 
-.moveRightMid{
-  transform: translate(26vw,0);
+.moveRightEventList{
+  transform: translate(64vw,0);
 }
 
 
@@ -131,9 +183,9 @@ g[id^='cat']{
   transform: translate(-50vw,0);
 }
 
-.moveLeftMid{
-  transform: translate(-26vw,0);
-}*/
+.moveLeftEventList{
+  transform: translate(-64vw,0);
+}
 
 
 .eventData{
@@ -143,7 +195,7 @@ g[id^='cat']{
   transform: translateX(-50%) translateY(-50%);
   height: 70%;
   /*width:40%;*/
-  background: url('paper.png');
+  background: url('eventlightbox2.png');
   background-position: center;
   background-size: 100% 100%;
   /*background-repeat: repeat;*/
