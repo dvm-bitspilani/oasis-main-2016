@@ -56,9 +56,18 @@ g[id^='cat']{
   animation: show 0.4s 2.4s forwards,opac 0.1s 2.4s forwards ;
 }
 #cat3{
-  transform: rotate(-45deg);
-  /*transform-origin: -1% -2% !important;*/
   animation: show 0.4s 2.8s forwards,opac 0.1s 2.8s forwards ;
+  transform: rotate(-45deg);
+}
+#yourID {
+    animation-name: myAnimation;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+    transform-origin: right bottom;
+}
+@keyframes myAnimation {
+    from {transform: none;}
+    to {transform: rotate(270deg) scaleX(0.5) translateX(100px);}
 }
 #cat4{
   transform: rotate(-45deg);
