@@ -1,0 +1,213 @@
+
+<div class="animation-container" style="transform: rotateZ(180deg);">
+	<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="600" viewBox="0 0 1000 600" preserveAspectRatio="none" style="width: 100%; height: 100%; transform: translate3d(0px, 0px, 0px); transform-origin: 0px 0px 0px;"><defs><clipPath id="animationMask_3fLKLLTdj3"><rect width="1000" height="600" x="0" y="0"></rect></clipPath></defs><g clip-path="url(#animationMask_3fLKLLTdj3)" style="-webkit-user-select: none;"><g transform="matrix(-1,1.2246467991473532e-16,-1.230745540207107e-16,-1.00498,320,301.26182040000003)" style="-webkit-user-select: none;"><path d=" M320,-299.211841119803 C320,-299.211841119803 -680,-299.1815281454565 -680,-299.1815281454565 C-680,-299.1815281454565 -680,246.19647734340109 -680,292.19647734340106 C-660.5644211706247,291.6719264093636 -639.8878077571038,265.99395152270057 -572.7628270010313,265.99395152270057 C-526.4756649367853,265.99395152270057 -487.7854343272682,209.7866346845398 -461.5228191721163,209.617971609071 C-433.8672579048798,209.44337599860833 -408.2393215444181,258.6490047170982 -375,258.6490047170982 C-294.50255770263533,258.6490047170982 -336.2812057601442,254.19094233580392 -249,254.19094233580392 C-196.87966790141132,253.28153474226994 -199.74634932007066,271.9150000476386 -132,271.30174172231165 C-90.9963417504737,270.95204109962 -65.14377968223812,273.87675223348975 -30,275.57366522379436 C14.286637943732938,276.19706486717934 33,260.6969135550306 49,260.6969135550306 C71,260.6969135550306 102.26227546701875,300.58257404332795 135,300.58257404332795 C170.73932154441806,300.58257404332795 194.61037907827358,223.77689068511071 237,223.77689068511071 C285.22395217942085,223.77689068511071 320,274.7007949626135 320,274.7007949626135 C320,274.7007949626135 320,-299.211841119803 320,-299.211841119803z" style="fill: rgb(255, 255, 255); fill-opacity: 1;"></path></g><g transform="matrix(-1,1.2246467991473532e-16,-1.230745540207107e-16,-1.00498,320,300.72782040000004)" style="-webkit-user-select: none;"><path d=" M320,-299.3627788885966 C320,-299.3627788885966 -680,-299.3106506898541 -680,-299.3106506898541 C-680,-299.3106506898541 -680,209.10823746765143 -680,255.10823746765143 C-661.5225222420684,251.93048356653912 -652.6432284214808,194.00253181475222 -591.6082328758339,194.00253181475222 C-546.1801189722607,194.00253181475222 -487.48414839034035,117.70811011319776 -462.29578563652404,117.4197581038809 C-435.39609241457424,117.12075675429541 -422.09493703914205,46.31729846671715 -375,46.31729846671715 C-295.83564479342556,46.31729846671715 -319.4086036915265,93.13739502974789 -249,93.13739502974789 C-199.62956537661952,91.5835539155444 -201.1289628662463,127.65445872118806 -132,123.93931132702099 C-93.50686135798583,121.82080872627944 -68.21795752008879,165.8406858168412 -30,168.74097375287903 C15.736465965074483,172.5175577224676 33,185.48332624373475 49,185.48332624373475 C71,185.48332624373475 103.58887695055616,299.9481637338674 135,299.9481637338674 C184.59493703914205,299.9481637338674 182.5235655615995,169.5743124704099 237,169.5743124704099 C291.4147591025954,169.5743124704099 320,256.414920113534 320,256.414920113534 C320,256.414920113534 320,-299.3627788885966 320,-299.3627788885966z" style="fill: rgb(45, 53, 135); fill-opacity: 1;"></path></g></g></svg>
+</div>
+
+
+<script type="text/javascript">
+
+	function SVGRenderer(t) {
+		this.animationItem = t,
+		this.layers = null ,
+		this.renderedFrame = -1,
+		this.globalData = {
+			frameNum: -1
+		},
+		this.elements = [],
+		this.destroyed = !1
+	}
+
+	SVGRenderer.prototype.createItem = function(t, e, s, i) {
+		switch (t.ty) {
+			case 2:
+			return this.createImage(t, e, s, i);
+			case 0:
+			return this.createComp(t, e, s, i);
+			case 1:
+			return this.createSolid(t, e, s, i);
+			case 4:
+			return this.createShape(t, e, s, i);
+			case 5:
+			return this.createText(t, e, s, i);
+			case 99:
+			return this.createPlaceHolder(t, e)
+		}
+		return this.createBase(t, e, s)
+	}
+
+	SVGRenderer.prototype.buildItems = function(t, e, s, i, a) {
+		var r, n = t.length;
+		s || (s = this.elements),
+		e || (e = this.animationItem.container),
+		i || (i = this);
+		var o;
+		for (r = n - 1; r >= 0; r--)
+			s[r] = this.createItem(t[r], e, i, a),
+		0 === t[r].ty && (o = [],
+			this.buildItems(t[r].layers, s[r].getDomElement(), o, s[r], s[r].placeholder),
+			s[r].setElements(o)),
+		t[r].td && s[r + 1].setMatte(s[r].layerId)
+	}
+
+	SVGRenderer.prototype.includeLayers = function(t, e, s) {
+		var i, a = t.length;
+		s || (s = this.elements),
+		e || (e = this.animationItem.container);
+		var r, n, o, h = s.length;
+		for (i = 0; a > i; i += 1)
+			for (r = 0; h > r; ) {
+				if (s[r].data.id == t[i].id) {
+					o = s[r],
+					s[r] = this.createItem(t[i], e, this, o),
+					0 === t[i].ty && (n = [],
+						this.buildItems(t[i].layers, s[r].getDomElement(), n, s[r], s[i].placeholder),
+						s[r].setElements(n));
+					break
+				}
+				r += 1
+			}
+			for (i = 0; a > i; i += 1)
+				t[i].td && s[i + 1].setMatte(s[i].layerId)
+		}
+
+	SVGRenderer.prototype.createBase = function(t, e, s, i) {
+			return new SVGBaseElement(t,e,this.globalData,s,i)
+		}
+
+	SVGRenderer.prototype.createPlaceHolder = function(t, e) {
+			return new PlaceHolderElement(t,e,this.globalData)
+		}
+
+	SVGRenderer.prototype.createShape = function(t, e, s, i) {
+			return new IShapeElement(t,e,this.globalData,s,i)
+		}
+
+	SVGRenderer.prototype.createText = function(t, e, s, i) {
+			return new SVGTextElement(t,e,this.globalData,s,i)
+		}
+
+	SVGRenderer.prototype.createImage = function(t, e, s, i) {
+			return new IImageElement(t,e,this.globalData,s,i)
+		}
+
+	SVGRenderer.prototype.createComp = function(t, e, s, i) {
+			return new ICompElement(t,e,this.globalData,s,i)
+		}
+
+	SVGRenderer.prototype.createSolid = function(t, e, s, i) {
+			return new ISolidElement(t,e,this.globalData,s,i)
+		}
+
+	SVGRenderer.prototype.configAnimation = function(t) {
+			this.animationItem.container = document.createElementNS(svgNS, "svg"),
+			this.animationItem.container.setAttribute("xmlns", "http://www.w3.org/2000/svg"),
+			this.animationItem.container.setAttribute("width", t.w),
+			this.animationItem.container.setAttribute("height", t.h),
+			this.animationItem.container.setAttribute("viewBox", "0 0 " + t.w + " " + t.h),
+			this.animationItem.container.setAttribute("preserveAspectRatio", "xMidYMid meet"),
+			this.animationItem.container.style.width = "100%",
+			this.animationItem.container.style.height = "100%",
+			this.animationItem.container.style.transform = "translate3d(0,0,0)",
+			this.animationItem.container.style.transformOrigin = this.animationItem.container.style.mozTransformOrigin = this.animationItem.container.style.webkitTransformOrigin = this.animationItem.container.style["-webkit-transform"] = "0px 0px 0px",
+			this.animationItem.wrapper.appendChild(this.animationItem.container);
+			var e = document.createElementNS(svgNS, "defs");
+			this.globalData.defs = e,
+			this.animationItem.container.appendChild(e),
+			this.globalData.getAssetData = this.animationItem.getAssetData.bind(this.animationItem),
+			this.globalData.getPath = this.animationItem.getPath.bind(this.animationItem),
+			this.globalData.elementLoaded = this.animationItem.elementLoaded.bind(this.animationItem),
+			this.globalData.frameId = 0,
+			this.globalData.compSize = {
+				w: t.w,
+				h: t.h
+			},
+			this.globalData.frameRate = t.fr;
+			var s = document.createElementNS(svgNS, "clipPath")
+			, i = document.createElementNS(svgNS, "rect");
+			i.setAttribute("width", t.w),
+			i.setAttribute("height", t.h),
+			i.setAttribute("x", 0),
+			i.setAttribute("y", 0);
+			var a = "animationMask_" + randomString(10);
+			s.setAttribute("id", a),
+			s.appendChild(i);
+			var r = document.createElementNS(svgNS, "g");
+			r.setAttribute("clip-path", "url(#" + a + ")"),
+			this.animationItem.container.appendChild(r),
+			e.appendChild(s),
+			this.animationItem.container = r,
+			this.layers = t.layers,
+			this.globalData.fontManager = new FontManager,
+			this.globalData.fontManager.addChars(t.chars),
+			this.globalData.fontManager.addFonts(t.fonts, e)
+		}
+
+	SVGRenderer.prototype.buildStage = function(t, e, s) {
+			var i, a, r = e.length;
+			for (s || (s = this.elements),
+				i = r - 1; i >= 0; i--)
+				a = e[i],
+			void 0 !== a.parent && this.buildItemParenting(a, s[i], e, a.parent, s, !0),
+			0 === a.ty && this.buildStage(s[i].getComposingElement(), a.layers, s[i].getElements())
+		}
+
+	SVGRenderer.prototype.buildItemParenting = function(t, e, s, i, a, r) {
+			t.parents || (t.parents = []),
+			r && e.resetHierarchy();
+			for (var n = 0, o = s.length; o > n; )
+				s[n].ind == i && (e.getHierarchy().push(a[n]),
+					void 0 !== s[n].parent && this.buildItemParenting(t, e, s, s[n].parent, a, !1)),
+			n += 1
+		}
+
+	SVGRenderer.prototype.destroy = function() {
+			this.animationItem.wrapper.innerHTML = "",
+			this.animationItem.container = null ,
+			this.globalData.defs = null ;
+			var t, e = this.layers.length;
+			for (t = 0; e > t; t++)
+				this.elements[t].destroy();
+			this.elements.length = 0,
+			this.destroyed = !0
+		}
+
+	SVGRenderer.prototype.updateContainerSize = function() {}
+
+	SVGRenderer.prototype.renderFrame = function(t) {
+			if (this.renderedFrame != t && !this.destroyed) {
+				null === t ? t = this.renderedFrame : this.renderedFrame = t,
+				this.globalData.frameNum = t,
+				this.globalData.frameId += 1;
+				var e, s = this.layers.length;
+				for (e = 0; s > e; e++)
+					this.elements[e].prepareFrame(t - this.layers[e].st);
+				for (e = 0; s > e; e++)
+					this.elements[e].renderFrame()
+			}
+		}
+
+	SVGRenderer.prototype.hide = function() {
+			this.animationItem.container.style.display = "none"
+		}
+
+	SVGRenderer.prototype.show = function() {
+			this.animationItem.container.style.display = "block"
+		}
+
+	function animate() {
+            var image = work.find('.work-image .image-container');
+            var imageAnimationContainer = image.find('.animation-container');
+            var content = work.find('.work-content');
+            var contentInner = content.find('.inner');
+            var contentBorder = content.find('.border');
+            var contentAnimationContainer = content.find('.animation-container');
+            var animImage = bodymovin.loadAnimation({
+                container: imageAnimationContainer.get(0),
+                renderer: 'svg',
+                loop: false,
+                autoplay: false,
+                animationData: bmWorksAnimationsData['worksBackgroundIn'],
+            });
+        }
+</script>
+
