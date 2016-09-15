@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TEST</title>
+    <script type="text/javascript" src="gl-matrix-2.3.2min.js"></script>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #storyWrap{
+          height: 100vh;
+          width: 100vw;
+          position: initial !important;
+        }
+        canvas {
+          /*position: absolute;*/
+            height: 96vh;
+            width: 100vw;
+            /*display: block;*/
+        }
+        #fakeScroll{
+          position: relative;;
+          height: 7000px;
+          /*width: 100vw;*/
+          display: block;
+        }
+        .wrap{
+          position: fixed;
+          top: 0;
+          left: 0;
+        }
+        /*.blurImg{
+          position: absolute;
+          top: 0;
+          width: 100vw;
+          filter: blur(5px);
+          -webkit-filter: blur(5px);
+        }
+        .blurImg img{
+          width: 100vw;
+        }*/
+    </style>
+</head>
+<body onload="webGLStart();">
+  <div class="item">
+  <ul>
+    <li  value="moseshi.jpg" class="storyType" onclick="selectStory(this)" active="true">Moses</li>
+    <li value="mahabharatcopy.jpg" class="storyType" onclick="selectStory(this)" active="false">Mahabharat</li>
+    <li value="troyfinal.jpg"class="storyType" onclick="selectStory(this)" active="false">Troy</li>
+    <li value="noah(1).jpg" class="storyType" onclick="selectStory(this)" active="false">Noah</li>
+  </ul>
+</div>
+<div id="storyWrap">
+  <div class="wrap plainImg">
+  <canvas id="canvas"></canvas>
+  </div>
+  <!-- <div class="blurImg">
+    <img src="moseshi.jpg" alt="" />
+  </div> -->
+  <div id="fakeScroll"></div>
+</div>
+</body>
+<script type="text/javascript" src="index.js"></script>
+<script src="../js/jquery.min.js"> </script>
+<script src="../js/jquery.ba-throttle-debounce.js"> </script>
+<script type="text/javascript">
+function selectStory(ele){
+  var eleArr=document.getElementsByClassName('storyType');
+  for(var i =0;i<eleArr.length;i++){
+   var element=eleArr[i];
+    if(element.getAttribute('active')=='true'){
+      element.setAttribute('active','false');
+    }
+  };
+  ele.setAttribute('active','true');
+  // webGLStart();
+}
+
+// $(window).scroll($.debounce( 250, true, function(){
+//   $('.blurImg').fadeIn();
+//
+// } ) );
+// $(window).scroll($.debounce( 250, function(){
+// $('.blurImg').fadeOut();
+//
+// } ) );
+
+// window.addEventListener('scroll',function(e){
+//
+// });
+
+</script>
+<script id="vertex-shader" type="x-shader/x-vertex">
+    attribute vec2 aTextureCoord;
+    attribute vec2 aVertexPosition;
+
+    uniform bool uIsBuffer;
+    uniform float uBGAspect;
+    uniform mat4 uMVMatrix;
+    uniform mat4 uPMatrix;
+    uniform float u_kernel[9];
+
+    varying vec2 vTextureCoord;
+
+    void main() {
+        vec4 XY;
+
+        if (uIsBuffer) {
+            // Appy corrct aspect
+            XY = vec4(aVertexPosition * vec2(1, uBGAspect), 0, 1);
+        } else {
+            // Appy Model-View-Model matrix transformation
+            XY = uPMatrix * uMVMatrix * vec4(aVertexPosition, 0, 1);
+        }
+
+        gl_Position = XY;
+        vTextureCoord = aTextureCoord;
+    }
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+    precision mediump float;
+
+    uniform bool uIsBuffer;
+    uniform sampler2D uSampler;
+    uniform vec2 uInitialTextureOffset;
+    uniform vec2 uTextureOffset;
+    uniform vec2 uTextureSize;
+    varying vec2 vTextureCoord;
+
+    vec2 arctanDistortion(vec2 XY, float factor, vec2 multiplier);
+    vec2 arctan2Distortion(vec2 XY, vec2 factor, vec2 multiplier);
+    vec2 linearDistortion(vec2 XY, vec2 multiplier);
+    vec2 parabolicDistortion(vec2 XY, vec2 multiplier);
+    vec2 polynomialDistortion(vec2 XY, float factor, vec2 multiplier);
+    vec2 polynomial2Distortion(vec2 XY, vec2 factor, vec2 multiplier);
+
+    void main() {
+        vec2 XY;
+
+        if (uIsBuffer) {
+            // Add initial and current offset
+            XY = vTextureCoord + uInitialTextureOffset + uTextureOffset;
+        } else {
+            vec2 multiplier = vec2(0.11, 0);
+            vec2 recover = vec2(1.05, 1);
+            float factor = .7; // can also be vec2
+            vec2 originOffset = vec2(0, 0.3);
+
+            XY = vTextureCoord;
+            float R;
+            bvec2 isValid;
+
+            /*Normalize components from range {0, 1} to {-1, 1}*/
+            XY = (2. * XY) - 1.;
+
+            /*Shift offset*/
+            XY += originOffset;
+
+            /*Calculate distortion*/
+            // XY = arctanDistortion(XY, factor, multiplier);
+            // XY = arctan2Distortion(XY, factor, multiplier);  // typeof factor === vec2
+            // XY = linearDistortion(XY, multiplier);
+            XY = parabolicDistortion(XY, multiplier);
+            // XY = polynomialDistortion(XY, factor, multiplier);
+            // XY = polynomial2Distortion(XY, factor, multiplier);  // typeof factor === vec2
+
+            /*Reset origin*/
+            XY -= originOffset;
+
+            /*Recover edges*/
+            XY *= recover;
+
+            /*Filter valid regions*/
+            isValid = lessThanEqual(abs(XY), vec2(1, 1));
+            if (isValid.x && isValid.y) {
+                /*De-normalize*/
+                XY = (XY + 1.) / 2.;
+            } else {
+                discard;
+            }
+        }
+
+        vec2 onePixel = vec2(1.0, 1.0) / uTextureSize;
+
+        // gl_FragColor = (
+        //    texture2D(uSampler, XY) +
+        //    texture2D(uSampler, XY + vec2(onePixel.x, 0.0)) +
+        //    texture2D(uSampler, XY + vec2(-onePixel.x, 0.0))) / 3.0;
+        gl_FragColor = texture2D(uSampler, XY);
+    }
+
+    vec2 arctanDistortion(vec2 XY, float factor, vec2 multiplier) {
+        if (factor == 0.) {
+            return XY * (1. + multiplier);
+        }
+
+        float t = factor * length(XY);
+        float R = atan(t) / t;
+        return XY * (1. + multiplier) * R;
+    }
+
+    vec2 arctan2Distortion(vec2 XY, vec2 factor, vec2 multiplier) {
+        vec2 t = factor * length(XY);
+        vec2 R;
+
+        if (factor.x == 0. || factor.y == 0.) {
+            if (factor.x == 0.) {
+                R = vec2(1, atan(t.y) / t.y);
+            }
+            if (factor.y == 0.) {
+                R = vec2(atan(t.x) / t.x, 1);
+            }
+        } else {
+            R = atan(t) / t;
+        }
+
+        return XY * (1. + multiplier) * R;
+    }
+
+    vec2 linearDistortion(vec2 XY, vec2 multiplier) {
+        float R = length(XY);
+        return XY * (1. - multiplier * R);
+    }
+
+    vec2 parabolicDistortion(vec2 XY, vec2 multiplier) {
+        float R = dot(XY, XY);
+        return XY * (1. - multiplier * R);
+    }
+
+    vec2 polynomialDistortion(vec2 XY, float factor, vec2 multiplier) {
+        float R = pow(length(XY), factor);
+        return XY * (1. - multiplier * R);
+    }
+
+    vec2 polynomial2Distortion(vec2 XY, vec2 factor, vec2 multiplier) {
+        vec2 R = pow(vec2(length(XY), length(XY)), factor);
+        return XY * (1. - multiplier * R);
+    }
+</script>
+</html>
