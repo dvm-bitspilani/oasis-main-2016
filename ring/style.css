@@ -10,6 +10,7 @@ html,body{
   z-index: 3;
 }
 
+
 /*#outerLeft,#outerRight{
   display: none;
 }*/
@@ -155,22 +156,23 @@ g[id^="cat"] g{
 }
 #Layer_1{
   width: 100vw;
+  position: absolute;
   height: 100vh;
 }
 
-#outerRightIn ,.eventListRightIn,#outerLeftIn,.eventListLeftIn{
+#outerRightIn ,.eventListRightIn,#outerLeftIn,.eventListLeftIn,#innerLeftIn,#innerRightIn{
   transition: all 0.65s;
 }
-#outerRightIn,.eventListRightIn{
+#outerRightIn,.eventListRightIn,#innerRightIn{
   transform-origin: 0% 50%;
   -moz-transform-origin:0% 50%;
 }
-#outerLeftIn,.eventListLeftIn{
+#outerLeftIn,.eventListLeftIn,#innerLeftIn{
   transform-origin: 100% 50%;
   -moz-transform-origin:100% 50%;
 }
 
-.moveRightOuter,.moveRightEventList{
+.moveRightOuter{
   transform: translate(50vw,0);
 }
 
@@ -181,6 +183,14 @@ g[id^="cat"] g{
 
 .moveLeftOuter{
   transform: translate(-50vw,0);
+}
+
+.moveLeftInner{
+  transform: translate(-50vw,0);
+}
+
+.moveRightInner{
+  transform: translate(52vw,0);
 }
 
 .moveLeftEventList{

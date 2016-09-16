@@ -8,7 +8,7 @@ jQuery(document).ready(function(){
 			
 			stretchyNavTrigger.on('click', function(event){
 				event.preventDefault();
-				stretchyNav.toggleClass('nav-is-visible');
+				stretchyNav.toggleClass('nav-is-visible');			
 			});
 		});
 
