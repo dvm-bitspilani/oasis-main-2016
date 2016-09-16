@@ -635,14 +635,38 @@ flex-direction: row;
 justify-content: space-between;
 }
 
-/*.b1 {
-  background: url('../img/banner1.png');
-  height: 300px;
-  width: 7vw;
-  background-size: contain;
-  background-repeat: no-repeat;
-}*/
+.b1 {
+  height: 54.5vh;
+  width: 7.5vw;
+}
 
+/*.b1 { background: url('../img/ban1.png') no-repeat top left; width: 7vw;background-size: cover; height: auto;  } 
+.b1.ban0 { background-position: 0 0; } 
+.b1.ban1 { background-position: 0 -335px; } 
+.b1.ban2 { background-position: 0 -670px; } 
+.b1.ban3 { background-position: 0 -1005px; } 
+.b1.ban4 { background-position: 0 -1340px; } 
+.b1.ban5 { background-position: 0 -1675px; } 
+.b1.ban6 { background-position: 0 -2010px; } 
+.b1.ban7 { background-position: 0 -2345px; } 
+.b1.ban8 { background-position: 0 -2680px; } 
+.b1.ban9 { background-position: 0 -3015px; } 
+.b1.ban10 { background-position: 0 -3350px; } 
+.b1.ban11 { background-position: 0 -3685px; } 
+.b1.ban12 { background-position: 0 -4020px; } 
+.b1.ban13 { background-position: 0 -4355px; } 
+.b1.ban14 { background-position: 0 -4690px; } 
+.b1.ban15 { background-position: 0 -5025px; } 
+.b1.ban16 { background-position: 0 -5360px; } 
+.b1.ban17 { background-position: 0 -5695px; } 
+.b1.ban18 { background-position: 0 -6030px; } 
+.b1.ban19 { background-position: 0 -6365px; } 
+.b1.ban20 { background-position: 0 -6700px; } 
+.b1.ban21 { background-position: 0 -7035px; } 
+.b1.ban22 { background-position: 0 -7370px; } 
+.b1.ban23 { background-position: 0 -7705px; } 
+.b1.ban24 { background-position: 0 -8040px; } */
+/*
 .b1 { background: url('../img/ban1.png') no-repeat top left; width: calc(89vw / 12.8);background-size: cover; height: calc(300vw / 12.8);  } 
 .b1.ban0 { background-position: 0 0; } 
 .b1.ban1 { background-position: calc(-89vw / 12.8) 0; } 
@@ -670,7 +694,7 @@ justify-content: space-between;
 .b1.ban23 { background-position: calc(-2047vw / 12.8) 0; } 
 .b1.ban24 { background-position: calc(-2136vw / 12.8) 0; } 
 
-
+*/
 .b2 {
   background: url('../img/banner2.png');
   background-size: contain;
