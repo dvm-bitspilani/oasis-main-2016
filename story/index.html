@@ -11,10 +11,31 @@
     </style>
 </head>
 <body onload="webGLStart();">
-  <div class="cd-transition-layer">
+  <div  class="scroll">
+    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+    width="100%" height="100%" viewBox="0 0 50 400" enable-background="new 0 0 50 400" xml:space="preserve">
+    <g opacity="0.8">
+      <ellipse fill="#FFFFFF" cx="25" cy="14.772" rx="5.46" ry="4.915"/>
+      <ellipse fill="#FFFFFF" cx="25" cy="87.146" rx="5.46" ry="4.915"/>
+      <ellipse fill="#FFFFFF" cx="25" cy="160.746" rx="5.46" ry="4.915"/>
+
+      <ellipse opacity="0.7" fill="none" stroke="#FBB040" stroke-width="2.4533" stroke-miterlimit="10" cx="25" cy="160.746" rx="10.459" ry="9.413"/>
+      <ellipse fill="#FFFFFF" cx="25" cy="234.347" rx="5.46" ry="4.914"/>
+      <ellipse fill="#FFFFFF" cx="25" cy="310.4" rx="5.46" ry="4.914"/>
+      <ellipse fill="#FFFFFF" cx="25" cy="385.228" rx="5.46" ry="4.913"/>
+      <line fill="none" stroke="#FFFFFF" stroke-width="0.9301" stroke-miterlimit="10" x1="25" y1="14.772" x2="25" y2="87.944"/>
+      <line fill="none" stroke="#FFFFFF" stroke-width="0.9301" stroke-miterlimit="10" x1="25" y1="87.146" x2="25" y2="160.317"/>
+      <line fill="none" stroke="#FFFFFF" stroke-width="0.9301" stroke-miterlimit="10" x1="25" y1="160.746" x2="25" y2="233.918"/>
+      <line fill="none" stroke="#FFFFFF" stroke-width="0.9301" stroke-miterlimit="10" x1="25" y1="234.347" x2="25" y2="307.519"/>
+      <line fill="none" stroke="#FFFFFF" stroke-width="0.9301" stroke-miterlimit="10" x1="25" y1="309.174" x2="25" y2="382.345"/>
+    </g>
+  </svg>
+
+</div>
+  <div class="cd-transition-layer" style="display:none">
     	<div class="bg-layer inkAnim"></div>
     </div>
-  <div class="loader">
+  <div class="loader" style="display:none">
     <div class="loadImg" >
 
 
@@ -153,13 +174,13 @@
   </ul>
 </div>
 <div id="storyWrap">
+  <div id="fakeScroll"></div>
   <div class="wrap plainImg">
   <canvas id="canvas"></canvas>
   </div>
   <!-- <div class="blurImg">
     <img src="moseshi.jpg" alt="" />
   </div> -->
-  <div id="fakeScroll"></div>
 </div>
 </body>
 <script type="text/javascript" src="index.js"></script>
@@ -300,7 +321,113 @@ function selectStory(ele){
   ele.setAttribute('active','true');
   // webGLStart();
 }
+// $(window).on('scroll', function () {
+//     var pixs = $(document).scrollTop()/10;
+//     pixs = pixs / 100;
+//     $("#storyWrap").css({"-webkit-filter": "blur("+pixs+"px)","filter": "blur("+pixs+"px)" })
+// });
+//
 
+
+var ScrollSpeedMonitor = (function()
+{
+    var self = this;
+
+    function ScrollSpeedMonitor (callbackMethod)
+    {
+        callback = callbackMethod;
+
+        $(window).scroll(function(e)
+        {
+            var scrollTop = $(this).scrollTop();
+            didScroll(new Date().getTime(), scrollTop);
+        });
+    }
+
+    var callback;
+    var direction = 'unknown';
+    var lastDate = -1;
+    var lastScrollTop = -1;
+
+	this.thisMinimumTrackingDelayInMs = 25;
+
+    function didScroll (timeStamp, scrollTop)
+    {
+		if (lastDate + self.thisMinimumTrackingDelayInMs <= timeStamp)
+		{
+			var offset = Math.abs(scrollTop - lastScrollTop);
+			var direction = getDirection(scrollTop);
+			var delayInMs = timeStamp - lastDate;
+			var speedInPxPerMs = offset / delayInMs;
+
+			if (speedInPxPerMs > 0)
+			{
+
+				callback(speedInPxPerMs, timeStamp, direction);
+			}
+
+			lastDate = timeStamp;
+		}
+    };
+
+    function getDirection (scrollTop)
+    {
+        var currentScrollTop = lastScrollTop;
+        lastScrollTop = scrollTop;
+
+        if (currentScrollTop > -1)
+        {
+            if (currentScrollTop >= scrollTop)
+            {
+                return 'down';
+            }
+
+            return 'up';
+        }
+
+        return 'unknown';
+    }
+
+	function reset ()
+	{
+		direction = 'unknown';
+		lastDate = -1;
+		lastScrollTop = -1;
+	}
+
+    return ScrollSpeedMonitor;
+}());
+
+
+var scrollSpeedMonitor = new ScrollSpeedMonitor(function (speedInPxPerMs, timeStamp, newDirection)
+{
+    manageBlur(speedInPxPerMs);
+});
+
+
+var time1,time2;
+function manageBlur(scroll){
+
+
+      pixs = scroll* 10;
+      $("#storyWrap").css({"-webkit-filter": "blur("+pixs+"px)","filter": "blur("+pixs+"px)" })
+      // $("#storyWrap").animate({"webkit-filter": "blur("+pixs+"px)","filter": "blur("+pixs+"px)" })
+}
+
+// window.addEventListener=("scroll",function(){
+//          clearTimeout( $.data( this, "scrollCheck" ) );
+//          $.data( this, "scrollCheck", setTimeout(function() {
+//            console.log('stop');
+//            $("#storyWrap").css({"-webkit-filter": "blur(0px)","filter": "blur(0px)" })
+//
+//          }, 250) );
+//
+//        });
+
+       $(document).on("scrollstop",function(){
+         console.log('hi');
+         $("#storyWrap").css({"-webkit-filter": "blur(0px)","filter": "blur(0px)" })
+    });
 // $(window).scroll($.debounce( 250, true, function(){
 //   $('.blurImg').fadeIn();
 //
