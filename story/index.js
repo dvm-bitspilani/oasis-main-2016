@@ -97,12 +97,20 @@ function webGLStart() {
 
       var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
       if (st > lastScrollTop){
-        offset -= .002;
+        offset -= .003;
       } else {
-        offset += .002;
+        offset += .003;
       }
       lastScrollTop = st;
       gl.uniform2f(uTextureOffset, 0, offset);
+
+      clearTimeout( $.data( this, "scrollCheck" ) );
+      $.data( this, "scrollCheck", setTimeout(function() {
+        console.log('stop');
+        $("#storyWrap").css({"-webkit-filter": "blur(0px)","filter": "blur(0px)" })
+
+      }, 250) );
+
 
     });
     backgroundImage.addEventListener('load', function() {
