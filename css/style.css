@@ -592,137 +592,6 @@ height: 22vh;
   opacity: 0.5;
 }
 
-html,body{
-  margin: 0;
-  overflow: hidden;
-  width: 100vw;
-  height: 100vh;
-}
-
-#inner{
-  position: relative;
-  z-index: 3;
-}
-
-
-#midOuter{
-  transform-origin: 50% 50% 0;
-  -moz-transform-origin: 50% 50% 0;
-  transform: scale(0,0);
-  animation: sc 1s forwards;
-  animation-delay: 1s;
-}
-
-@keyframes sc{
-  from{
-    transform: scale(0,0);
-  }
-  to{
-    transform: scale(1,1);
-  }
-}
-
-g[id^='eve']{
-  cursor: pointer;
-
-  opacity: 0;
-}
-
-#eve1{
-  animation: show 0.1s forwards;
-  animation-delay: 2s;
-}
-#eve2{
-  animation: show 0.1s forwards;
-  animation-delay: 2.1s;
-}
-#eve3{
-  animation: show 0.1s forwards;
-  animation-delay: 2.2s;
-}
-#eve4{
-  animation: show 0.1s forwards;
-  animation-delay: 2.3s;
-}
-#eve5{
-  animation: show 0.1s forwards;
-  animation-delay: 2.4s;
-}
-#eve6{
-  animation: show 0.1s forwards;
-  animation-delay: 2.5s;
-}
-#eve7{
-  animation: show 0.1s forwards;
-  animation-delay: 2.6s;
-}
-#eve8{
-  animation: show 0.1s forwards;
-  animation-delay: 2.8s;
-}
-
-@keyframes show{
-  from{
-    opacity: 0;
-  }
-  to{
-    opacity: 1;
-  }
-}
-
-#hamburger{
-  width: 100vw;
-  height: 100vh;
-}
-
-#outerRight,#midRight,#outerLeft,#midLeft{
-  transition: all 0.65s;
-}
-#outerRight,#midRight{
-  transform-origin: 0% 50%;
-  -moz-transform-origin:0% 50%;
-}
-#outerLeft,#midLeft{
-  transform-origin: 100% 50%;
-  -moz-transform-origin:100% 50%;
-}
-
-.moveRightOuter{
-  transform: translate(50vw,0);
-}
-
-.moveRightMid{
-  transform: translate(26vw,0);
-}
-
-
-.moveLeftOuter{
-  transform: translate(-50vw,0);
-}
-
-.moveLeftMid{
-  transform: translate(-26vw,0);
-}
-
-.events{
-  display: none;
-}
-
-.eventData{
-  position: absolute;
-  top:50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  height: 70%;
-  /*width:40%;*/
-  background: url('paper.png');
-  background-position: center;
-  background-size: 100% 100%;
-  /*background-repeat: repeat;*/
-  z-index:-1;
-
-}
-
 /*.rocktaves{
   position: absolute;
   z-index: 4;
@@ -3325,7 +3194,6 @@ width: 6%;
 
 }
 
-<<<<<<< HEAD
 
 /*central button*/
 
@@ -3689,57 +3557,19 @@ width: 6%;
     top: -3px;
     padding: 3px 0
 }
-=======
-.about-wrapper {
-  z-index: 21;
+
+
+/*events css data*/
+
+.events-wrapper{
+  display: none;
   position: absolute;
-  display: flex;
+  top:0;
+  left:0;
   width: 100vw;
   height: 100vh;
-  flex-direction: column;
-  justify-content: flex-end;
-  background: rgba(0,0,0,0.5);
+  background:rgba(0,0,0,0.6);
 }
-
-.about {
-  background: url(../img/aboutlightbox.png);
-  width: 50vw;
-  height: 80vh;
-  background-size: cover;
-  margin: 0 auto;
-  margin-bottom: 5vh;
-  background-repeat: no-repeat;
-}
-
-.about-head {
-  position: relative;
-  top:24vh;
-  text-align: center;
-  font-family: 'Nexa-Bold',serif; 
-  font-size: 2em;
-}
-
-.about-cont {
-  width: 60%;
-  font-weight: bold;
-  position: relative;
-  margin: 0 auto;
-  top:25vh;
-  font-family: 'Nexa-Light',serif; 
-  text-align: justify;
-}
-
-.events-wrapper {
-  display: flex;
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  justify-content: center;
-  flex-direction: column;
-  /*z-index: 100;*/
-}
-
 
 #inner{
   position: relative;
@@ -3757,7 +3587,7 @@ width: 6%;
 #midWrap{
   transform-origin: 50% 50% 0;
   -moz-transform-origin: 50% 50% 0;
-  transform: scale(0,0);
+  transform: scale(0);
   transition: all 1.2s;
 }
 
@@ -3837,43 +3667,43 @@ g[id^="cat"] g{
 #cat1{
   /*transform: scale(1.1,1.1);*/
   /*transform-origin: 0% 71%  !important;*/
-  animation: show 0.4s 2s forwards,opac 0.4s 2s forwards ;
+  animation: show 0.4s 1s forwards,opac 0.4s 1s forwards ;
 }
 #cat2{
   transform: rotate(-45deg);
   /*transform-origin: -2% -1% !important;*/
-  animation: show 0.4s 2.4s forwards,opac 0.1s 2.4s forwards ;
+  animation: show 0.4s 1.4s forwards,opac 0.1s 1.4s forwards ;
 }
 #cat3{
   transform: rotate(-45deg);
   /*transform-origin: -1% -2% !important;*/
-  animation: show 0.4s 2.8s forwards,opac 0.1s 2.8s forwards ;
+  animation: show 0.4s 1.8s forwards,opac 0.1s 1.8s forwards ;
 }
 #cat4{
   transform: rotate(-45deg);
   /*transform-origin: 101% -2% !important;*/
-  animation: show 0.4s 3.2s forwards,opac 0.1s 3.2s forwards ;
+  animation: show 0.4s 2.2s forwards,opac 0.1s 2.2s forwards ;
 }
 #cat5{
   transform: rotate(-45deg);
   /*transform-origin: 102% 0% !important;*/
-  animation: show 0.4s 3.6s forwards,opac 0.1s 3.6s forwards ;
+  animation: show 0.4s 2.6s forwards,opac 0.1s 2.6s forwards ;
 }
 #cat6{
   transform: rotate(-45deg);
   /*transform-origin: 102% 101% !important;*/
 
-  animation: show 0.4s 4s forwards,opac 0.1s 4s forwards ;
+  animation: show 0.4s 3s forwards,opac 0.1s 3s forwards ;
 }
 #cat7{
   transform: rotate(-45deg);
   /*transform-origin: 102% 102% !important;*/
-  animation: show 0.4s 4.4s forwards,opac 0.1s 4.4s forwards ;
+  animation: show 0.4s 3.4s forwards,opac 0.1s 3.4s forwards ;
 }
 #cat8{
   transform: rotate(-45deg);
   /*transform-origin: 102% 102% !important;*/
-  animation: show 0.4s 4.8s forwards,opac 0.1s 4.8s forwards ;
+  animation: show 0.4s 3.8s forwards,opac 0.1s 3.8s forwards ;
 }
 @keyframes show{
   100%{
@@ -3894,6 +3724,7 @@ g[id^="cat"] g{
   width: 100vw;
   position: absolute;
   height: 100vh;
+  z-index: 80;
 }
 
 #outerRightIn ,.eventListRightIn,#outerLeftIn,.eventListLeftIn,#innerLeftIn,#innerRightIn{
@@ -3945,5 +3776,5 @@ g[id^="cat"] g{
   background-position: center;
   background-size: 100% 100%;
   /*background-repeat: repeat;*/
-  z-index:-1;
->>>>>>> 6f5d41b6f868db5231b63e3514d62477ef056d35
+  z-index:70;
+}

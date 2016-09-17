@@ -34,11 +34,7 @@ else if(window.innerWidth<2000)
   //   'transform-origin': '50% 50%'
   // });
 
-  $('#inner').fadeIn(1000);
 
-  $('#midWrap').delay(3000).css({
-    'transform':'scale(1)'
-  })
 
 
   // $('#outerLeft,#outerRight').delay(2000).fadeIn();
@@ -340,14 +336,44 @@ $(document).click(function(eve){
         $ele.attr('on',false);
     }
 
-    $('#Layer_1').click(function(ev){
+    $(".events-trigger").click(function(){
+      $('.events-wrapper').fadeIn();
+      $('#inner').fadeIn(1000);
+
+      $('#midWrap').delay(1000).css({
+        'transform':'scale(1)'
+      })
+    })
+
+    $('.events-wrapper').click(function(ev){
+      eventData="off";
+
+      event="off";
         console.log(ev.target);
         var innerEve = document.getElementById('innerEve');
         if(!innerEve.contains(ev.target)){
       $(this).fadeOut();
-      $('.eventData').fadeOut();
-      }
-    });
+      $('.eventData').animate({
+         width:'0%'
+       },600);
+      setTimeout(function(){
+      $('#outerRightIn').removeClass('moveRightOuter');
+      $('.eventListRightIn').removeClass('moveRightEventList');
+      $('#innerLeftIn').removeClass('moveLeftInner');
+      $('#innerRightIn').removeClass('moveRightInner');
+      $('#outerLeftIn').removeClass('moveLeftOuter');
+      $('.eventListLeftIn').removeClass('moveLeftEventList');
+
+
+    },100);
+
+    setTimeout(function(){
+      $('#eventListWrap').css({
+        'transform':'scale(0)'
+      });
+    },100);
+    }
+  });
 
 var innerEve = $('#innerEve');
   // var ParX=$('#innerEve').parent().attr('x');
