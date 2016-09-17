@@ -148,28 +148,28 @@
   // var context = canvas.getContext("2d");
 
   // context.drawImage(bg, 0, 0, 1600,907,0,0,298,168);
-  
 
-  document.getElementById('main_loader').style.display = 'block'; 
+
+  document.getElementById('main_loader').style.display = 'block';
 
   setInterval(function () {
     document.getElementById('lower').style.display = 'block';
     setTimeout(function () {
-      document.getElementById('lower').style.display = 'none'; 
+      document.getElementById('lower').style.display = 'none';
     }, 3000);
   }, 5000);
 
   setInterval(function () {
     document.getElementById('line').style.display = 'block';
     setTimeout(function () {
-      document.getElementById('line').style.display = 'none'; 
+      document.getElementById('line').style.display = 'none';
     }, 3000);
   }, 5000);
 
-  setInterval(function () { 
+  setInterval(function () {
     document.getElementById('lowerin').style.display = 'none';
     setTimeout(function () {
-      document.getElementById('lowerin').style.display = 'block'; 
+      document.getElementById('lowerin').style.display = 'block';
     }, 3000);
   }, 5000);
 
@@ -207,7 +207,7 @@
       <div class="rightNav">
         <div class="navItem">CONTACT</div>
         <div class="navItem">ARCHIVE</div>
-        <div class="navItem">REGISTER</div>
+        <div class="navItem"><a href="http://bits-oasis.org/2016/register" target="_blank" style="text-decoration:none;color:#2B1A15">REGISTER</a></div>
       </div>
     </div>
     <div class="logoNav">
@@ -282,7 +282,7 @@
   <ul>
     <li class="active">HOME</li>
     <li>ABOUT</li>
-    <li>REGISTER</li>
+    <li><a href="http://bits-oasis.org/2016/register" target="_blank" style="text-decoration:none;color:#2B1A15">REGISTER</a></li>
     <li>EVENTS</li>
     <li>ARCHIVES</li>
     <li>SPONSORS</li>
@@ -317,6 +317,23 @@
       <canvas id="fire4" class="fire f4"  width="100" height="150"></canvas>
     </div>
   </div>
+  <div class="wrapper-btn-launch valign">
+            <a href="./parallax" class="valign__content btn">
+                <span class="bg-large">
+                    <span class="line-bottom-left"></span>
+                    <span class="line-top-right"></span>
+                </span>
+                <span class="bg-tall">
+                    <span class="line-bottom-left"></span>
+                    <span class="line-top-right"></span>
+                </span>
+                <span class="bg-medium">
+                    <span class="line-bottom-left"></span>
+                    <span class="line-top-right"></span>
+                </span>
+                <span class="text">Start The Experience</span>
+            </a>
+        </div>
 </div>
 <div class="lampglow">
 
@@ -518,7 +535,7 @@ $(window).scroll($.debounce( 250, function(){
 var menu="off";
 $('.ham').click(function(){
   if(menu=="off"){
-    $("#side-nav").css("opacity","100");    
+    $("#side-nav").css("opacity","100");
     $('.side-nav').css({
      transform:'translateX(0px)'
    });
@@ -550,8 +567,8 @@ $('.ham').click(function(){
      transform:'translateX(-190px)'
    });
     setTimeout(function(){
-      $("#side-nav").css("opacity","0");  
-    },500);    
+      $("#side-nav").css("opacity","0");
+    },500);
     menu="off";
     $('.newdiv').remove();
   }
@@ -580,7 +597,7 @@ $('.menuList ul li').click(function() {
 setInterval(function () {
   $('.lampglow').fadeOut(2000);
   setTimeout(function () {
-   $('.lampglow').fadeIn(2000); 
+   $('.lampglow').fadeIn(2000);
  }, 1500);
 }, 7000);
 
