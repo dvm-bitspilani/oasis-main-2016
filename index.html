@@ -107,15 +107,25 @@
   <div class="banner-wrapper">
     <div class="bangrp1">
       <canvas id="ban1" class="banner b1" width="100" height="335"></canvas>
-      <canvas id="ban1" class="banner b2"></canvas>
+      <canvas id="ban2" class="banner b2" width="100" height="335"></canvas>
     </div>
     <div class="bangrp2">
-      <div class="banner b3"></div>
-      <div class="banner b4"></div>
+      <canvas id="ban3" class="banner b3"  width="100" height="335"></canvas>
+      <canvas id="ban4" class="banner b4"  width="100" height="335"></canvas>
     </div>
     <div class="bangrp3">
-      <div class="banner b5"></div>
-      <div class="banner b6"></div>
+      <canvas id="ban5" class="banner b5"  width="100" height="335"></canvas>
+      <canvas id="ban6" class="banner b6"  width="100" height="335"></canvas>
+    </div>
+  </div>
+  <div class="fire-wrapper">
+    <div class="firegrp1">
+      <canvas id="fire1" class="fire f1"  width="100" height="150"></canvas>
+      <canvas id="fire2" class="fire f2"  width="100" height="150"></canvas>
+    </div>
+    <div class="firegrp2">
+      <canvas id="fire3" class="fire f3"  width="100" height="150"></canvas>
+      <canvas id="fire4" class="fire f4"  width="100" height="150"></canvas>
     </div>
   </div>
 </div>
@@ -235,7 +245,16 @@ function sprite (canvasId, spriteimg, frameWidth, frameHeight, totalFrames, invs
   }
 }
 
-sprite('ban1', 'img/ban1.png', 100, 335, 25, 2);
+sprite('ban1', 'img/ban1.png', 100, 335, 25, 3);
+sprite('ban2', 'img/ban2.png', 100, 335, 25, 3);
+sprite('ban3', 'img/ban3.png', 100, 335, 25, 3);
+sprite('ban4', 'img/ban4.png', 100, 335, 25, 3);
+sprite('ban5', 'img/ban5.png', 100, 335, 25, 3);
+sprite('ban6', 'img/ban6.png', 100, 335, 25, 3);
+sprite('fire1', 'img/fire.png', 100, 150, 38, 3);
+sprite('fire2', 'img/fire.png', 100, 150, 38, 3);
+sprite('fire3', 'img/fire.png', 100, 150, 38, 3);
+sprite('fire4', 'img/fire.png', 100, 150, 38, 3);
 
 
 
