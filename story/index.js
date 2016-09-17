@@ -109,6 +109,37 @@ setTimeout(function(){
     };
 
 
+var ringArr=[
+  14.772,
+  87.146,
+160.746,
+234.347,
+310.4 ,
+
+]
+
+    var storyTextPos;
+    setTimeout(function(){
+      $('.storyWrap').hide();
+      storyTextPos=[];
+        storyTextPos.push(0);
+      for(var i=1;i<=5;i++)
+      storyTextPos.push(parseInt(fakeScroll.style.height)*(i/5));
+      storyTextPos.push(fakeScroll.style.height-100);
+
+    console.log(storyTextPos);
+
+    $('.slide').click(function(){
+      var sNo=$(this).attr('slide');
+      // window.scrollTo(0,storyTextPos[sNo-1]);
+      $('html,body').animate({
+       scrollTop: storyTextPos[sNo-1]
+     }, 800);
+    })
+
+    },1000);
+
+
 function scrollHandling(){
   var offset = 0;
 
@@ -122,7 +153,6 @@ function scrollHandling(){
 
     offset-=(st-lastScrollTop)/parseInt(fakeScroll.style.height);
     // offset -= (lastScrollTop-st)*1/(0.93*parseInt(fakeScroll.style.height));
-    lastScrollTop = st;
     gl.uniform2f(uTextureOffset, 0,offset);
 
     // console.log(st,offset,aspect,st*aspect);
@@ -134,6 +164,24 @@ function scrollHandling(){
       $("#storyWrap").css({"-webkit-filter": "blur(0px)","filter": "blur(0px)" })
 
     }, 250) );
+
+var j;
+    for(var i=0;i<5;i++)
+      if(Math.abs(window.pageYOffset-storyTextPos[i])<50){
+        // if(st-lastScrollTop>0){
+        //   j=i+1
+        // }else {
+        //   j=i-1;
+        // }
+        $('.storyContentWrap').css({
+          top:parseInt(storyTextPos[j])-(window.innerHeight/10)+'px'
+        });
+        $('.storyWrap').fadeIn();;
+        $('#currentRing').attr('cy',ringArr[i]);
+        console.log('hi',window.pageYOffset);
+      }
+      lastScrollTop = st;
+
 });
 
 
@@ -425,4 +473,30 @@ function drawMainScreen() {
 
     gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, mainScreenIndexBuffer);
     gl.drawElements(gl.TRIANGLES, mainScreenIndexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
+}
+
+
+// text-update
+
+var storyContent={
+  'moses':{
+    'content':[
+      'Lorem ipsum dolor sit amet, mundi ocurreret ei eum. Et principes omittantur vim',
+      'nec ex alterum disputando dissentiunt. Putant accusata cu pro. Cibo omnium consulatu no nec.',
+      'Posse definitionem id pri, cu fuisset omittam mediocrem qui. Sint moderatius ex qui.',
+      ' Te quo alii iudico. Ridens interpretaris id duo, appetere expetenda constituam usu ad, ',
+      ' sea alienum partiendo et. Mel alii adversarium et, velit constituam per et. '
+    ],
+      style:""
+  },
+  'noah':{
+    'content':[
+      'Sint tincidunt voluptatibus vim an, at pro verear conceptam, paulo petentium deseruisse',
+      'cum ex. Sed at mundi aliquam consulatu. Sed ut inani nostro, mea no natum voluptaria.',
+      ' Eos ut legere eripuit consectetuer. Luptatum tincidunt scribentur eu vis,',
+      ' novum audiam euismod ex duo. Nam dolore constituam in, his ne brute disputando.',
+      ' novum audiam euismod ex duo. Nam dolore constituam in, his ne brute disputando.'
+    ],
+    style:""
+  }
 }

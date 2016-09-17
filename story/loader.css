@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Big Noodle';
+  src:url('../fonts/big_noodle_titling.ttf');
+}
+
 body, html {
     margin: 0;
     padding: 0;
@@ -156,6 +161,10 @@ to {
   width: 4vw;
   z-index: 6;
 }
+
+.scroll ellipse{
+  cursor:pointer;
+}
 @media only screen and (max-width: 800px) {
 
 .scroll {
@@ -166,3 +175,41 @@ to {
   z-index: 6;
 }
 }
+
+
+/*story content*/
+
+.storyContentWrap{
+  position: absolute;
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  bottom
+}
+
+.storyWrap{
+  width: 50%;
+  display: none;
+  text-align: center;
+}
+
+.storyContentWrap p{
+  color:white;
+  font-family:'Big Noodle',sans-serif;
+  font-size: 2em;
+  margin: 0;
+}
+
+@media screen and (max-width:400px) {
+  .storyWrap{
+    width: 80%;
+  }
+
+  .storyContentWrap p{
+    font-size: 1.4em;
+
+  }
+}
+
+
+/*side nav*/
