@@ -3325,8 +3325,6 @@ width: 6%;
 
 }
 
-<<<<<<< HEAD
-
 /*central button*/
 
 .wrapper-btn-launch {
@@ -3689,7 +3687,7 @@ width: 6%;
     top: -3px;
     padding: 3px 0
 }
-=======
+
 .about-wrapper {
   z-index: 21;
   position: absolute;
@@ -3946,4 +3944,4 @@ g[id^="cat"] g{
   background-size: 100% 100%;
   /*background-repeat: repeat;*/
   z-index:-1;
->>>>>>> 6f5d41b6f868db5231b63e3514d62477ef056d35
+}
