@@ -75,12 +75,13 @@ body {
 }
 
 .square {
-	height: 16vh;
-	width: 16vh;
+	height: 18vh;
+	width: 18vh;
 	z-index: 1;
 	background-color: #000;
     transition: transform 1s linear;
     transform-style: preserve-3D;
+
 	
 }
 
@@ -107,6 +108,7 @@ body {
 #sq1 {
 	margin-left: 25vw;
 	background-color: #446CB3;
+	box-shadow: -10px 0px rgba(0, 0, 0, 0.2);
 }
 #sq2 {
 	background-color: #87D37C;
