@@ -32,8 +32,9 @@ var mainScreenVertexPositionBuffer;
 var mainScreenTextureCoordBuffer;
 var mainScreenIndexBuffer;
 
-
-
+var aspect;
+var onePixel;
+var fakeScroll = document.getElementById('fakeScroll');
 function getShader(gl, id) {
     var shaderScript = document.getElementById(id);
     if (!shaderScript) {
@@ -70,7 +71,13 @@ function getShader(gl, id) {
 }
 
 
+
 function webGLStart() {
+setTimeout(function(){
+  $(window).scrollTop(0);
+
+},1000);
+
     canvas = document.getElementById('canvas');
     initWebGL(canvas);
 
@@ -82,40 +89,56 @@ function webGLStart() {
     initSamplingScreen();
     initMainScreen();
 
-    var offset = 0;
-    window.addEventListener('keydown', function(e) {
-        if (e.key === 'ArrowDown') {
-            offset -= .002;
-        } else if (e.key === 'ArrowUp') {
-            offset += .002;
-        }
-        gl.uniform2f(uTextureOffset, 0, offset);
-    });
 
-    var lastScrollTop = 0;
-    window.addEventListener('scroll', function(e) {
+    onePixel = gl.getUniformLocation(shaderProgram, 'onePixel');
 
-      var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
-      if (st > lastScrollTop){
-        offset -= .003;
-      } else {
-        offset += .003;
-      }
-      lastScrollTop = st;
-      gl.uniform2f(uTextureOffset, 0, offset);
+    scrollHandling();
 
-      clearTimeout( $.data( this, "scrollCheck" ) );
-      $.data( this, "scrollCheck", setTimeout(function() {
-        console.log('stop');
-        $("#storyWrap").css({"-webkit-filter": "blur(0px)","filter": "blur(0px)" })
-
-      }, 250) );
-
-
-    });
     backgroundImage.addEventListener('load', function() {
         requestAnimationFrame(render);
     });
+  //     var doc = document.body,
+  // scrollPosition = doc.scrollTop,
+  // pageSize = (doc.scrollHeight - doc.clientHeight),
+  // percentageScrolled = Math.floor((scrollPosition / pageSize) * 100);
+  // console.log('percentageScrolled '+window.pageYOffset*100/doc.scrollHeight);
+  //  if (percentageScrolled >= 50){ // if the percentage is >= 50, scroll to top
+  //   // gl.uniform2f(uTextureOffset, 0, 0.1);
+  //  }
+
+    };
+
+
+function scrollHandling(){
+  var offset = 0;
+
+  var lastScrollTop = 0;
+
+  window.addEventListener('scroll', function(e) {
+    if(isNaN(offset)){
+      offset=0;
+    }
+    var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
+
+    offset-=(st-lastScrollTop)/parseInt(fakeScroll.style.height);
+    // offset -= (lastScrollTop-st)*1/(0.93*parseInt(fakeScroll.style.height));
+    lastScrollTop = st;
+    gl.uniform2f(uTextureOffset, 0,offset);
+
+    // console.log(st,offset,aspect,st*aspect);
+    // console.log(canvas.width , canvas.height,backgroundImage.width , backgroundImage.height);
+
+    clearTimeout( $.data( this, "scrollCheck" ) );
+    $.data( this, "scrollCheck", setTimeout(function() {
+      console.log('stop');
+      $("#storyWrap").css({"-webkit-filter": "blur(0px)","filter": "blur(0px)" })
+
+    }, 250) );
+});
+
+
+
+
 }
 
 
@@ -351,14 +374,15 @@ function resize() {
     canvas.width = canvas.clientWidth;
     canvas.height = canvas.clientHeight;
 
-    var aspect = (canvas.width / canvas.height) / (backgroundImage.width / backgroundImage.height);
-    var fakeScroll = document.getElementById('fakeScroll');
-    console.log(canvas.width , canvas.height,backgroundImage.width , backgroundImage.height);
-    fakeScroll.style.height = backgroundImage.height * aspect + 'px';
+    aspect = (canvas.width / canvas.height) / (backgroundImage.width / backgroundImage.height);
+    // console.log(canvas.width , canvas.height,backgroundImage.width , backgroundImage.height);
+    console.log(canvas.width);
+    fakeScroll.style.height = canvas.width*7000/1080 + 'px';
     gl.uniform1f(uBGAspect, aspect);
 
     initialTextureOffset = (1 - 1 / aspect) / 2;
     gl.uniform2f(uInitialTextureOffset, 0, initialTextureOffset);
+    scrollHandling();
 }
 
 

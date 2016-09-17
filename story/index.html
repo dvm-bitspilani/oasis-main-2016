@@ -182,6 +182,9 @@
     <img src="moseshi.jpg" alt="" />
   </div> -->
 </div>
+
+
+
 </body>
 <script type="text/javascript" src="index.js"></script>
 <script src="../js/jquery.min.js"> </script>
@@ -410,10 +413,14 @@ function manageBlur(scroll){
 
 
       pixs = scroll* 10;
+      // if(pixs>60)
+      //   pixs=60;
       $("#storyWrap").css({"-webkit-filter": "blur("+pixs+"px)","filter": "blur("+pixs+"px)" })
       // $("#storyWrap").animate({"webkit-filter": "blur("+pixs+"px)","filter": "blur("+pixs+"px)" })
 }
 
+console.log(location.search,'k');
+// location.reload(false);
 // window.addEventListener=("scroll",function(){
 //          clearTimeout( $.data( this, "scrollCheck" ) );
 //          $.data( this, "scrollCheck", setTimeout(function() {
@@ -424,10 +431,10 @@ function manageBlur(scroll){
 //
 //        });
 
-       $(document).on("scrollstop",function(){
-         console.log('hi');
-         $("#storyWrap").css({"-webkit-filter": "blur(0px)","filter": "blur(0px)" })
-    });
+    //    $(document).on("scrollstop",function(){
+    //      console.log('hi');
+    //      $("#storyWrap").css({"-webkit-filter": "blur(0px)","filter": "blur(0px)" })
+    // });
 // $(window).scroll($.debounce( 250, true, function(){
 //   $('.blurImg').fadeIn();
 //
@@ -459,7 +466,7 @@ function manageBlur(scroll){
 
         if (uIsBuffer) {
             // Appy corrct aspect
-            XY = vec4(aVertexPosition * vec2(1, uBGAspect), 0, 1);
+            XY = vec4(aVertexPosition * vec2(1, uBGAspect), 0.7, 1);
         } else {
             // Appy Model-View-Model matrix transformation
             XY = uPMatrix * uMVMatrix * vec4(aVertexPosition, 0, 1);
@@ -479,7 +486,7 @@ function manageBlur(scroll){
     uniform vec2 uTextureOffset;
     uniform vec2 uTextureSize;
     varying vec2 vTextureCoord;
-
+     vec2 onePixel;
     vec2 arctanDistortion(vec2 XY, float factor, vec2 multiplier);
     vec2 arctan2Distortion(vec2 XY, vec2 factor, vec2 multiplier);
     vec2 linearDistortion(vec2 XY, vec2 multiplier);
@@ -533,7 +540,7 @@ function manageBlur(scroll){
             }
         }
 
-        vec2 onePixel = vec2(1.0, 1.0) / uTextureSize;
+        onePixel = vec2(1.0, 1.0) / uTextureSize;
 
         // gl_FragColor = (
         //    texture2D(uSampler, XY) +
