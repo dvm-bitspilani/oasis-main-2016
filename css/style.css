@@ -3832,6 +3832,8 @@ g[id^="cat"] g{
   height: 100vh;
   top:0;
   z-index: 80;
+  background:rgba(0,0,0,0.6);
+
 }
 
 #info{
@@ -4012,4 +4014,47 @@ lb-container {
 		background-color: #000;
 
 	}
+}
+
+/* archive css     */
+
+
+.archive-wrapper {
+  z-index: 21;
+  position: absolute;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: rgba(0,0,0,0.5);
+  display: none;
+}
+
+#archive {
+  background: url(../img/aboutlightbox.png);
+  width: 50vw;
+  height: 80vh;
+  background-size: cover;
+  margin: 0 auto;
+  margin-bottom: 5vh;
+  background-repeat: no-repeat;
+}
+
+.archive-head {
+  position: relative;
+  top:24vh;
+  text-align: center;
+  font-family: 'Nexa-Bold',serif;
+  font-size: 2em;
+}
+
+.archive-cont {
+  width: 60%;
+  font-weight: bold;
+  position: relative;
+  margin: 0 auto;
+  top:25vh;
+  font-family: 'Nexa-Light',serif;
+  text-align: justify;
 }

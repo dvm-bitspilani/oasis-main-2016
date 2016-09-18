@@ -2967,7 +2967,16 @@
     </div>
 
   </div>
-
+  <div class="archive-wrapper">
+    <div id="archive">
+      <div class="archive-head">
+        Archives
+      </div>
+      <div class="archive-cont">
+        Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
+      </div>
+    </div>
+  </div>
 </div>
 
 <script src="js/jquery.min.js"></script>
@@ -3261,6 +3270,21 @@ $('#about-trigger').click(function() {
 
 $('.contacts-trigger').click(function() {
   $('#contacts-wrapper').fadeIn('400');
+});
+
+
+
+$('.archive-trigger').click(function() {
+  $('#archive-wrapper').fadeIn('400');
+});
+
+
+
+$('.archive-wrapper').click(function(ev){
+  var impEle=document.getElementById('archive');
+  if(!impEle.contains(ev.target)){
+      $(this).fadeOut();
+    }
 });
 </script>
 </body>
