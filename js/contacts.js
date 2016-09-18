@@ -109,10 +109,9 @@ $('#contacts-wrapper').click(function(ev){
 	var impEle = document.getElementById('sq1');
 	var box = document.getElementById('info');
 	if(box.offsetWidth > 0 && box.offsetHeight > 0){
-		box.fadeOut();
 	}
 	else{
-		if($("#sq10").hasClass("down"))
+		if($("#sq10").hasClass("down") || $("#sq10").hasClass("up") )
 		{
 			if(!impEle.contains(ev.target)){
 				$(this).fadeOut();
