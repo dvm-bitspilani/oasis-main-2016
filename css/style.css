@@ -3951,7 +3951,7 @@ g[id^="cat"] g{
 	width: 18vh;
 	z-index: 1;
 	background-color: #000;
-    transition: transform 500ms linear;
+    transition: transform 300ms linear;
     transform-style: preserve-3D;
 
 
@@ -3977,66 +3977,102 @@ g[id^="cat"] g{
     transform: rotateY(180deg);
 }
 #sq1 {
-	margin-left: 25vw;
-	background-color: #446CB3;
+	margin-left: 15vw;
+  background: url("../img/1.jpg"); 
 
 }
 #sq2 {
-	background-color: #87D37C;
+	background: url("../img/2.jpg");
     -moz-box-shadow:    inset -10px 0px 10px rgba(0, 0, 0, 0.2);
     -webkit-box-shadow: inset -10px 0px 10px rgba(0, 0, 0, 0.2);
     box-shadow:         inset -10px 0px 10px rgba(0, 0, 0, 0.2);
 }
 #sq3 {
-	background-color: #81CFE0;
+	background: url("../img/3.jpg");
     -moz-box-shadow:    inset 0px 10px 10px rgba(0, 0, 0, 0.2);
     -webkit-box-shadow: inset 0px 10px 10px rgba(0, 0, 0, 0.2);
     box-shadow:         inset 0px 10px 10px rgba(0, 0, 0, 0.2);
 }
 #sq4 {
-	background-color: #36D7B7;
+	background: url("../img/4.jpg");
     -moz-box-shadow:    inset 10px 0px 10px rgba(0, 0, 0, 0.2);
     -webkit-box-shadow: inset 10px 0px 10px rgba(0, 0, 0, 0.2);
     box-shadow:         inset 10px 0px 10px rgba(0, 0, 0, 0.2);
 }
 #sq5 {
-	background-color: #86E2D5;
+	background: url("../img/5.jpg");
     -moz-box-shadow:    inset 0px -10px 10px rgba(0, 0, 0, 0.2);
     -webkit-box-shadow: inset 0px -10px 10px rgba(0, 0, 0, 0.2);
     box-shadow:         inset 0px -10px 10px rgba(0, 0, 0, 0.2);
 }
 #sq6 {
-	background-color: #F27935;
+	background: url("../img/6.jpg");
     -moz-box-shadow:    inset 0px 10px 10px rgba(0, 0, 0, 0.2);
     -webkit-box-shadow: inset 0px 10px 10px rgba(0, 0, 0, 0.2);
     box-shadow:         inset 0px 10px 10px rgba(0, 0, 0, 0.2);
 }
 #sq7 {
-	background-color: #F4B350;
+	background: url("../img/7.jpg");
     -moz-box-shadow:    inset -10px 0px 10px rgba(0, 0, 0, 0.2);
     -webkit-box-shadow: inset -10px 0px 10px rgba(0, 0, 0, 0.2);
     box-shadow:         inset -10px 0px 10px rgba(0, 0, 0, 0.2);
 }
 #sq8 {
-	background-color: #E9D460;
+  background: url("../img/god1.jpg");
     -moz-box-shadow:    inset 10px 0px 10px rgba(0, 0, 0, 0.2);
     -webkit-box-shadow: inset 10px 0px 10px rgba(0, 0, 0, 0.2);
     box-shadow:         inset 10px 0px 10px rgba(0, 0, 0, 0.2);
+      background-size: 100% 100%;
 }
 #sq9 {
-	background-color: #ECF0F1;
+  background: url("../img/god2.jpg");
     -moz-box-shadow:    inset 0px 10px 10px rgba(0, 0, 0, 0.2);
     -webkit-box-shadow: inset 0px 10px 10px rgba(0, 0, 0, 0.2);
     box-shadow:         inset 0px 10px 10px rgba(0, 0, 0, 0.2);
+      background-size: 100% 100%;  
+}
+#sq9:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: url("../img/god2.jpg") 0 0 repeat;
+  background-size: 100% 100%;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 #sq10 {
-	background-color: #26C281;
+  background: url("../img/god3.jpg");
     -moz-box-shadow:    inset 0px -10px 10px rgba(0, 0, 0, 0.2);
     -webkit-box-shadow: inset 0px -10px 10px rgba(0, 0, 0, 0.2);
     box-shadow:         inset 0px -10px 10px rgba(0, 0, 0, 0.2);
+      background-size: 100% 100%;
 }
-@media only screen and (max-width: 700px){
+#sq11 {
+  background: url("../img/god4.jpg");
+    -moz-box-shadow:    inset 0px -10px 10px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: inset 0px -10px 10px rgba(0, 0, 0, 0.2);
+    box-shadow:         inset 0px -10px 10px rgba(0, 0, 0, 0.2);
+  background-size: 100% 100%;
+}
+#sq12 {
+  background: url("../img/god5.jpg");
+    -moz-box-shadow:    inset 0px 10px 10px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: inset 0px 10px 10px rgba(0, 0, 0, 0.2);
+    box-shadow:         inset 0px 10px 10px rgba(0, 0, 0, 0.2);
+  background-size: 100% 100%;
+}
 
+@media only screen and (max-width: 1200px){
+#sq1 {
+  margin-left: 15vw;
+  background: url("../img/1.jpg"); 
+
+}
 	.square {
 		height: 15vh;
 		width: 15vh;
@@ -4058,6 +4094,61 @@ g[id^="cat"] g{
 		background-color: #FFF;
 
 	}
+}
+@media only screen and (max-width: 900px){
+#sq1 {
+  margin-left: 10vw;
+  background: url("../img/1.jpg"); 
+
+}
+  .square {
+    height: 12vh;
+    width: 12vh;
+    background-color: #000;
+      transition: transform 1s linear;
+      transform-style: preserve-3D;
+
+  }
+  .lightbox {
+    z-index: 16;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    width: 40vh;
+    height: 40vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: #FFF;
+
+  }
+@media only screen and (max-width: 700px){
+#sq1 {
+  margin-left: 30vw;
+  background: url("../img/1.jpg"); 
+
+}
+  .square {
+    height: 12vh;
+    width: 12vh;
+    background-color: #000;
+      transition: transform 1s linear;
+      transform-style: preserve-3D;
+
+  }
+  .lightbox {
+    z-index: 16;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    width: 40vh;
+    height: 40vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: #FFF;
+
+  }  
 }
 
 /* archive css     */
