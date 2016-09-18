@@ -206,7 +206,7 @@
       </div>
       <div class="rightNav">
         <div class="navItem contacts-trigger">CONTACT</div>
-        <div class="navItem" id="">ARCHIVE</div>
+        <div class="navItem archive-trigger">ARCHIVE</div>
         <div class="navItem" id=""><a href="http://bits-oasis.org/2016/register" target="_blank" style="text-decoration:none;color:#2B1A15">REGISTER</a></div>
 
       </div>
@@ -321,7 +321,7 @@
 
 </div>
 
-<div class="about-wrapper">
+<div class="about-wrapper lite-box">
   <div class="about">
     <div class="about-head">
       About Oasis'16
@@ -332,7 +332,7 @@
   </div>
 </div>
 
-  <div class="events-wrapper">
+  <div class="events-wrapper lite-box">
 
     <svg
        xmlns:svg="http://www.w3.org/2000/svg"
@@ -353,6 +353,10 @@
         @font-face {
           font-family: Telegrafico;
           src: url('./fonts/telegrafico.ttf');
+        }
+        @font-face {
+          font-family: BigNoodleTitling;
+          src: url('./fonts/big_noodle_titling.ttf');
         }
       </style>
     </defs>
@@ -2317,23 +2321,14 @@
         transform="matrix(1.0107405,0,0,1.0048887,1632.6728,-2.4184739)" />
         <g
         transform="matrix(1.0107405,0,0,1.0048887,945.36933,-2.4184739)"
-        id="g20821"><defs
-          id="defs20823"><rect
+        id="g20821"><clipPath
+          id="clipPath24497"><rect
             id="SVGID_1_"
             x="428.39301"
             y="410.181"
             width="65.699997"
-            height="180.187" /></defs><clipPath
-          id="clipPath24497"><use
-            height="100%"
-            width="100%"
-            y="0"
-            x="0"
-            style="overflow:visible"
-            xlink:href="#SVGID_1_"
-            overflow="visible"
-            id="use24499" /></clipPath><g
-          clip-path="url(#SVGID_2_)"
+            height="180.187" /></clipPath><g
+          clip-path="url(#clipPath24497)"
           id="g20829"><path
             style="clip-rule:evenodd;fill:#e03217;fill-rule:evenodd"
             inkscape:connector-curvature="0"
@@ -2930,7 +2925,7 @@
 
   </div>
 
-  <div id="contacts-wrapper">
+  <div class="contacts-wrapper lite-box">
     <div class="content-container">
       <div id="info" class="lb-container">
         <div  class="lightbox">
@@ -2968,13 +2963,13 @@
     </div>
 </div>
 
-<div class="archive-wrapper">
+<div class="archive-wrapper lite-box">
   <div id="archive">
     <div class="archive-head">
       Archives
     </div>
     <div class="archive-cont">
-      Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
+
     </div>
   </div>
 </div>
@@ -2984,18 +2979,18 @@
   </div> -->
   <!-- <div class="scene-left"> -->
   <div class="scene" id="noah">
-    <div id="arc" class="image"></div>
+    <div id="arc" class="image" story="1"></div>
   </div>
   <div class="scene" id="moses">
-    <div id="nigger" class="image"></div>
+    <div id="nigger" class="image" story="2"></div>
   </div>
   <!-- </div> -->
   <!-- <div class="scene-right"> -->
   <div class="scene" id="desi">
-    <div id="ram" class="image"></div>
+    <div id="ram" class="image" story="3"></div>
   </div>
   <div class="scene" id="troy">
-    <div id="achilies" class="image"></div>
+    <div id="achilies" class="image" story="4"></div>
   <!-- </div> -->
   </div>
     <!-- <div class="scene-corner" id="">
@@ -3393,6 +3388,11 @@ $('.logoNav').click(function() {
   $('.about-wrapper').fadeOut();
 });
 
+$('.lite-box').hide();
+
+// $('*[class$=trigger]').click(function(){
+// })
+
 $('#about-trigger').click(function() {
   $('.about-wrapper').fadeIn('400', function() {
     $(this).css('display', 'flex');
@@ -3406,13 +3406,15 @@ $('#about-trigger').click(function() {
 
 
 $('.contacts-trigger').click(function() {
-  $('#contacts-wrapper').fadeIn('400');
+  $('.contacts-wrapper').fadeIn('400');
 });
 
 
 
 $('.archive-trigger').click(function() {
-  $('#archive-wrapper').fadeIn('400');
+  $('.archive-wrapper').fadeIn('400' ,function() {
+    $(this).css('display', 'flex')
+  });
 });
 
 
@@ -3422,6 +3424,12 @@ $('.archive-wrapper').click(function(ev){
   if(!impEle.contains(ev.target)){
       $(this).fadeOut();
     }
+});
+
+
+$('.image').click(function(){
+  var storyNo=$(this).attr('story');
+  window.location.href = "./story/#"+storyNo;
 });
 </script>
 </body>

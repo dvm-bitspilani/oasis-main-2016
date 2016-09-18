@@ -3,6 +3,10 @@
   src:url('../fonts/big_noodle_titling.ttf');
 }
 
+#inkCanvas{
+  z-index: 80;
+}
+
 body, html {
     margin: 0;
     padding: 0;
@@ -104,7 +108,7 @@ fill: transparent;{
   left:0;
   width: 100vw;
   height: 100vh;
-  z-index: 10;
+  z-index: 999;
   background:url('bg2.jpg');
   background-size: cover;
 }
@@ -213,3 +217,14 @@ to {
 
 
 /*side nav*/
+
+
+
+#inkCanvas {
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      top:0;
+      left: 0;
+      z-index: 999;
+    }

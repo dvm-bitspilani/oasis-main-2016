@@ -34,6 +34,12 @@ var mainScreenIndexBuffer;
 
 var aspect;
 var onePixel;
+var storyArr=[
+  'noah.jpg',
+  'moseshi.jpg',
+  'mahabharatcopy.jpg',
+  'troyfinal.jpg'
+]
 var fakeScroll = document.getElementById('fakeScroll');
 function getShader(gl, id) {
     var shaderScript = document.getElementById(id);
@@ -230,16 +236,8 @@ function initProgram() {
 
 function initBackgroundTexture() {
     backgroundImage = new Image();
-    var eleArr=document.getElementsByClassName('storyType');
-    var val;
-    for(var i =0;i<eleArr.length;i++){
-     var element=eleArr[i];
-      if(element.getAttribute('active')=='true'){
-        val=element.getAttribute('value');
-      }
-    };
-    backgroundImage.src = val;
-    console.log(val);
+    var sNo= window.location.hash.charAt(1);
+    backgroundImage.src = storyArr[sNo-1];
     backgroundImage.addEventListener('load', function () {
         /* use TEXTURE0 for backgroundTexture */
         backgroundTexture = gl.createTexture();
@@ -425,7 +423,7 @@ function resize() {
     aspect = (canvas.width / canvas.height) / (backgroundImage.width / backgroundImage.height);
     // console.log(canvas.width , canvas.height,backgroundImage.width , backgroundImage.height);
     console.log(canvas.width);
-    fakeScroll.style.height = canvas.width*7000/1080 + 'px';
+    fakeScroll.style.height = canvas.width*(backgroundImage.height / backgroundImage.width) + 'px';
     gl.uniform1f(uBGAspect, aspect);
 
     initialTextureOffset = (1 - 1 / aspect) / 2;
