@@ -13,8 +13,9 @@ $("#box").mousemove(function(e){
 	if(Math.abs(px - e.pageX) > 5)
 	{
 		newvalueX =   thenum + newvalueX;
+		if (newvalueX>128) newvalueX=128;
 		newvalueY =  thenumb ;	
-   		var str = newvalueX + "px "+ newvalueY + "px"	;	
+   		var str = newvalueX + "px "+ newvalueY + "px";	
    		$('#box').css({
 							  '-webkit-transform' : 'translateX(' + newvalueX + 'px)',
 							  '-moz-transform'    : 'translateX(' + newvalueX + 'px)',
