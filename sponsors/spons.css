@@ -2,7 +2,20 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
     margin: 0;
     padding: 0;
     border: 0;
@@ -10,65 +23,70 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     font: inherit;
     vertical-align: baseline;
 }
-
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
     display: block;
 }
-
 body {
     line-height: 1;
 }
-
 ol, ul {
     list-style: none;
 }
-
 blockquote, q {
     quotes: none;
 }
-
-blockquote:before, blockquote:after, q:before, q:after {
+blockquote:before, blockquote:after,
+q:before, q:after {
     content: '';
     content: none;
 }
-
 table {
     border-collapse: collapse;
     border-spacing: 0;
 }
 
 a:link {
-    color: black;
+    color: rgba(0,0,0,0.4);
+    text-decoration: none;
 }
 
 a:visited {
-    color: black;
+    color: rgba(0,0,0,0.3);
+    text-decoration: none;
 }
 
 html, body {
+    color: #FFF;
     padding: 0;
     margin: 0;
     font-size: 16px;
+    overflow-x: hidden;
 }
 
 .container {
     display: flex;
     flex-direction: column;
-    width: 90vw;
+    width: 100vw;
     margin: 0 auto;
 }
 
 .title {
-    font-family: 'Lato', Calibri, Arial, sans-serif;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
     font-size: 4em;
-    margin: 10px auto;
-    color: #47a3da;
+    font-weight: bold;
+    /* margin: 10px auto; */
+    color: #FFF;
+    background: #3f51b5;
+    /* height: 15vh; */
+    padding: 20px;
 }
 
 .grid {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
 }
@@ -76,29 +94,34 @@ html, body {
 .cards {
     /* color: #47a3da; */
     font-family: 'Lato', Calibri, Arial, sans-serif;
-    margin: 15px;
+    /* margin: 15px; */
 }
 
 .card-img {
-    padding: 10px;
-    background: #47a3da;
+    /* padding: 10px; */
+    /* background: #47a3da; */
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    width:15vw;
-    height:20vh;
+    /* width: 15vw; */
+    height: 20vh;
+    margin: 0 auto;
+    width: 85%;
+    /* display: flex; */
 }
 
 .card-img img {
-    width: 17vw;
+    width: inherit;
+    height: inherit;
 }
 
 .card-title {
-    font-size: 1.8em;
-    font-weight: 500;
-    padding: 20px 10px;
-    background: #e4e4e4;
+    font-size: 2em;
+    font-weight: bold;
+    /* padding: 20px 10px; */
+    /* background: #e4e4e4; */
     text-align: center;
+    margin-top: 8vh;
 }
 
 .cards a {
@@ -106,4 +129,90 @@ html, body {
     text-decoration: none;
     cursor: pointer;
     opacity: 0.5;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.c1 {
+    width: 100vw;
+}
+
+.c2 {
+    width: calc(100vw / 2);
+}
+
+.c3 {
+    width: calc(100vw / 3);
+}
+
+.c4 {
+    width: calc(100vw / 4)
+}
+
+.color-1 {
+    background: #5cc2f1;
+}
+
+.color-2 {
+    background: #fff59d;
+}
+
+.color-3 {
+    background: #9993c1;
+}
+
+.color-4 {
+    background: #e88a63;
+}
+
+.color-5 {
+    background: #91c794;
+}
+
+.color-6 {
+    background: #7f8c8d;
+}
+
+.color-7 {
+    background: #9d62c5;
+}
+
+.color-8 {
+    background: #EA9292;
+}
+
+.large {
+    /* height: 50vh; */
+    padding: 5em 0;
+}
+
+.medium {
+    padding: 3em 0;
+}
+
+.small {
+    padding: 2em 0;
+}
+
+@media only screen and (max-width: 600px) {
+    .title {
+        font-size: 2.7em;
+    }
+    .cards {
+        padding: 1.5em 0!important;
+    }
+    .card-title {
+        font-size: 1em;
+        margin-top: 10px;
+    }
+    .card-img {
+        width: 70%;
+    }
+    .large, .medium, .small {
+        width: 100vw;
+    }
 }
