@@ -201,7 +201,7 @@
     <div class="navWrap">
       <div class="leftNav">
         <div class="navItem" id="about-trigger">ABOUT</div>
-        <div class="navItem" id="">EVENTS</div>
+        <div class="navItem" id="events-trigger">EVENTS</div>
         <div class="navItem" id="">SPONSOR</div>
       </div>
       <div class="rightNav">
@@ -299,23 +299,23 @@
       <canvas id="fire4" class="fire f4"  width="100" height="150"></canvas>
     </div>
   </div>
-  <div class="wrapper-btn-launch valign">
-            <a href="./parallax" class="valign__content btn">
-                <span class="bg-large">
-                    <span class="line-bottom-left"></span>
-                    <span class="line-top-right"></span>
-                </span>
-                <span class="bg-tall">
-                    <span class="line-bottom-left"></span>
-                    <span class="line-top-right"></span>
-                </span>
-                <span class="bg-medium">
-                    <span class="line-bottom-left"></span>
-                    <span class="line-top-right"></span>
-                </span>
-                <span class="text">Start The Experience</span>
-            </a>
-        </div>
+  <div class="wrapper-btn-launch valign" id="storybutton">
+    <a class="valign__content btn">
+      <span class="bg-large">
+        <span class="line-bottom-left"></span>
+        <span class="line-top-right"></span>
+      </span>
+      <span class="bg-tall">
+        <span class="line-bottom-left"></span>
+        <span class="line-top-right"></span>
+      </span>
+      <span class="bg-medium">
+        <span class="line-bottom-left"></span>
+        <span class="line-top-right"></span>
+      </span>
+      <span class="text">Start The Experience</span>
+    </a>
+  </div>
 </div>
 <div class="lampglow">
 
@@ -330,11 +330,34 @@
       Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum 
     </div>
   </div>
-  </divLorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum 
-  <div class="events-wrapper">
+</div>
 
 
+<div class="scene-wrapper">
+  <div id="box" class="scene-container">
+    <!-- <div class="scene-corner" id="">
+  </div> -->
+  <!-- <div class="scene-left"> -->
+  <div class="scene" id="noah">
+    <div id="arc" class="image"></div>
   </div>
+  <div class="scene" id="moses">
+    <div id="nigger" class="image"></div>
+  </div>  
+  <!-- </div> -->
+  <!-- <div class="scene-right"> -->
+  <div class="scene" id="desi">
+    <div id="ram" class="image"></div>
+  </div>
+  <div class="scene" id="troy">
+    <div id="achilies" class="image"></div>
+  <!-- </div> -->
+  </div>
+    <!-- <div class="scene-corner" id="">
+  </div> -->
+</div>
+
+</div>
 
 </div>
 
@@ -372,6 +395,7 @@
 
   function animate() {
     context.clearRect(0, 0, 298, 168);
+    context.globalCompositeOperation = "xor";
 
   //draw each frame + place them in the middle
   context.drawImage(myImage, shift, 0, frameWidth, frameHeight, 0, 0, frameWidth, frameHeight);
@@ -397,7 +421,6 @@
       $('#inkCanvas').fadeOut();
     }
   }
-  context.globalCompositeOperation = "xor";
 
   // Sprite Animation
 
@@ -413,7 +436,7 @@
 //   $('.b1').removeClass('ban25');
 //   }
 //   setTimeout(function () {
-//   requestAnimationFrame(repeatOften);
+//   requestAnzimationFrame(repeatOften);
 //   }, 2000/25);
 // }
 
@@ -614,6 +637,117 @@ function loadingdone () {
 
 $('.about-wrapper').hide();
 
+// $('#storybutton').click(function() {
+//   $('#inkCanvas').show();
+//   var canvas = document.querySelector("#inkCanvas");
+//   var context = canvas.getContext("2d");
+
+//   var bg = new Image();
+//   bg.src = "img/inkbg.jpg";
+//   var myImage = new Image();
+//   myImage.src = "img/mask.png";
+
+//   // myImage.addEventListener("load", loadImage, false);
+
+//   // function loadImage(e) {
+//   //   animate();
+//   // }
+
+//   var shift = 0;
+//   var frameWidth = 298;
+//   var frameHeight = 168;
+//   var totalFrames = 40;
+//   var currentFrame = 0;
+//   var maxSpeed=3;
+//   var speedvar=0;
+
+//   function animate() {
+//     context.clearRect(0, 0, 298, 168);
+//     context.globalCompositeOperation = "xor";
+
+//   //draw each frame + place them in the middle
+//   context.drawImage(myImage, shift, 0, frameWidth, frameHeight, 0, 0, frameWidth, frameHeight);
+//   // context.globalCompositeOperation = "multiply";
+//   context.drawImage(bg, 0, 0, 1600,907,0,0,frameWidth,frameHeight);
+//   if (speedvar==maxSpeed){
+//     shift += frameWidth;
+//     speedvar=0;
+//   }
+//   /*
+//     Start at the beginning once you've reached the
+//     end of your sprite!
+//     */
+//     if (currentFrame != totalFrames*maxSpeed) {
+//       // shift = 0;
+//       // currentFrame = 0;
+//       requestAnimationFrame(animate);
+//       currentFrame++;
+//     }
+
+//     speedvar++;
+//     if (currentFrame == totalFrames*maxSpeed) {
+//       $('#inkCanvas').fadeOut();
+//     }
+//   }
+
+
+//   animate();
+// });
+
+// $('#storybutton').click(function() {
+  
+// });
+
+// Events
+
+var movementStrength = 200;
+var height = movementStrength / $(window).height();
+var width = movementStrength / $(window).width();
+var px = 0;
+$("#box").mousemove(function(e){
+  var pageX = e.pageX - ($("#box").width()/ 2);
+  var pageY = e.pageY - ($("#box").height() / 2);
+  var newvalueX = width * pageX * -1;
+  var newvalueY = height * pageY * -1;
+  var mypos = $("#nigger").css("background-position").split(" ")
+  var thenum = parseInt(mypos[0], 10);
+  var thenumb = parseInt(mypos[1], 10);
+  if(Math.abs(px - e.pageX) > 5)
+  {
+    newvalueX =   thenum + newvalueX;
+    if (newvalueX>128) newvalueX=128;
+    newvalueY =  thenumb ;  
+    var str = newvalueX + "px "+ newvalueY + "px" ; 
+    $('#box').css({
+      '-webkit-transform' : 'translateX(' + newvalueX + 'px)',
+      '-moz-transform'    : 'translateX(' + newvalueX + 'px)',
+      '-ms-transform'     : 'translateX(' + newvalueX + 'px)',
+      '-o-transform'      : 'translateX(' + newvalueX + 'px)',
+      'transform'         : 'translateX(' + newvalueX + 'px)'
+    });
+    px = e.pageX;
+  }
+  console.log($("#box").width()); 
+
+});
+
+$('#storybutton').click(function() {
+  $(this).fadeOut();
+  $('#noah').animate({left: '0vw'}, 400);
+  $('#moses').animate({left: '0vw'}, 400);
+  $('#desi').animate({left: '0vw'}, 400);
+  $('#troy').animate({left: '0vw'}, 400);
+});
+
+$('.logoNav').click(function() {
+  $('#noah').animate({left: '-40vw'}, 400);
+  $('#moses').animate({left: '-60vw'}, 400);
+  $('#desi').animate({left: '70vw'}, 400);
+  $('#troy').animate({left: '50vw'}, 400);
+  $('#storybutton').fadeIn();
+  $('.about-wrapper').fadeOut();
+});
+
 $('#about-trigger').click(function() {
   $('.about-wrapper').fadeIn('400', function() {
     $(this).css('display', 'flex');
@@ -624,6 +758,7 @@ $('#about-trigger').click(function() {
     return false;
   })
 });
+
 </script>
 </body>
 </html>
