@@ -37,8 +37,8 @@ var onePixel;
 var storyArr=[
   'noah.jpg',
   'moseshi.jpg',
-  'mahabharatcopy.jpg',
-  'troyfinal.jpg'
+  'mahabharat.jpg',
+  'troy.jpg'
 ]
 var fakeScroll = document.getElementById('fakeScroll');
 function getShader(gl, id) {
