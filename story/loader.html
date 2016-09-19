@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      canvas{
+        width: 100vw;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="inkCanvas" width="298" height="168"></canvas>
+    <script type="text/javascript">
+    var canvas = document.querySelector("#inkCanvas");
+    var context = canvas.getContext("2d");
+    var sNo=window.location.hash.charAt(1);
+    var bg = new Image();
+    bg.src = "../img/inkbg2.jpg";
+    var myImage = new Image();
+    myImage.src = "../img/mask.png";
+
+    // myImage.addEventListener("load", loadImage, false);
+
+    // function loadImage(e) {
+    //   animate();
+    // }
+
+    var shift = 0;
+    var frameWidth = 298;
+    var frameHeight = 168;
+    var totalFrames = 40;
+    var currentFrame = 0;
+    var maxSpeed=3;
+    var speedvar=0;
+
+    function animate() {
+      context.clearRect(0, 0, 298, 168);
+      context.globalCompositeOperation = "xor";
+
+    //draw each frame + place them in the middle
+    context.drawImage(myImage, shift, 0, frameWidth, frameHeight, 0, 0, frameWidth, frameHeight);
+    // context.globalCompositeOperation = "multiply";
+    context.drawImage(bg, 0, 0, 1600,907,0,0,frameWidth,frameHeight);
+    if (speedvar==maxSpeed){
+      shift += frameWidth;
+      speedvar=0;
+    }
+    /*
+      Start at the beginning once you've reached the
+      end of your sprite!
+      */
+      if (currentFrame != totalFrames*maxSpeed) {
+        // shift = 0;
+        // currentFrame = 0;
+        requestAnimationFrame(animate);
+        currentFrame++;
+      }
+
+      speedvar++;
+      if (currentFrame == totalFrames*maxSpeed) {
+        // $('#inkCanvas').fadeOut();
+      }
+    }
+
+    animate();
+    </script>
+  </body>
+</html>
