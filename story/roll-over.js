@@ -99,6 +99,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	var mainScreenIndexBuffer = void 0;
 
 	var imgSrcGl = void 0;
+	var imgSrcs = [];
+
+
+	var sNo = window.location.hash.charAt(1)-1;
+
 	var backgroundImageAspect ;
 	var aspect = {
 		x: 1,
@@ -106,20 +111,24 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 	var story=[
 	  {
-	    src:'img/noah',
+	    src:'noah',
 	    no:5,
+			size:1311
 	  },
 	  {
-	    src:'img/moses',
-	    no:7,
+	    src:'moses',
+	    no:10,
+			size:1457
 	  },
 	  {
-	    src:'img/mahabharat',
+	    src:'mahabharat',
 	    no:8,
+			size:1311
 	  },
 	  {
-	    src:'img/troy',
-	    no:7,
+	    src:'troy',
+	    no:8,
+			size:1411
 	  },
 
 	]
@@ -134,9 +143,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	]
 
 	var fakeScroll = document.getElementById('fakeScroll');
-fakeScroll.style.height="10488px";
+fakeScroll.style.height=(story[sNo].size*story[sNo].no)+'px';
 
-
+// console.log((story[sNo].size*story[sNo].no),fakeScroll.style.height);
 	function scrollHandling(){
 	  var offset = 0;
 	  var lastScrollTop = 0;
@@ -147,8 +156,10 @@ fakeScroll.style.height="10488px";
 	      offset=0;
 	    }
 
+
+
 	    var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
-	    offset+=((st-lastScrollTop)/parseInt(fakeScroll.style.height));
+	    offset+=((st-lastScrollTop)/parseInt(fakeScroll.style.height)*15.8);
 			console.log(offset,'f',aspect);
 	    gl.uniform2f(program.uTextureOffset, 0, offset);
 	//     clearTimeout( $.data( this, "scrollCheck" ) );
@@ -404,9 +415,9 @@ fakeScroll.style.height="10488px";
 	  canvas.width = canvas.clientWidth;
 	  canvas.height = canvas.clientHeight;
 	  var widthRatio = 1080 / canvas.width;
-	  var heightRatio = 1311 / canvas.height;
+	  var heightRatio = story[sNo].size / canvas.height;
 
-	  backgroundImageAspect = 1080 / 1311;
+	  backgroundImageAspect = 1080 / story[sNo].size;
 
 	  var initialTextureOffset = {
 	    x: 0,
@@ -527,7 +538,11 @@ fakeScroll.style.height="10488px";
 	    uniforms: ['uBGAspect', 'uFactor', 'uFactor', 'uInitialTextureOffset', 'uIsBuffer', 'uMode', 'uMultiplier', 'uMultiplier', 'uOriginOffset', 'uOriginOffset', 'uRecover', 'uRecover', 'uSampler', 'uTextureOffset']
 	  });
 
-	  var imgSrcs = ['img/mahabharat1.jpg', 'img/mahabharat2.jpg', 'img/mahabharat3.jpg', 'img/mahabharat4.jpg', 'img/mahabharat5.jpg', 'img/mahabharat6.jpg', 'img/mahabharat7.jpg', 'img/mahabharat8.jpg'];
+	  // var imgSrcs = ['img/mahabharat1.jpg', 'img/mahabharat2.jpg', 'img/mahabharat3.jpg', 'img/mahabharat4.jpg', 'img/mahabharat5.jpg', 'img/mahabharat6.jpg', 'img/mahabharat7.jpg', 'img/mahabharat8.jpg'];
+
+		for(var i=1;i<=story[sNo].no;i++){
+			imgSrcs.push('img/'+story[sNo].src+i+'.jpg');
+		}
 
 	  initBackgroundTexture(imgSrcs).then(initSamplingScreen);
 	  initSampleTexture();
