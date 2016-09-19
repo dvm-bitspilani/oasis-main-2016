@@ -11,7 +11,7 @@
     </style>
 </head>
 <body>
-  <div>
+  <div style="display:none">
   <canvas id="inkCanvas" width="298" height="168"></canvas>
   <div class="loader" >
     <div class="loadImg" >
@@ -163,22 +163,13 @@
   </svg>
 
 </div>
-  <div class="cd-transition-layer" style="display:none">
-    	<div class="bg-layer inkAnim"></div>
-    </div>
 
-  <div class="item" display="none">
-  <ul>
-    <li  value="moseshi.jpg" class="storyType" onclick="selectStory(this)" active="true">Moses</li>
-    <li value="mahabharatcopy.jpg" class="storyType" onclick="selectStory(this)" active="false">Mahabharat</li>
-    <li value="troyfinal.jpg"class="storyType" onclick="selectStory(this)" active="false">Troy</li>
-    <li value="noah(1).jpg" class="storyType" onclick="selectStory(this)" active="false">Noah</li>
-  </ul>
-</div>
+
+
 <div id="storyWrap">
   <div id="fakeScroll"></div>
   <div class="wrap plainImg">
-  <canvas id="canvas"></canvas>
+    <canvas id="rollover-bg"></canvas>
   </div>
   <!-- <div class="blurImg">
     <img src="moseshi.jpg" alt="" />
@@ -193,16 +184,28 @@
   </div>
 </div>
 </body>
-<script type="text/javascript" src="index.js"></script>
+<!-- <script type="text/javascript" src="index.js"></script> -->
+<script type="text/javascript" src="roll-over.js"></script>
 <script src="../js/jquery.min.js"> </script>
 <script src="../js/jquery.ba-throttle-debounce.js"> </script>
 <script type="text/javascript">
 
-$(window).load(function() {
-  loadingdone();
+// $(window).load(function() {
+//   loadingdone();
+//
+// });
 
-});
 
+document.body.onload = function init() {
+      RollOver.init({
+          canvas: 'rollover-bg',
+          mode: RollOver.modes.PARABOLIC,
+          factor: [0, 0],
+          multiplier: [0.1, 0],
+          originOffset: [0, -0.75],
+          recover: [1.1, 1],
+      });
+  };
 
 var css3AnimationSupport = (function(){
     var div = document.createElement('div'),
@@ -228,37 +231,6 @@ var css3AnimationSupport = (function(){
     support.transformProp = support.transform.replace(/([A-Z])/g, '-$1').toLowerCase();
     return support;
 }());
-
-var element = document.querySelector('.cd-transition-layer .bg-layer');
-
-element.addEventListener("webkitAnimationEnd", function(){
-    this.style.webkitAnimationName = '';
-    console.log(  element.style.webkitAnimation);
-    $(element).hide();
-    $(element).removeClass('inkAnim');
-}, false);
-element.addEventListener("animationEnd", function(){
-    this.style.animationName = '';
-    console.log(  element.style.animation);
-    $(element).hide();
-    $(element).removeClass('inkAnim');
-}, false);
-
-function startInkAnim(){
-  $(element).show();
-
-  $(element).addClass('inkAnim');
-
-    // element.style.webkitAnimationName = 'cd-sprite';
-    // element.style.animationName = 'cd-sprite';
-    // element.style.webkitAnimationDirection = "reverse";
-    // element.style.animationDirection = "reverse";
-    // console.log(  element);
-
-    // you'll probably want to preventDefault here.
-};
-
-
 
 document.onreadystatechange = function(e)
 {

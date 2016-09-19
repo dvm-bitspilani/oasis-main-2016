@@ -34,11 +34,24 @@ var mainScreenIndexBuffer;
 
 var aspect;
 var onePixel;
-var storyArr=[
-  'noah.jpg',
-  'moseshi.jpg',
-  'mahabharat.jpg',
-  'troy.jpg'
+var story=[
+  {
+    src:'img/noah',
+    no:5,
+  },
+  {
+    src:'img/moses',
+    no:7,
+  },
+  {
+    src:'img/mahabharat',
+    no:8,
+  },
+  {
+    src:'img/troy',
+    no:7,
+  },
+
 ]
 var fakeScroll = document.getElementById('fakeScroll');
 function getShader(gl, id) {
