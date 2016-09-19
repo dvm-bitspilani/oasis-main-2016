@@ -144,7 +144,7 @@ fakeScroll.style.height="10488px";
 	    }
 
 	    var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
-	    offset+=(st-lastScrollTop)/parseInt(fakeScroll.style.height)*10;
+	    offset+=((st-lastScrollTop)/parseInt(fakeScroll.style.height));
 			console.log(offset,'f');
 	    gl.uniform2f(program.uTextureOffset, 0, offset);
 	//     clearTimeout( $.data( this, "scrollCheck" ) );
@@ -533,7 +533,7 @@ fakeScroll.style.height="10488px";
 
 	  initMainScreen();
 
-	  initScrolling();
+	  // initScrolling();
 		scrollHandling();
 	  setTimeout(function () {
 	    requestAnimationFrame(render);
