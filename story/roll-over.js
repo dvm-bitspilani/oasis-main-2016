@@ -99,7 +99,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	var mainScreenIndexBuffer = void 0;
 
 	var imgSrcGl = void 0;
-
+	var backgroundImageAspect ;
+	var aspect = {
+		x: 1,
+		y: 1
+	};
 	var story=[
 	  {
 	    src:'img/noah',
@@ -145,7 +149,7 @@ fakeScroll.style.height="10488px";
 
 	    var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
 	    offset+=((st-lastScrollTop)/parseInt(fakeScroll.style.height));
-			console.log(offset,'f');
+			console.log(offset,'f',aspect);
 	    gl.uniform2f(program.uTextureOffset, 0, offset);
 	//     clearTimeout( $.data( this, "scrollCheck" ) );
 	//     $.data( this, "scrollCheck", setTimeout(function() {
@@ -402,24 +406,21 @@ fakeScroll.style.height="10488px";
 	  var widthRatio = 1080 / canvas.width;
 	  var heightRatio = 1311 / canvas.height;
 
-	  var backgroundImageAspect = 1080 / 1311;
+	  backgroundImageAspect = 1080 / 1311;
 
 	  var initialTextureOffset = {
 	    x: 0,
 	    y: 1
 	  };
 
-	  var aspect = {
-	    x: 1,
-	    y: 1
-	  };
+
 
 	  if (backgroundImageAspect > 1) {
 	    aspect.x = widthRatio / heightRatio;
 	    initialTextureOffset.x = -0.5 * (1 - 1 / aspect.x);
 	  } else {
 	    aspect.y = heightRatio / widthRatio;
-	    initialTextureOffset.y = 0.5 * (1 - 1 / aspect.y);
+	    initialTextureOffset.y = 0;
 	  }
 
 	  gl.uniform2f(program.uBGAspect, aspect.x, aspect.y);
