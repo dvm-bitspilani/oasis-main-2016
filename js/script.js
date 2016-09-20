@@ -340,7 +340,8 @@ console.log(event);
 
       $('#midWrap').delay(1000).css({
         'transform':'scale(1)'
-      })
+      });
+      $('#storybutton').fadeOut();
     })
 
     $('.events-wrapper').click(function(ev){
@@ -375,6 +376,7 @@ console.log(event);
       });
     },100);
     }
+      $('#storybutton').fadeIn();
   });
 
 var innerEve = $('#innerEve');
