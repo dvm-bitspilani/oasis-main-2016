@@ -3324,6 +3324,7 @@ id="innerLeft">
                     <div id="arc" class="image" story="1"></div>
                   </div>
                 </div>
+                <div class="scene-close"></div>
                 </div>
                 <div class="social-icon-wrapper">
                   <div id="youtube" ></div>
@@ -3717,13 +3718,14 @@ $('#storybutton').click(function() {
   $('#troy').animate({left: '0vw'}, 400);
 });
 
-$('.logoNav').click(function() {
-  $('#noah').animate({left: '-40vw'}, 400);
+$('.scene-close').click(function() {
+  $('#troy').animate({left: '-40vw'}, 400);
   $('#moses').animate({left: '-60vw'}, 400);
   $('#desi').animate({left: '70vw'}, 400);
-  $('#troy').animate({left: '50vw'}, 400);
+  $('#noah').animate({left: '50vw'}, 400);
   $('#storybutton').fadeIn();
   $('.lite-wrapper').fadeOut();
+  $(this).fadeOut();
 });
 
 $('.lite-box').hide();

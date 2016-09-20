@@ -4564,7 +4564,7 @@ g[id^="cat"] g {
 .scene-text {
     position: absolute;
     /* left: 0; */
-    top: 20vh;
+    bottom: 20vh;
     text-align: center;
     width: 100%;
     margin: 0 auto;
@@ -4572,6 +4572,19 @@ g[id^="cat"] g {
     font-size: 1.5em;
     opacity: 0.5;
     font-family: 'Nexa-Bold',serif;
+}
+
+.scene-close {
+    cursor: pointer;
+    background-image: url('../img/cross.svg');
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin:20px;
+    width: 40px;
+    height: 40px;
+    z-index: 71;
+    background-size: cover;
 }
 
 .scene {
