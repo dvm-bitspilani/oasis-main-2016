@@ -148,17 +148,18 @@
     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
     width="100%" height="100%" viewBox="0 0 50 400" enable-background="new 0 0 50 400" xml:space="preserve">
     <g opacity="0.8">
-      <ellipse id="currentRing" opacity="0.7" fill="none" stroke="#FBB040" stroke-width="2.4533" stroke-miterlimit="10" cx="25" cy="14.772" rx="10.459" ry="9.413"/>
+      <ellipse id="currentRing" opacity="0.7" fill="none" stroke-width="2.4533" stroke-miterlimit="10" cx="25" cy="14.772" rx="10.459" ry="9.413"/>
       <ellipse class="slide"  slide="1" fill="#FFFFFF" cx="25" cy="14.772" rx="5.46" ry="4.915"/>
       <ellipse class="slide"  slide="2" fill="#FFFFFF" cx="25" cy="87.146" rx="5.46" ry="4.915"/>
       <ellipse class="slide" slide="3" fill="#FFFFFF" cx="25" cy="160.746" rx="5.46" ry="4.915"/>
-
       <ellipse class="slide" slide="4" fill="#FFFFFF" cx="25" cy="234.347" rx="5.46" ry="4.914"/>
       <ellipse class="slide" slide="5" fill="#FFFFFF" cx="25" cy="310.4" rx="5.46" ry="4.914"/>
+      <ellipse class="slide" slide="6" fill="#FFFFFF" cx="25" cy="384" rx="5.46" ry="4.914"/>
       <line fill="none" stroke="#FFFFFF" stroke-width="0.9301" stroke-miterlimit="10" x1="25" y1="14.772" x2="25" y2="87.944"/>
       <line fill="none" stroke="#FFFFFF" stroke-width="0.9301" stroke-miterlimit="10" x1="25" y1="87.146" x2="25" y2="160.317"/>
       <line fill="none" stroke="#FFFFFF" stroke-width="0.9301" stroke-miterlimit="10" x1="25" y1="160.746" x2="25" y2="233.918"/>
       <line fill="none" stroke="#FFFFFF" stroke-width="0.9301" stroke-miterlimit="10" x1="25" y1="234.347" x2="25" y2="307.519"/>
+      <line fill="none" stroke="#FFFFFF" stroke-width="0.9301" stroke-miterlimit="10" x1="25" y1="307.519" x2="25" y2="380.519"/>
     </g>
   </svg>
 
@@ -395,13 +396,12 @@ function manageBlur(scroll){
       // if(pixs>60)
       //   pixs=60;
       $("#storyWrap").css({"-webkit-filter": "blur("+pixs+"px)","filter": "blur("+pixs+"px)" });
-      if(pixs<12){
+      if(pixs<30){
         $("#storyWrap").css({"-webkit-filter": "blur(0px)","filter": "blur(0px)" })
       }
       // $("#storyWrap").animate({"webkit-filter": "blur("+pixs+"px)","filter": "blur("+pixs+"px)" })
 }
 
-console.log(location.search,'k');
 // location.reload(false);
 // window.addEventListener=("scroll",function(){
 //          clearTimeout( $.data( this, "scrollCheck" ) );
@@ -496,6 +496,32 @@ function loadingdone () {
 $('.loader').css({
   background:'url("../img/inkbg'+sNo+'.jpg")'
 })
+
+
+var sNo = window.location.hash.charAt(1);
+
+var colorPattern=[
+  '#8f44ad',
+  '#FBB040',
+  '',
+  '#2a80b9'
+];
+
+$('#currentRing').attr('stroke',colorPattern[sNo-1]);
+
+setTimeout(function () {
+	$('.slide').click(function(){
+		var slide = $(this).attr('slide')-1;
+		console.log('hi',parseInt(fakeScroll.style.height)*slide/6);
+		$('html, body').animate({
+			scrollTop:parseInt(fakeScroll.style.height)*slide/6
+		},800);
+	});
+
+},500);
+
+
+
 
 
 </script>

@@ -112,23 +112,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	var story=[
 	  {
 	    src:'noah',
-	    no:5,
-			size:1311
+	    no:12,
+			size:1444,
+			scroll:25
 	  },
 	  {
 	    src:'moses',
 	    no:10,
-			size:1457
+			size:1457,
+			scroll:20
 	  },
 	  {
 	    src:'mahabharat',
 	    no:8,
-			size:1311
+			size:1311,
+			scroll:16
 	  },
 	  {
 	    src:'troy',
 	    no:8,
-			size:1411
+			size:1411,
+			scroll:16.1
 	  },
 
 	]
@@ -139,7 +143,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	160.746,
 	234.347,
 	310.4 ,
-
+384
 	]
 
 	var fakeScroll = document.getElementById('fakeScroll');
@@ -159,9 +163,13 @@ fakeScroll.style.height=(story[sNo].size*story[sNo].no)+'px';
 
 
 	    var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
-	    offset+=((st-lastScrollTop)/parseInt(fakeScroll.style.height)*15.8);
-			console.log(offset,'f',aspect);
+	    offset+=((st-lastScrollTop)/parseInt(fakeScroll.style.height)*23.9);
 	    gl.uniform2f(program.uTextureOffset, 0, offset);
+
+			var slideNo = Math.round(st /(parseInt(fakeScroll.style.height)/6));
+			console.log(slideNo+1);
+			$('#currentRing').attr('cy',ringArr[slideNo]);
+
 	//     clearTimeout( $.data( this, "scrollCheck" ) );
 	//     $.data( this, "scrollCheck", setTimeout(function() {
 	//       console.log('stop');
@@ -177,6 +185,7 @@ fakeScroll.style.height=(story[sNo].size*story[sNo].no)+'px';
 	//         $('#currentRing').attr('cy',ringArr[i]);
 	//         console.log('hi',window.pageYOffset);
 	//       }
+				console.log(st);
 	      lastScrollTop = st;
 
 	});
@@ -185,6 +194,7 @@ fakeScroll.style.height=(story[sNo].size*story[sNo].no)+'px';
 
 
 	}
+
 
 
 	function getShader(id) {
@@ -349,7 +359,8 @@ fakeScroll.style.height=(story[sNo].size*story[sNo].no)+'px';
 	    var buffer = gl.createBuffer();
 	    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
 	    x1 = -1;
-	    y1 = -1 * (1 + 2 * idx);
+	    y1 = -1 * (1.5+ 2 * idx);
+	    // y1 = -1;
 	    x2 = x1 + 2;
 	    y2 = y1 + 2;
 	    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([x1, y1, x2, y1, x2, y2, x1, y2]), gl.STATIC_DRAW);
