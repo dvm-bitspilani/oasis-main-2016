@@ -3577,6 +3577,7 @@ z-index: 15;
     width: 100%;
     height: 100%;
     text-align: center;
+    cursor: default;
 }
 
 .grid figcaption h2 {
@@ -3649,14 +3650,22 @@ z-index: 15;
 
 /* Individual styles */
 .grid figure button, .demo-3 .grid figure button {
-    top: 50%;
+    display: flex;
+    justify-content: center;
+    top: 85%;
     left: 50%;
-    border: 3px solid #fff;
+    /*border: 3px solid #fff;*/
     background: transparent;
     color: #fff;
     opacity: 0;
     -webkit-transform: translateY(-50%) translateX(-50%) scale(0.25);
     transform: translateY(-50%) translateX(-50%) scale(0.25);
+}
+
+.grid figcaption button > img {
+    margin:0 5px;
+    width: 60%;
+    cursor: pointer;
 }
 
 .grid a:hover figure button, .demo-3 .grid a:hover figure button {
