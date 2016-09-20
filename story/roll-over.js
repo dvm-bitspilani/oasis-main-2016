@@ -110,15 +110,15 @@ return /******/ (function(modules) { // webpackBootstrap
 		y: 1
 	};
 	var story=[
-	  {
-	    src:'noah',
-	    no:12,
-			size:1444,
-			scroll:25,
+		{
+			src:'troy',
+			no:8,
+			size:1411,
+			scroll:16.1,
 			text:[
 				""
 			]
-	  },
+		},
 	  {
 	    src:'moses',
 	    no:10,
@@ -147,15 +147,16 @@ return /******/ (function(modules) { // webpackBootstrap
 				"They promise to wage war. War the likes of which neither Man nor God has seen."
 			]
 	  },
-	  {
-	    src:'troy',
-	    no:8,
-			size:1411,
-			scroll:16.1,
+
+		{
+	    src:'noah',
+	    no:12,
+			size:1444,
+			scroll:25,
 			text:[
 				""
 			]
-	  },
+	  }
 
 	]
 
@@ -194,7 +195,7 @@ var oldSlide=-1;
 			$('#currentRing').attr('cy',ringArr[slideNo]);
 
 			if(oldSlide!=slideNo){
-				$('.storyText').fadeOut(400);
+				$('.storyContentWrap').fadeOut(400);
 				setTimeout(function(){
 					$('.storyText').html(story[sNo].text[slideNo]);
 					$('.storyText').fadeIn();
@@ -202,7 +203,7 @@ var oldSlide=-1;
 				oldSlide=slideNo;
 			}
 
-			$('.storyWrap').fadeIn();
+			$('.storyContentWrap').fadeIn();
 	//     clearTimeout( $.data( this, "scrollCheck" ) );
 	//     $.data( this, "scrollCheck", setTimeout(function() {
 	//       console.log('stop');
