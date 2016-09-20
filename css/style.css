@@ -3386,7 +3386,7 @@ background-repeat: no-repeat;*/
 
 .litecont {
     line-height: 1.3;
-    width: 80%;
+    width: 90%;
     font-weight: bold;
     height: 75vh;
     margin: 15px auto;
@@ -3554,6 +3554,7 @@ background-repeat: no-repeat;*/
     opacity: 0.7;
     -webkit-transition: opacity 0.3s;
     transition: opacity 0.3s;
+    filter: grayscale(100%);
 }
 
 .grid figcaption {
@@ -3568,11 +3569,11 @@ background-repeat: no-repeat;*/
 
 .grid figcaption h2 {
     margin: 0 0 20px 0;
-    color: #3498db;
+    color: #333;
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-weight: 300;
-    font-size: 130%;
+    font-weight: 600;
+    font-size: 100%;
     -webkit-transition: -webkit-transform 0.3s;
     transition: transform 0.3s;
 }
@@ -3635,7 +3636,6 @@ background-repeat: no-repeat;*/
 }
 
 /* Individual styles */
-
 .grid figure button, .demo-3 .grid figure button {
     top: 50%;
     left: 50%;
@@ -3654,9 +3654,44 @@ background-repeat: no-repeat;*/
 }
 
 #lite-developers {
-    width: 100vw;
+    /* width: 100vw; */
+    left: 0;
+    margin: 0 auto;
+    left: 10vw;
 }
 
+.developer-wrapper {
+    display: flex;
+    justify-content: space-around;
+    width: 100vw;
+    flex-direction: row;
+}
+
+.developer-wrapper > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.credits {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.credits > div {
+    line-height: 1;
+}
+
+.credits > div > p {
+    margin: 0;
+}
+
+.credits > div > span {
+    opacity: 0.8;
+    font-size: 0.7em;
+}
 
 /* Media Queries */
 /* Let's redefine the width of each anchor and the margins */
@@ -4672,15 +4707,17 @@ lightbox: 200;
 }
 
 .litebox-mainContent-wrapper {
-    /* display: flex; */
-    /* flex-direction: column; */
+    display: flex;
+    flex-direction: column;
     z-index: 1001;
     height: 100vh;
     position: fixed;
     color: #FFF;
     width: 70vw;
     left: 15vw;
-    /* margin: 0 auto; */
+    margin: 0 auto;
+    justify-content: center;
+    text-align: center;
 }
 
 .litebox-mainContent {
@@ -5429,10 +5466,3 @@ lightbox: 200;
 }
 
 /*------------------------------------Litebox End------------------------------*/
-
-
-
-
-
-
-
