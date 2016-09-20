@@ -183,28 +183,31 @@ to {
 /*story content*/
 
 .storyContentWrap{
-  position: absolute;
+  position: fixed;;
   display: flex;
   width: 100vw;
   justify-content: center;
-  bottom
+  bottom: 2vh;
+  padding: 15px;
+  /*background: rgba(0,0,0,0.6);*/
+  /*min-height: 3.7vh;*/
+
 }
 
-.storyWrap{
+.storyInnerWrap{
   width: 50%;
-  display: none;
   text-align: center;
 }
 
 .storyContentWrap p{
   color:white;
   font-family:'Big Noodle',sans-serif;
-  font-size: 2em;
+  font-size: 1.6em;
   margin: 0;
 }
 
 @media screen and (max-width:400px) {
-  .storyWrap{
+  .storyInnerWrap{
     width: 80%;
   }
 
