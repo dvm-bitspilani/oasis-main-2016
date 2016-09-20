@@ -11,7 +11,7 @@
     </style>
 </head>
 <body>
-  <div>
+  <div style="display:none">
   <canvas id="inkCanvas" width="298" height="168"></canvas>
   <div class="loader" >
     <div class="loadImg" >
@@ -148,37 +148,29 @@
     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
     width="100%" height="100%" viewBox="0 0 50 400" enable-background="new 0 0 50 400" xml:space="preserve">
     <g opacity="0.8">
-      <ellipse id="currentRing" opacity="0.7" fill="none" stroke="#FBB040" stroke-width="2.4533" stroke-miterlimit="10" cx="25" cy="14.772" rx="10.459" ry="9.413"/>
+      <ellipse id="currentRing" opacity="0.7" fill="none" stroke-width="2.4533" stroke-miterlimit="10" cx="25" cy="14.772" rx="10.459" ry="9.413"/>
       <ellipse class="slide"  slide="1" fill="#FFFFFF" cx="25" cy="14.772" rx="5.46" ry="4.915"/>
       <ellipse class="slide"  slide="2" fill="#FFFFFF" cx="25" cy="87.146" rx="5.46" ry="4.915"/>
       <ellipse class="slide" slide="3" fill="#FFFFFF" cx="25" cy="160.746" rx="5.46" ry="4.915"/>
-
       <ellipse class="slide" slide="4" fill="#FFFFFF" cx="25" cy="234.347" rx="5.46" ry="4.914"/>
       <ellipse class="slide" slide="5" fill="#FFFFFF" cx="25" cy="310.4" rx="5.46" ry="4.914"/>
+      <ellipse class="slide" slide="6" fill="#FFFFFF" cx="25" cy="384" rx="5.46" ry="4.914"/>
       <line fill="none" stroke="#FFFFFF" stroke-width="0.9301" stroke-miterlimit="10" x1="25" y1="14.772" x2="25" y2="87.944"/>
       <line fill="none" stroke="#FFFFFF" stroke-width="0.9301" stroke-miterlimit="10" x1="25" y1="87.146" x2="25" y2="160.317"/>
       <line fill="none" stroke="#FFFFFF" stroke-width="0.9301" stroke-miterlimit="10" x1="25" y1="160.746" x2="25" y2="233.918"/>
       <line fill="none" stroke="#FFFFFF" stroke-width="0.9301" stroke-miterlimit="10" x1="25" y1="234.347" x2="25" y2="307.519"/>
+      <line fill="none" stroke="#FFFFFF" stroke-width="0.9301" stroke-miterlimit="10" x1="25" y1="307.519" x2="25" y2="380.519"/>
     </g>
   </svg>
 
 </div>
-  <div class="cd-transition-layer" style="display:none">
-    	<div class="bg-layer inkAnim"></div>
-    </div>
 
-  <div class="item" display="none">
-  <ul>
-    <li  value="moseshi.jpg" class="storyType" onclick="selectStory(this)" active="true">Moses</li>
-    <li value="mahabharatcopy.jpg" class="storyType" onclick="selectStory(this)" active="false">Mahabharat</li>
-    <li value="troyfinal.jpg"class="storyType" onclick="selectStory(this)" active="false">Troy</li>
-    <li value="noah(1).jpg" class="storyType" onclick="selectStory(this)" active="false">Noah</li>
-  </ul>
-</div>
+
+
 <div id="storyWrap">
   <div id="fakeScroll"></div>
   <div class="wrap plainImg">
-  <canvas id="canvas"></canvas>
+    <canvas id="rollover-bg"></canvas>
   </div>
   <!-- <div class="blurImg">
     <img src="moseshi.jpg" alt="" />
@@ -193,16 +185,33 @@
   </div>
 </div>
 </body>
-<script type="text/javascript" src="index.js"></script>
+<!-- <script type="text/javascript" src="index.js"></script> -->
+<script type="text/javascript" src="roll-over.js"></script>
 <script src="../js/jquery.min.js"> </script>
 <script src="../js/jquery.ba-throttle-debounce.js"> </script>
 <script type="text/javascript">
 
-$(window).load(function() {
-  loadingdone();
+// $(window).load(function() {
+//   loadingdone();
+//
+// });
 
-});
 
+document.body.onload = function init() {
+  setTimeout(function(){
+    $(window).scrollTop(0);
+
+  },1000);
+
+      RollOver.init({
+          canvas: 'rollover-bg',
+          mode: RollOver.modes.PARABOLIC,
+          factor: [0, 0],
+          multiplier: [0.1, 0],
+          originOffset: [0, -0.75],
+          recover: [1.1, 1],
+      });
+  };
 
 var css3AnimationSupport = (function(){
     var div = document.createElement('div'),
@@ -228,37 +237,6 @@ var css3AnimationSupport = (function(){
     support.transformProp = support.transform.replace(/([A-Z])/g, '-$1').toLowerCase();
     return support;
 }());
-
-var element = document.querySelector('.cd-transition-layer .bg-layer');
-
-element.addEventListener("webkitAnimationEnd", function(){
-    this.style.webkitAnimationName = '';
-    console.log(  element.style.webkitAnimation);
-    $(element).hide();
-    $(element).removeClass('inkAnim');
-}, false);
-element.addEventListener("animationEnd", function(){
-    this.style.animationName = '';
-    console.log(  element.style.animation);
-    $(element).hide();
-    $(element).removeClass('inkAnim');
-}, false);
-
-function startInkAnim(){
-  $(element).show();
-
-  $(element).addClass('inkAnim');
-
-    // element.style.webkitAnimationName = 'cd-sprite';
-    // element.style.animationName = 'cd-sprite';
-    // element.style.webkitAnimationDirection = "reverse";
-    // element.style.animationDirection = "reverse";
-    // console.log(  element);
-
-    // you'll probably want to preventDefault here.
-};
-
-
 
 document.onreadystatechange = function(e)
 {
@@ -418,13 +396,12 @@ function manageBlur(scroll){
       // if(pixs>60)
       //   pixs=60;
       $("#storyWrap").css({"-webkit-filter": "blur("+pixs+"px)","filter": "blur("+pixs+"px)" });
-      if(pixs<12){
+      if(pixs<30){
         $("#storyWrap").css({"-webkit-filter": "blur(0px)","filter": "blur(0px)" })
       }
       // $("#storyWrap").animate({"webkit-filter": "blur("+pixs+"px)","filter": "blur("+pixs+"px)" })
 }
 
-console.log(location.search,'k');
 // location.reload(false);
 // window.addEventListener=("scroll",function(){
 //          clearTimeout( $.data( this, "scrollCheck" ) );
@@ -521,153 +498,32 @@ $('.loader').css({
 })
 
 
+var sNo = window.location.hash.charAt(1);
+
+var colorPattern=[
+  '#8f44ad',
+  '#FBB040',
+  '',
+  '#2a80b9'
+];
+
+$('#currentRing').attr('stroke',colorPattern[sNo-1]);
+
+setTimeout(function () {
+	$('.slide').click(function(){
+		var slide = $(this).attr('slide')-1;
+		console.log('hi',parseInt(fakeScroll.style.height)*slide/6);
+		$('html, body').animate({
+			scrollTop:parseInt(fakeScroll.style.height)*slide/6
+		},800);
+	});
+
+},500);
+
+
+
+
+
 </script>
-<script id="vertex-shader" type="x-shader/x-vertex">
-    attribute vec2 aTextureCoord;
-    attribute vec2 aVertexPosition;
 
-    uniform bool uIsBuffer;
-    uniform float uBGAspect;
-    uniform mat4 uMVMatrix;
-    uniform mat4 uPMatrix;
-    uniform float u_kernel[9];
-
-    varying vec2 vTextureCoord;
-
-    void main() {
-        vec4 XY;
-
-        if (uIsBuffer) {
-            // Appy corrct aspect
-            XY = vec4(aVertexPosition * vec2(1, uBGAspect), 0.7, 1);
-        } else {
-            // Appy Model-View-Model matrix transformation
-            XY = uPMatrix * uMVMatrix * vec4(aVertexPosition, 0, 1);
-        }
-
-        gl_Position = XY;
-        vTextureCoord = aTextureCoord;
-    }
-</script>
-
-<script id="fragment-shader" type="x-shader/x-fragment">
-    precision mediump float;
-
-    uniform bool uIsBuffer;
-    uniform sampler2D uSampler;
-    uniform vec2 uInitialTextureOffset;
-    uniform vec2 uTextureOffset;
-    uniform vec2 uTextureSize;
-    varying vec2 vTextureCoord;
-     vec2 onePixel;
-    vec2 arctanDistortion(vec2 XY, float factor, vec2 multiplier);
-    vec2 arctan2Distortion(vec2 XY, vec2 factor, vec2 multiplier);
-    vec2 linearDistortion(vec2 XY, vec2 multiplier);
-    vec2 parabolicDistortion(vec2 XY, vec2 multiplier);
-    vec2 polynomialDistortion(vec2 XY, float factor, vec2 multiplier);
-    vec2 polynomial2Distortion(vec2 XY, vec2 factor, vec2 multiplier);
-
-    void main() {
-        vec2 XY;
-
-        if (uIsBuffer) {
-            // Add initial and current offset
-            XY = vTextureCoord + uInitialTextureOffset + uTextureOffset;
-        } else {
-            vec2 multiplier = vec2(0.11, 0);
-            vec2 recover = vec2(1.05, 1);
-            float factor = .7; // can also be vec2
-            vec2 originOffset = vec2(0, 0.3);
-
-            XY = vTextureCoord;
-            float R;
-            bvec2 isValid;
-
-            /*Normalize components from range {0, 1} to {-1, 1}*/
-            XY = (2. * XY) - 1.;
-
-            /*Shift offset*/
-            XY += originOffset;
-
-            /*Calculate distortion*/
-            // XY = arctanDistortion(XY, factor, multiplier);
-            // XY = arctan2Distortion(XY, factor, multiplier);  // typeof factor === vec2
-            // XY = linearDistortion(XY, multiplier);
-            XY = parabolicDistortion(XY, multiplier);
-            // XY = polynomialDistortion(XY, factor, multiplier);
-            // XY = polynomial2Distortion(XY, factor, multiplier);  // typeof factor === vec2
-
-            /*Reset origin*/
-            XY -= originOffset;
-
-            /*Recover edges*/
-            XY *= recover;
-
-            /*Filter valid regions*/
-            isValid = lessThanEqual(abs(XY), vec2(1, 1));
-            if (isValid.x && isValid.y) {
-                /*De-normalize*/
-                XY = (XY + 1.) / 2.;
-            } else {
-                discard;
-            }
-        }
-
-        onePixel = vec2(1.0, 1.0) / uTextureSize;
-
-        // gl_FragColor = (
-        //    texture2D(uSampler, XY) +
-        //    texture2D(uSampler, XY + vec2(onePixel.x, 0.0)) +
-        //    texture2D(uSampler, XY + vec2(-onePixel.x, 0.0))) / 3.0;
-        gl_FragColor = texture2D(uSampler, XY);
-    }
-
-    vec2 arctanDistortion(vec2 XY, float factor, vec2 multiplier) {
-        if (factor == 0.) {
-            return XY * (1. + multiplier);
-        }
-
-        float t = factor * length(XY);
-        float R = atan(t) / t;
-        return XY * (1. + multiplier) * R;
-    }
-
-    vec2 arctan2Distortion(vec2 XY, vec2 factor, vec2 multiplier) {
-        vec2 t = factor * length(XY);
-        vec2 R;
-
-        if (factor.x == 0. || factor.y == 0.) {
-            if (factor.x == 0.) {
-                R = vec2(1, atan(t.y) / t.y);
-            }
-            if (factor.y == 0.) {
-                R = vec2(atan(t.x) / t.x, 1);
-            }
-        } else {
-            R = atan(t) / t;
-        }
-
-        return XY * (1. + multiplier) * R;
-    }
-
-    vec2 linearDistortion(vec2 XY, vec2 multiplier) {
-        float R = length(XY);
-        return XY * (1. - multiplier * R);
-    }
-
-    vec2 parabolicDistortion(vec2 XY, vec2 multiplier) {
-        float R = dot(XY, XY);
-        return XY * (1. - multiplier * R);
-    }
-
-    vec2 polynomialDistortion(vec2 XY, float factor, vec2 multiplier) {
-        float R = pow(length(XY), factor);
-        return XY * (1. - multiplier * R);
-    }
-
-    vec2 polynomial2Distortion(vec2 XY, vec2 factor, vec2 multiplier) {
-        vec2 R = pow(vec2(length(XY), length(XY)), factor);
-        return XY * (1. - multiplier * R);
-    }
-</script>
 </html>
