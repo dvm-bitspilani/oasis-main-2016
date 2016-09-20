@@ -114,25 +114,47 @@ return /******/ (function(modules) { // webpackBootstrap
 	    src:'noah',
 	    no:12,
 			size:1444,
-			scroll:25
+			scroll:25,
+			text:[
+				""
+			]
 	  },
 	  {
 	    src:'moses',
 	    no:10,
 			size:1457,
-			scroll:20
+			scroll:20,
+			text:[
+				"",
+				"The woman sets her baby afloat in the Nile. She will never see him again.It is the only way to save him. She prays to God. Her daughter weeps quietly.",
+		   	"The baby is now a man. He sees an Egyptian beat a Hebrew. He intervenes. He kills the Egyptian. The Pharaoh wants to kill him. This is his justice. God helps his prophet escape.",
+			  "The cruelties against the Hebrews continue. God has had enough. He sends his messenger to save the Hebrews.",
+				"The Pharaoh will not let the Hebrews leave his kingdom. God brings ten plagues upon Egypt. The Pharaoh relents.",
+				"Moses will lead the Hebrews to Israel. The Red Sea stands in his way. Moses raises his staff. The Sea trembles. The Sea gives way."
+			]
 	  },
 	  {
 	    src:'mahabharat',
 	    no:8,
 			size:1311,
-			scroll:16
+			scroll:16,
+			text:[
+				"Hastinapur is ruled by the Duryodhan, eldest among the Kauravas.",
+				"Yudhishthir, eldest of the Pandavas, rules Indraprasth.",
+				"Draupadi is the Pandavas’ wife. They love her dearly.",
+				"A jealous Duryodhan invites Yudhishthir for a game of dice, and cheats so as to take over Indraprasth. Yudhishthir gambles away not only his kingdom, but also his brothers and even himself.",
+				"Yudhishthir also loses his wife, who is disgraced in front of the entire court. The Pandavas are infuriated at the Kauravas for trying to dishonour their wife.",
+				"They promise to wage war. War the likes of which neither Man nor God has seen."
+			]
 	  },
 	  {
 	    src:'troy',
 	    no:8,
 			size:1411,
-			scroll:16.1
+			scroll:16.1,
+			text:[
+				""
+			]
 	  },
 
 	]
@@ -149,6 +171,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var fakeScroll = document.getElementById('fakeScroll');
 fakeScroll.style.height=(story[sNo].size*story[sNo].no)+'px';
 
+var oldSlide=-1;
 // console.log((story[sNo].size*story[sNo].no),fakeScroll.style.height);
 	function scrollHandling(){
 	  var offset = 0;
@@ -163,16 +186,23 @@ fakeScroll.style.height=(story[sNo].size*story[sNo].no)+'px';
 
 
 	    var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
-	    offset+=((st-lastScrollTop)/parseInt(fakeScroll.style.height)*23.9);
+	    offset+=((st-lastScrollTop)/parseInt(fakeScroll.style.height)*story[sNo].scroll);
 	    gl.uniform2f(program.uTextureOffset, 0, offset);
 
 			var slideNo = Math.round(st /(parseInt(fakeScroll.style.height)/6));
-			$('#currentRing').attr('cy',ringArr[slideNo]);
-			$('.storyContentWrap').css({
-				top:parseInt(storyTextPos[j])-(window.innerHeight/10)+'px'
-			});
-			$('.storyWrap').fadeIn();
 
+			$('#currentRing').attr('cy',ringArr[slideNo]);
+
+			if(oldSlide!=slideNo){
+				$('.storyText').fadeOut(400);
+				setTimeout(function(){
+					$('.storyText').html(story[sNo].text[slideNo]);
+					$('.storyText').fadeIn();
+				},400);
+				oldSlide=slideNo;
+			}
+
+			$('.storyWrap').fadeIn();
 	//     clearTimeout( $.data( this, "scrollCheck" ) );
 	//     $.data( this, "scrollCheck", setTimeout(function() {
 	//       console.log('stop');
