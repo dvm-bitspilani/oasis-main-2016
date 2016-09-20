@@ -167,8 +167,11 @@ fakeScroll.style.height=(story[sNo].size*story[sNo].no)+'px';
 	    gl.uniform2f(program.uTextureOffset, 0, offset);
 
 			var slideNo = Math.round(st /(parseInt(fakeScroll.style.height)/6));
-			console.log(slideNo+1);
 			$('#currentRing').attr('cy',ringArr[slideNo]);
+			$('.storyContentWrap').css({
+				top:parseInt(storyTextPos[j])-(window.innerHeight/10)+'px'
+			});
+			$('.storyWrap').fadeIn();
 
 	//     clearTimeout( $.data( this, "scrollCheck" ) );
 	//     $.data( this, "scrollCheck", setTimeout(function() {
