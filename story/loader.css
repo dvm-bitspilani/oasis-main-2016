@@ -5,6 +5,11 @@
   src:url('../fonts/Monthoers.ttf');
 }
 
+@font-face {
+    font-family: "Nexa-Bold";
+    src: url('../fonts/Nexa Bold.otf');
+}
+
 #inkCanvas{
   z-index: 80;
 }
@@ -418,11 +423,11 @@ background-repeat: no-repeat;*/
 
 
 .scene-wrapper {
-    display: ;
+    display: none;
 }
 
 .scene-container {
-    position: fixed;
+    position: absolute;
     width: 120vw;
     height: 130vh;
     margin: 0;
@@ -434,7 +439,20 @@ background-repeat: no-repeat;*/
     justify-content: space-around;
     overflow: hidden;
     transition: all 200ms ease;
-    z-index: 8;
+    z-index: 70;
+}
+
+.scene-text {
+    position: absolute;
+    /* left: 0; */
+    top: 20vh;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    transform: rotate(-10deg);
+    font-size: 1.5em;
+    opacity: 0.5;
+    font-family: 'Nexa-Bold',serif;
 }
 
 .scene {
@@ -453,7 +471,7 @@ background-repeat: no-repeat;*/
     transform: rotate(10deg);
 }
 
-#noah {
+#troy {
     position: relative;
     left: -40vw;
 }
@@ -470,7 +488,7 @@ background-repeat: no-repeat;*/
     left: 70vw;
 }
 
-#troy {
+#noah {
     /*transform: translateX(50vw) rotate(10deg);*/
     position: relative;
     left: 50vw;
@@ -517,7 +535,7 @@ background-repeat: no-repeat;*/
 }
 
 #ram {
-    background-image: url("../img/strip-1.jpg");
+    background-image: url("../img/maha-strip.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 100% 100%;
@@ -546,4 +564,22 @@ background-repeat: no-repeat;*/
 
 #arc:hover {
     background-size: 120% 120%;
+}
+
+
+.leftDash,.rightDash{
+  position: absolute;
+  width: 18%;
+  top: 50%;
+border-bottom: 3px solid rgba(255,255,255,0.7);
+}
+
+
+.leftDash{
+  left:6%;
+
+}
+.rightDash{
+  right:6%;
+
 }

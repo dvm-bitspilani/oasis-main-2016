@@ -138,6 +138,8 @@
           c26.8,0.2,45.1,32.2,43.7,61.4C-32.4,503.6-32.4,503.8-32.4,504z"></path>
         </g>
       </svg>
+
+    <div class="loader_text">The site is best viewed in Google Chrome 29.0+</div>
     </div>
   </div>
 
@@ -150,52 +152,60 @@
 
   // context.drawImage(bg, 0, 0, 1600,907,0,0,298,168);
 
+  if (navigator.userAgent.indexOf("Chrome") != -1) {
 
-  document.getElementById('main_loader').style.display = 'block';
+    document.getElementById('main_loader').style.display = 'block';
 
-  setInterval(function () {
-    document.getElementById('lower').style.display = 'block';
-    setTimeout(function () {
-      document.getElementById('lower').style.display = 'none';
-    }, 3000);
-  }, 5000);
+    setInterval(function () {
+      document.getElementById('lower').style.display = 'block';
+      setTimeout(function () {
+        document.getElementById('lower').style.display = 'none';
+      }, 3000);
+    }, 5000);
 
-  setInterval(function () {
-    document.getElementById('line').style.display = 'block';
-    setTimeout(function () {
-      document.getElementById('line').style.display = 'none';
-    }, 3000);
-  }, 5000);
+    setInterval(function () {
+      document.getElementById('line').style.display = 'block';
+      setTimeout(function () {
+        document.getElementById('line').style.display = 'none';
+      }, 3000);
+    }, 5000);
 
-  setInterval(function () {
-    document.getElementById('lowerin').style.display = 'none';
-    setTimeout(function () {
-      document.getElementById('lowerin').style.display = 'block';
-    }, 3000);
-  }, 5000);
+    setInterval(function () {
+      document.getElementById('lowerin').style.display = 'none';
+      setTimeout(function () {
+        document.getElementById('lowerin').style.display = 'block';
+      }, 3000);
+    }, 5000);
 
-  var i=0;
-  setInterval(function () {
-    setTimeout(function animatedots () {
-      if(i==12){
-        i=0;
-        var dots = document.getElementsByClassName('dots');
-        for(var key in dots) {
-          if(dots.hasOwnProperty(key)) {
-            dots[key].style.display = "block";
+    var i=0;
+    setInterval(function () {
+      setTimeout(function animatedots () {
+        if(i==12){
+          i=0;
+          var dots = document.getElementsByClassName('dots');
+          for(var key in dots) {
+            if(dots.hasOwnProperty(key)) {
+              dots[key].style.display = "block";
+            }
           }
-        }
 
-      }
-      else {
-        setTimeout(function () {
-          document.getElementsByClassName('dots')[i].style.display = "none";
-          i++;
-          requestAnimationFrame(animatedots);
-        }, 125);
-      }
-    }, 1500);
-  }, 5000)
+        }
+        else {
+          setTimeout(function () {
+            document.getElementsByClassName('dots')[i].style.display = "none";
+            i++;
+            requestAnimationFrame(animatedots);
+          }, 125);
+        }
+      }, 1500);
+    }, 5000);
+
+  }
+
+  else {
+    document.getElementById('fallback_loader').style.disply = "block";
+  }
+
 </script>
 
 <div class="container">
@@ -222,60 +232,60 @@
 
   </div>
 
-<div class="ham" id="ham">
-  <svg viewBox="0 0 800 800" class="hamb" id="hamb">
-    <rect
-    x="69.654"
-    height="420.341"
-    width="420.344"
-    y="229.936"
-    transform="matrix(0.7071 -0.7071 0.7071 0.7071 -82.9689 199.9064)"
-    stroke-miterlimit="10"
-    id="rect4"
-    stroke-width="12.2727"
-    stroke="#FFFFFF"
-    fill="none"
-    opacity="0.7" />
-    <path
-    d="M300,220 C300,220 520,220 540,220 C740,220 640,540 520,420 C440,340 300,200 300,200"
-    id="top" />
-    <path
-    d="M300,320 L540,320"
-    id="middle" />
-    <path
-    d="M300,210 C300,210 520,210 540,210 C740,210 640,530 520,410 C440,330 300,190 300,190"
-    id="bottom"
-    transform="translate(480, 320) scale(1, -1) translate(-480, -318) " />
-  </svg>
-</div>
-<div class="side-nav" id="side-nav">
-  <div class="logo"></div>
-  <div class="storyType">
-    <svg version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-    width="400px" height="400px" viewBox="0 0 400 400" enable-background="new 0 0 400 400" >
-    <g>
-      <polygon opacity="0.4" fill="#FFFFFF" points="277.68,101.426 86.74,101.426 122.003,15.352 312.943,15.352  "/>
-      <polygon opacity="0.4" fill="#FFFFFF" points="277.68,196.2 86.74,196.2 122.003,110.128 312.943,110.128  "/>
-      <polygon opacity="0.4" fill="#FFFFFF" points="277.68,290.973 86.74,290.973 122.003,204.901 312.943,204.901  "/>
-      <polygon opacity="0.4" fill="#FFFFFF" points="277.68,385.505 86.74,385.505 122.003,299.432 312.943,299.432  "/>
-    </g>
-  </svg>
+  <div class="ham" id="ham">
+    <svg viewBox="0 0 800 800" class="hamb" id="hamb">
+      <rect
+      x="69.654"
+      height="420.341"
+      width="420.344"
+      y="229.936"
+      transform="matrix(0.7071 -0.7071 0.7071 0.7071 -82.9689 199.9064)"
+      stroke-miterlimit="10"
+      id="rect4"
+      stroke-width="12.2727"
+      stroke="#FFFFFF"
+      fill="none"
+      opacity="0.7" />
+      <path
+      d="M300,220 C300,220 520,220 540,220 C740,220 640,540 520,420 C440,340 300,200 300,200"
+      id="top" />
+      <path
+      d="M300,320 L540,320"
+      id="middle" />
+      <path
+      d="M300,210 C300,210 520,210 540,210 C740,210 640,530 520,410 C440,330 300,190 300,190"
+      id="bottom"
+      transform="translate(480, 320) scale(1, -1) translate(-480, -318) " />
+    </svg>
+  </div>
+  <div class="side-nav" id="side-nav">
+    <div class="logo"></div>
+    <div class="storyType">
+      <svg version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+      width="400px" height="400px" viewBox="0 0 400 400" enable-background="new 0 0 400 400" >
+      <g>
+        <polygon opacity="0.4" fill="#FFFFFF" points="277.68,101.426 86.74,101.426 122.003,15.352 312.943,15.352  "/>
+        <polygon opacity="0.4" fill="#FFFFFF" points="277.68,196.2 86.74,196.2 122.003,110.128 312.943,110.128  "/>
+        <polygon opacity="0.4" fill="#FFFFFF" points="277.68,290.973 86.74,290.973 122.003,204.901 312.943,204.901  "/>
+        <polygon opacity="0.4" fill="#FFFFFF" points="277.68,385.505 86.74,385.505 122.003,299.432 312.943,299.432  "/>
+      </g>
+    </svg>
 
-</div>
-<div class="bar"></div>
+  </div>
+  <div class="bar"></div>
 
-<div class="menuList">
-  <ul>
-    <li class="active">HOME</li>
-    <li>ABOUT</li>
-    <li><a href="http://bits-oasis.org/2016/register" target="_blank" style="text-decoration:none;color:#2B1A15">REGISTER</a></li>
-    <li class="events-trigger">EVENTS</li>
-    <li>ARCHIVES</li>
-    <li>SPONSORS</li>
-    <li class="contacts-trigger">CONTACTS</li>
-  </ul>
-</div>
-<div class="sideBar"></div>
+  <div class="menuList">
+    <ul>
+      <li class="active">HOME</li>
+      <li>ABOUT</li>
+      <li><a href="http://bits-oasis.org/2016/register" target="_blank" style="text-decoration:none;color:#2B1A15">REGISTER</a></li>
+      <li class="events-trigger">EVENTS</li>
+      <li>ARCHIVES</li>
+      <li>SPONSORS</li>
+      <li class="contacts-trigger">CONTACTS</li>
+    </ul>
+  </div>
+  <div class="sideBar"></div>
 
 </div>
 <div class="landing">
@@ -3044,7 +3054,7 @@ id="innerLeft">
                         </div>
                       </div>
                     </div>
-                    <div class="developers-trigger">Know the Developers &lt;&#47;&gt; </div>
+                    <div class="developers-trigger"><span style="color:#4285f4">Know the Developers&lt;&#47;&gt; </span></div>
                   </div>
 
 
@@ -3099,163 +3109,211 @@ id="innerLeft">
                       </div>
                     </div>
                   </div>
+                  <div class="event-litebox kinetic-active ps-container" >
+                    <div class="spinner" style="display:none">
+                      <div class="rect1"></div>
+                      <div class="rect2"></div>
+                      <div class="rect3"></div>
+                      <div class="rect4"></div>
+                      <div class="rect5"></div>
+                    </div>
                   </div>
-                  </div>
+                </div>
+              </div>
 
 
-                  <div class="lite-wrapper" id="developers">
-                    <div class="litebox">
-                      <div class="black-back" style="display: block;">
+              <div class="lite-wrapper" id="developers">
+                <div class="litebox">
+                  <div class="black-back" style="display: block;">
+                  </div>
+                  <div class="developer-wrapper">
+                    <div class="litebox-mainContent-wrapper" id="lite-developers">
+                      <div class="litehead" style="width: 80vw;">
+                        Developers
                       </div>
-                      <div class="litebox-mainContent-wrapper" id="lite-developers">
-                        <div class="litehead">
-                          Developers
-                        </div>
-                        <div class="litecont">
-                          <section id="grid" class="grid clearfix">
-                            <a href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
-                              <figure>
-                                <img src="img/1.png" />
-                                <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
-                                <figcaption>
-                                  <h2>Crystalline</h2>
-                                  <p>Soko radicchio bunya nuts gram dulse.</p>
-                                  <button>View</button>
-                                </figcaption>
-                              </figure>
-                            </a>
-                            <a href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
-                              <figure>
-                                <img src="img/3.png" />
-                                <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
-                                <figcaption>
-                                  <h2>Cacophony</h2>
-                                  <p>Two greens tigernut soybean radish.</p>
-                                  <button>View</button>
-                                </figcaption>
-                              </figure>
-                            </a>
-                            <a href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
-                              <figure>
-                                <img src="img/5.png" />
-                                <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
-                                <figcaption>
-                                  <h2>Languid</h2>
-                                  <p>Beetroot water spinach okra water.</p>
-                                  <button>View</button>
-                                </figcaption>
-                              </figure>
-                            </a>
-                            <a href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
-                              <figure>
-                                <img src="img/7.png" />
-                                <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
-                                <figcaption>
-                                  <h2>Serene</h2>
-                                  <p>Water spinach arugula pea tatsoi.</p>
-                                  <button>View</button>
-                                </figcaption>
-                              </figure>
-                            </a>
-                            <a href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
-                              <figure>
-                                <img src="img/2.png" />
-                                <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
-                                <figcaption>
-                                  <h2>Nebulous</h2>
-                                  <p>Pea horseradish azuki bean lettuce.</p>
-                                  <button>View</button>
-                                </figcaption>
-                              </figure>
-                            </a>
-                            <a href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
-                              <figure>
-                                <img src="img/4.png" />
-                                <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
-                                <figcaption>
-                                  <h2>Iridescent</h2>
-                                  <p>A grape silver beet watercress potato.</p>
-                                  <button>View</button>
-                                </figcaption>
-                              </figure>
-                            </a>
-                            <a href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
-                              <figure>
-                                <img src="img/6.png" />
-                                <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
-                                <figcaption>
-                                  <h2>Resonant</h2>
-                                  <p>Chickweed okra pea winter purslane.</p>
-                                  <button>View</button>
-                                </figcaption>
-                              </figure>
-                            </a>
-                            <a href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
-                              <figure>
-                                <img src="img/8.png" />
-                                <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
-                                <figcaption>
-                                  <h2>Zenith</h2>
-                                  <p>Salsify taro catsear garlic gram.</p>
-                                  <button>View</button>
-                                </figcaption>
-                              </figure>
-                            </a>
-                          </section>
-                          <section class="related">
-                            <p>If you enjoyed these effects you might also like:</p>
-                            <div><a href="http://tympanus.net/Tutorials/CaptionHoverEffects/"><h4>Caption Hover Effects</h4></a></div>
-                            <div><a href="http://tympanus.net/Development/AnimatedSVGIcons/"><h4>Animated SVG Icons</h4></a></div>
-                          </section>
-                        </div>
+                      <div class="litecont" style="width: 80vw;line-height: 1;">
+                        <section id="grid" class="grid clearfix">
+                          <a href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+                            <figure>
+                              <img src="img/ashu.jpg" />
+                              <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
+                              <figcaption>
+                                <h2>Amritanshu Jain</h2>
+                                <p>BackEnd Developer</p>
+                                <button><img src="img/git_icon.png"></button>
+                                <!-- <button><img src="img/linkedin_icon.png"></button> -->
+                              </figcaption>
+                            </figure>
+                          </a>
+                          <a href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+                            <figure>
+                              <img src="img/pulkit.jpg" />
+                              <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
+                              <figcaption>
+                                <h2>Pulkit Agarwal</h2>
+                                <p>Graphic Designer</p>
+                                <button>View</button>
+                              </figcaption>
+                            </figure>
+                          </a>
+                          <a href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+                            <figure>
+                              <img src="img/partho.jpg" />
+                              <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
+                              <figcaption>
+                                <h2>Partho Sarthi</h2>
+                                <p>FrontEnd Developer</p>
+                                <button>View</button>
+                              </figcaption>
+                            </figure>
+                          </a>
+                          <a href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+                            <figure>
+                              <img src="img/suvigya.jpg" />
+                              <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
+                              <figcaption>
+                                <h2>Suvigya Vijay</h2>
+                                <p>FrontEnd Developer</p>
+                                <button>View</button>
+                              </figcaption>
+                            </figure>
+                          </a>
+                          <a href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+                            <figure>
+                              <img src="img/deepak.jpg" />
+                              <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
+                              <figcaption>
+                                <h2>Deepak Kar</h2>
+                                <p>BackEnd Developer</p>
+                                <button>View</button>
+                              </figcaption>
+                            </figure>
+                          </a>
+                          <a href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+                            <figure>
+                              <img src="img/paras.jpg" />
+                              <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
+                              <figcaption>
+                                <h2>Paras Gupta</h2>
+                                <p>Graphic Designer</p>
+                                <button>View</button>
+                              </figcaption>
+                            </figure>
+                          </a>
+                          <a href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+                            <figure>
+                              <img src="img/rajat.jpg" />
+                              <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
+                              <figcaption>
+                                <h2>Rajat Thakur</h2>
+                                <p>Graphic Designer</p>
+                                <button>View</button>
+                              </figcaption>
+                            </figure>
+                          </a>
+                          <a href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+                            <figure>
+                              <img src="img/bhavesh.jpg" />
+                              <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
+                              <figcaption>
+                                <h2>Narra Bhavesh</h2>
+                                <p>FrontEnd Developer</p>
+                                <button>View</button>
+                              </figcaption>
+                            </figure>
+                          </a>
+                          <a href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+                            <figure>
+                              <img src="img/anup.jpg" />
+                              <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
+                              <figcaption>
+                                <h2>Anup Bhutada</h2>
+                                <p>Graphic Designer</p>
+                                <button>View</button>
+                              </figcaption>
+                            </figure>
+                          </a>
+                          <a href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+                            <figure>
+                              <img src="img/harshil.jpg" />
+                              <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
+                              <figcaption>
+                                <h2>Harshil Choudhary</h2>
+                                <p>Graphic Designer</p>
+                                <button>View</button>
+                              </figcaption>
+                            </figure>
+                          </a>
+                          <a href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+                            <figure>
+                              <img src="img/arjun.jpg" />
+                              <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
+                              <figcaption>
+                                <h2>Arjun Tyagi</h2>
+                                <p>Co-ordinator</p>
+                                <button>View</button>
+                              </figcaption>
+                            </figure>
+                          </a>
+                        </section>
+                        <section class="related">
+                          <p><b>Credits</b></p>
+                          <div class="credits">
+                            <div><p>Zibbu</p><span>abc</span></div>
+                            <div><p>Devanshu Tak</p><span>xyz</span></div>
+                          </div>
+                        </section>
                       </div>
                     </div>
-
-
                   </div>
+                </div>
+              </div>
 
 
-                  <div class="scene-wrapper">
-                    <div id="box" class="scene-container">
-                      <div class="scene" id="noah">
-                        <div id="arc" class="image" story="1"></div>
-                      </div>
-                      <div class="scene" id="moses">
-                        <div id="nigger" class="image" story="2"></div>
-                      </div>
-                      <div class="scene" id="desi">
-                        <div id="ram" class="image" story="3"></div>
-                      </div>
-                      <div class="scene" id="troy">
-                        <div id="achilies" class="image" story="4"></div>
-                      </div>
-                    </div>
-
+              <div class="scene-wrapper">
+                <div id="box" class="scene-container">
+                  <div class="scene" id="troy">
+                  <div class="scene-text">Tale of <br><span style="font-size:1.9em">Troy</span></div>
+                    <div id="achilies" class="image" story="4"></div>
                   </div>
+                  <div class="scene" id="moses">
+                  <div class="scene-text">Tale of <br><span style="font-size:1.9em">Moses</span></div>
+                    <div id="nigger" class="image" story="2"></div>
+                  </div>
+                  <div class="scene" id="desi">
+                  <div class="scene-text">Tale of <br><span style="font-size:1.9em">Mahabharat</span></div>
+                    <div id="ram" class="image" story="3"></div>
+                  </div>
+                  <div class="scene" id="noah">
+                  <div class="scene-text" style="width:70%">Tale of <br><span style="font-size:1.9em">Noah</span></div>
+                    <div id="arc" class="image" story="1"></div>
+                  </div>
+                </div>
+              </div>
 
 
-                  <script src="js/jquery.min.js"></script>
+              <script src="js/jquery.min.js"></script>
 
-                  <script src="js/jquery.ba-throttle-debounce.js"></script>
-                  <!-- <script type="text/javascript" src="./js/jquery.kinetic.min.js"></script> -->
-                  <script src="js/snap.svg-min.js"></script>
-                  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.12/js/perfect-scrollbar.jquery.min.js"></script>
-                  <script type="text/javascript" src="js/script.js"></script>
-                  <script type="text/javascript" src="js/contacts.js"></script>
+              <script src="js/jquery.ba-throttle-debounce.js"></script>
+              <!-- <script type="text/javascript" src="./js/jquery.kinetic.min.js"></script> -->
+              <script src="js/snap.svg-min.js"></script>
+              <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.12/js/perfect-scrollbar.jquery.min.js"></script>
+              <script type="text/javascript" src="js/script.js"></script>
+              <script type="text/javascript" src="js/contacts.js"></script>
 
-                  <script type="text/javascript">
-                    $(window).load(function() {
-                      loadingdone();
+              <script type="text/javascript">
+                $(window).load(function() {
+                  loadingdone();
 
-                    });
+                });
 
-                    var canvas = document.querySelector("#inkCanvas");
-                    var context = canvas.getContext("2d");
+                var canvas = document.querySelector("#inkCanvas");
+                var context = canvas.getContext("2d");
 
-                    var bg = new Image();
-                    bg.src = "img/inkbg.jpg";
-                    var myImage = new Image();
-                    myImage.src = "img/mask.png";
+                var bg = new Image();
+                bg.src = "img/inkbg.jpg";
+                var myImage = new Image();
+                myImage.src = "img/mask.png";
 
   // myImage.addEventListener("load", loadImage, false);
 
@@ -3358,9 +3416,9 @@ function sprite (canvasId, spriteimg, frameWidth, frameHeight, totalFrames, invs
   }
 }
 
-sprite('ban1', 'img/ban3.png', 100, 335, 25, 3);
+sprite('ban1', 'img/ban1.png', 100, 335, 25, 3);
 sprite('ban2', 'img/ban2.png', 100, 335, 25, 3);
-sprite('ban3', 'img/ban1.png', 100, 335, 25, 3);
+sprite('ban3', 'img/ban3.png', 100, 335, 25, 3);
 sprite('ban4', 'img/ban4.png', 100, 335, 25, 3);
 sprite('ban5', 'img/ban5.png', 100, 335, 25, 3);
 sprite('ban6', 'img/ban6.png', 100, 335, 25, 3);
@@ -3505,7 +3563,7 @@ setInterval(function () {
 function loadingdone () {
   setTimeout(function () {
     $('.loader-wrapper').fadeOut('slow');
-    // $('#main_loader').hide();
+    $('.loader_text').fadeOut();
     $('.container').css('display', 'block');
   // context.drawImage(bg, shift, 0, 1600, 907, 0, 0, frameWidth, frameHeight);
 
@@ -3610,6 +3668,7 @@ $("#box").mousemove(function(e){
 });
 
 $('#storybutton').click(function() {
+  $('.scene-wrapper').show();
   $(this).fadeOut();
   $('#noah').animate({left: '0vw'}, 400);
   $('#moses').animate({left: '0vw'}, 400);
@@ -3633,8 +3692,10 @@ $('.lite-box').hide();
 
 $('.about-trigger').click(function() {
   $('#about').fadeIn('400', function() {
+    $('#storybutton').fadeOut();
     $(this).css('display', 'flex');
     $('.black-back').click(function() {
+      $('#storybutton').fadeIn();
       $('#about').fadeOut();
     });
   }).children().click(function(e) {
@@ -3645,8 +3706,10 @@ $('.about-trigger').click(function() {
 
 $('.archive-trigger').click(function() {
   $('#archive').fadeIn('400', function() {
+    $('#storybutton').fadeOut();
     $(this).css('display', 'flex');
     $('.black-back').click(function() {
+      $('#storybutton').fadeIn();
       $('#archive').fadeOut();
     });
   }).children().click(function(e) {
@@ -3656,8 +3719,10 @@ $('.archive-trigger').click(function() {
 
 $('.contacts-trigger').click(function() {
   $('#contacts').fadeIn('400', function() {
+    $('#storybutton').fadeOut();
     $(this).css('display', 'flex');
     $('.black-back').click(function() {
+      $('#storybutton').fadeIn();
       $('#contacts').fadeOut();
     });
   }).children().click(function(e) {
@@ -3667,9 +3732,11 @@ $('.contacts-trigger').click(function() {
 
 $('.developers-trigger').click(function() {
   $('#developers').fadeIn('400', function() {
+    $('#storybutton').fadeOut();
     $('#contacts').fadeOut();
     $(this).css('display', 'flex');
     $('.black-back').click(function() {
+      $('#storybutton').fadeIn();
       $('#developers').fadeOut();
     });
   }).children().click(function(e) {
