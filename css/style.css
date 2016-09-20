@@ -5501,3 +5501,46 @@ lightbox: 200;
 }
 
 /*------------------------------------Litebox End------------------------------*/
+
+.social-icon-wrapper {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    z-index: 60;
+}
+
+.social-icon-wrapper > div {
+    /*width: 60%;*/
+    /*filter:brightness(100%);*/
+    opacity: 0.9;
+    margin: 10px 0;
+    width: 32px;
+    height: 32px;
+}
+
+.social-icon-wrapper > #fb {
+    background: url('../img/fb.png');
+}
+
+.social-icon-wrapper > #fb:hover {
+    background: url('../img/fbi_hover.png');
+}
+
+.social-icon-wrapper > #twitter {
+    background: url('../img/twitter_icon.png');
+}
+
+.social-icon-wrapper > #twitter:hover {
+    background: url('../img/twitter_hover.png');
+}
+
+.social-icon-wrapper > #youtube {
+    background: url('../img/youtube_icon.png');
+}
+
+.social-icon-wrapper > #youtube:hover {
+    background: url('../img/youtube_hover.png');
+}
