@@ -139,7 +139,7 @@
         </g>
       </svg>
       
-   
+    <div class="loader_text">The site is best viewed in Google Chrome 29.0+</div>
     </div>
   </div>
 
@@ -3054,7 +3054,7 @@ id="innerLeft">
                         </div>
                       </div>
                     </div>
-                    <div class="developers-trigger">Know the Developers &lt;&#47;&gt; </div>
+                    <div class="developers-trigger"><span style="color:#4285f4">Know the Developers&lt;&#47;&gt; </span></div>
                   </div>
 
 
@@ -3272,20 +3272,23 @@ id="innerLeft">
 
               <div class="scene-wrapper">
                 <div id="box" class="scene-container">
-                  <div class="scene" id="noah">
-                    <div id="arc" class="image" story="1"></div>
+                  <div class="scene" id="troy">
+                  <div class="scene-text">Tale of <br><span style="font-size:1.9em">Troy</span></div>
+                    <div id="achilies" class="image" story="4"></div>
                   </div>
                   <div class="scene" id="moses">
+                  <div class="scene-text">Tale of <br><span style="font-size:1.9em">Moses</span></div>
                     <div id="nigger" class="image" story="2"></div>
                   </div>
                   <div class="scene" id="desi">
+                  <div class="scene-text">Tale of <br><span style="font-size:1.9em">Mahabharat</span></div>
                     <div id="ram" class="image" story="3"></div>
                   </div>
-                  <div class="scene" id="troy">
-                    <div id="achilies" class="image" story="4"></div>
+                  <div class="scene" id="noah">
+                  <div class="scene-text" style="width:70%">Tale of <br><span style="font-size:1.9em">Noah</span></div>
+                    <div id="arc" class="image" story="1"></div>
                   </div>
                 </div>
-
               </div>
 
 
@@ -3413,9 +3416,9 @@ function sprite (canvasId, spriteimg, frameWidth, frameHeight, totalFrames, invs
   }
 }
 
-sprite('ban1', 'img/ban3.png', 100, 335, 25, 3);
+sprite('ban1', 'img/ban1.png', 100, 335, 25, 3);
 sprite('ban2', 'img/ban2.png', 100, 335, 25, 3);
-sprite('ban3', 'img/ban1.png', 100, 335, 25, 3);
+sprite('ban3', 'img/ban3.png', 100, 335, 25, 3);
 sprite('ban4', 'img/ban4.png', 100, 335, 25, 3);
 sprite('ban5', 'img/ban5.png', 100, 335, 25, 3);
 sprite('ban6', 'img/ban6.png', 100, 335, 25, 3);
@@ -3560,7 +3563,7 @@ setInterval(function () {
 function loadingdone () {
   setTimeout(function () {
     $('.loader-wrapper').fadeOut('slow');
-    // $('#main_loader').hide();
+    $('.loader_text').fadeOut();
     $('.container').css('display', 'block');
   // context.drawImage(bg, shift, 0, 1600, 907, 0, 0, frameWidth, frameHeight);
 
@@ -3665,6 +3668,7 @@ $("#box").mousemove(function(e){
 });
 
 $('#storybutton').click(function() {
+  $('.scene-wrapper').show();
   $(this).fadeOut();
   $('#noah').animate({left: '0vw'}, 400);
   $('#moses').animate({left: '0vw'}, 400);
