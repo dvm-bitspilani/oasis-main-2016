@@ -24,7 +24,7 @@
   <title>OASIS 2016 | OF GODS AND MEN | BITS Pilani</title>
   <link rel="icon" type="image/png" href="./img/favicon.png">
   <link rel="stylesheet" href="css/style.css" media="screen" title="no title" charset="utf-8">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.12/css/perfect-scrollbar.min.css" />
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.12/css/perfect-scrollbar.min.css" /> -->
   <!-- <link href="https://fonts.googleapis.com/css?family=Lato:400" rel="stylesheet">  -->
 </head>
 <body>
@@ -226,12 +226,13 @@
         <use xlink:href="#r6" transform="rotate(330 160 160)"/>
       </svg>
     </div>
-      <div class="loader_text">The site is best viewed in Google Chrome 29.0+</div>
+    <div class="loader_text"><span style="font-size:3em; margin-bottom:40px">0%</span><br>
+      The site is best viewed in Google Chrome 29.0+</div>
+    </div>
+
   </div>
 
-</div>
-
-<script type="text/javascript">
+  <script type="text/javascript">
   // var bg = new Image();
   // bg.src = "img/inkbg.jpg";
 
@@ -293,6 +294,35 @@
   else {
     document.getElementById('fallback_loader').style.display = "flex";
   }
+
+</script>
+
+<script src="../js/queryloader2.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+  window.addEventListener('DOMContentLoaded', function() {
+    "use strict";
+    var ql = new QueryLoader2(document.querySelector('body'), {
+      barColor: "transparent",
+      backgroundColor: "transparent",
+      percentage: false,
+      barHeight: 0,
+      minimumTime: 2000,
+      fadeOutTime: 1000,
+      onProgress: function(p,l,t) {
+        console.log(p, l, t);
+        $('.loader_text > span').text(Math.floor(p)+'%');
+       if (Math.floor(p)>99) {          // loadingdone();
+        setTimeout(function () {
+          $('.scene-wrapper').hide();
+            // $('.black-back').hide();
+            $('.loader-wrapper').fadeOut('slow');
+            $('.loader_text').fadeOut();
+            $('.container').css('display', 'block');
+            animate();
+          },3000);
+      }}
+    })
+  })
 
 </script>
 
@@ -3142,7 +3172,7 @@ id="innerLeft">
                         </div>
                       </div>
                     </div>
-                    <div class="developers-trigger">Know the <span style="color:#4285f4">Developers&lt;&#47;&gt; </span></div>
+                    <!-- <div class="developers-trigger">Know the <span style="color:#4285f4">Developers&lt;&#47;&gt; </span></div> -->
                   </div>
 
 
@@ -3399,15 +3429,18 @@ id="innerLeft">
             <script src="js/jquery.ba-throttle-debounce.js"></script>
             <!-- <script type="text/javascript" src="./js/jquery.kinetic.min.js"></script> -->
             <script src="js/snap.svg-min.js"></script>
-            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.12/js/perfect-scrollbar.jquery.min.js"></script>
+            <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/0.6.12/js/perfect-scrollbar.jquery.min.js"></script> -->
             <script type="text/javascript" src="js/script.js"></script>
             <script type="text/javascript" src="js/contacts.js"></script>
 
             <script type="text/javascript">
-              $(window).load(function() {
-                loadingdone();
+              document.querySelector('.container').style.display = 'none';
+              // document.querySelector('.contacts-wrapper').style.display = 'none';
 
-              });
+              // $(window).load(function() {
+              //   loadingdone();
+
+              // });
 
               var canvas = document.querySelector("#inkCanvas");
               var context = canvas.getContext("2d");
@@ -3664,6 +3697,8 @@ setInterval(function () {
 
 function loadingdone () {
   setTimeout(function () {
+    $('.scene-wrapper').hide();
+    // $('.black-back').hide();
     $('.loader-wrapper').fadeOut('slow');
     $('.loader_text').fadeOut();
     $('.container').css('display', 'block');
@@ -3853,9 +3888,9 @@ $('.image').click(function(){
   window.location.href = "./story/#"+storyNo;
 });
 
-$('.litecont').perfectScrollbar({
-  handlers: ['drag-scrollbar', 'keyboard', 'wheel', 'touch'],
-});
+// $('.litecont').perfectScrollbar({
+//   handlers: ['drag-scrollbar', 'keyboard', 'wheel', 'touch'],
+// });
 
 (function() {
 
