@@ -198,7 +198,7 @@ var oldSlide=-1;
 				$('.storyContentWrap').fadeOut(400);
 				setTimeout(function(){
 					$('.storyText').html(story[sNo].text[slideNo]);
-					$('.storyText').fadeIn();
+					$('.storyContentWrap').fadeIn();
 				},400);
 				oldSlide=slideNo;
 			}

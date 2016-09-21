@@ -11,7 +11,7 @@
     </style>
 </head>
 <body>
-  <div style="display:none">
+  <div>
   <canvas id="inkCanvas" width="298" height="168"></canvas>
   <div class="loader" >
     <div class="loadImg" >
@@ -341,14 +341,14 @@
 <script src="../js/jquery.ba-throttle-debounce.js"> </script>
 <script type="text/javascript">
 
-// $(window).load(function() {
-//   loadingdone();
-//
-// });
+$(window).load(function() {
+  loadingdone();
+
+});
 
 
 document.body.onload = function init() {
-
+  loadingdone();
   $('#box').hide();
 
   setTimeout(function(){
@@ -635,10 +635,10 @@ if (speedvar==maxSpeed){
   }
 }
 
-function loadingdone () {
-  webGLStart();
+function loadingdone() {
   setTimeout(function () {
     $('.loader').fadeOut('slow');
+    console.log('hi');
     $('.container').css('display', 'block');
     animate();
 
@@ -743,17 +743,17 @@ setInterval(function () {
    $('.lampglow').fadeIn(2000);
  }, 1500);
 }, 7000);
-
-function loadingdone () {
-  setTimeout(function () {
-    $('.loader-wrapper').fadeOut('slow');
-    // $('#main_loader').hide();
-    $('.container').css('display', 'block');
-  // context.drawImage(bg, shift, 0, 1600, 907, 0, 0, frameWidth, frameHeight);
-
-  animate();
-},3000);
-}
+//
+// function loadingdone () {
+//   setTimeout(function () {
+//     $('.loader-wrapper').fadeOut('slow');
+//     // $('#main_loader').hide();
+//     $('.container').css('display', 'block');
+//   // context.drawImage(bg, shift, 0, 1600, 907, 0, 0, frameWidth, frameHeight);
+//
+//   animate();
+// },3000);
+// }
 
 $('.menuList ul .active').css({
   'color':colorPattern[sNo-1]
