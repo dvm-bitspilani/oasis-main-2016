@@ -352,7 +352,20 @@ console.log(event);
           eventData="off";
 
           event="off";
-      $(this).fadeOut();
+      //  var animate=$curEle.children().children()[0];
+      //   var no = $curEle.attr('id').charAt(3);
+      //   animate.setAttribute('from',pos[no-1]);
+      //   animate.setAttribute('to','0 0');
+      //   animate.setAttribute('fill','freeze');
+      //   animate.beginElement();
+      var eleChild=$curEle.children()[0];
+       $(eleChild).css({
+      transform:'translate(0,0)'
+    });
+        $curEle.attr('on',false);
+        console.log($curEle);
+        $(this).fadeOut();
+
       $('.eventData').animate({
          width:'0%'
        },600);

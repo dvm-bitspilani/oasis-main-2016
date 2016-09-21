@@ -115,7 +115,6 @@ fill: transparent;{
   width: 100vw;
   height: 100vh;
   z-index: 999;
-  background:url('bg2.jpg');
   background-size: cover;
 }
 
@@ -596,4 +595,9 @@ border-bottom: 3px solid rgba(255,255,255,0.7);
 .rightDash{
   right:6%;
 
+}
+
+
+.container{
+  display: none;
 }
