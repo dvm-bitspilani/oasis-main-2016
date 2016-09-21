@@ -11,7 +11,7 @@
     </style>
 </head>
 <body>
-  <div style="display:none">
+  <div>
   <canvas id="inkCanvas" width="298" height="168"></canvas>
   <div class="loader" >
     <div class="loadImg" >
@@ -297,7 +297,7 @@
   <div id="box" class="scene-container">
     <div class="scene" id="troy">
     <div class="scene-text">Tale of <br><span style="font-size:1.9em">Troy</span></div>
-      <div id="achilies" class="image" story="4"></div>
+      <div id="achilies" class="image" story="1"></div>
     </div>
     <div class="scene" id="moses">
     <div class="scene-text">Tale of <br><span style="font-size:1.9em">Moses</span></div>
@@ -329,27 +329,26 @@
   </div>
   <div class="storyInnerWrap">
     <p class="storyText">
-    Lorem ipsum dolor sit amet, mundi ocurreret ei eum. Et principes omittantur vim
+
     </p>
   </div>
   <div class="rightDash">
   </div>
 </div>
-</body>
 <!-- <script type="text/javascript" src="index.js"></script> -->
 <script type="text/javascript" src="roll-over.js"></script>
 <script src="../js/jquery.min.js"> </script>
 <script src="../js/jquery.ba-throttle-debounce.js"> </script>
 <script type="text/javascript">
 
-// $(window).load(function() {
-//   loadingdone();
-//
-// });
+$(window).load(function() {
+  loadingdone();
+
+});
 
 
 document.body.onload = function init() {
-
+  loadingdone();
   $('#box').hide();
 
   setTimeout(function(){
@@ -636,10 +635,10 @@ if (speedvar==maxSpeed){
   }
 }
 
-function loadingdone () {
-  webGLStart();
+function loadingdone() {
   setTimeout(function () {
     $('.loader').fadeOut('slow');
+    console.log('hi');
     $('.container').css('display', 'block');
     animate();
 
@@ -744,17 +743,17 @@ setInterval(function () {
    $('.lampglow').fadeIn(2000);
  }, 1500);
 }, 7000);
-
-function loadingdone () {
-  setTimeout(function () {
-    $('.loader-wrapper').fadeOut('slow');
-    // $('#main_loader').hide();
-    $('.container').css('display', 'block');
-  // context.drawImage(bg, shift, 0, 1600, 907, 0, 0, frameWidth, frameHeight);
-
-  animate();
-},3000);
-}
+//
+// function loadingdone () {
+//   setTimeout(function () {
+//     $('.loader-wrapper').fadeOut('slow');
+//     // $('#main_loader').hide();
+//     $('.container').css('display', 'block');
+//   // context.drawImage(bg, shift, 0, 1600, 907, 0, 0, frameWidth, frameHeight);
+//
+//   animate();
+// },3000);
+// }
 
 $('.menuList ul .active').css({
   'color':colorPattern[sNo-1]
@@ -763,7 +762,7 @@ $('.menuList ul .active').css({
 
 
 $('.chooseStory').click(function() {
-  $('#box').show();
+  $('.scene-wrapper,#box').show();
   $('#noah').animate({left: '0vw'}, 400);
   $('#moses').animate({left: '0vw'}, 400);
   $('#desi').animate({left: '0vw'}, 400);
@@ -787,5 +786,6 @@ $('.image').click(function(){
 
 
 </script>
+</body>
 
 </html>

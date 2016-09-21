@@ -65,7 +65,7 @@ animation-fill-mode: forwards;
 
 #storyWrap{
   position: absolute;
-  background: yellow;
+  /*background: yellow;*/
   top:0;
   transition: all 0.5s;
   width: 100vw;
@@ -422,12 +422,14 @@ background-repeat: no-repeat;*/
 /* scene*/
 
 
+
 .scene-wrapper {
     display: none;
+    color:white;
 }
 
 .scene-container {
-    position: absolute;
+    position: fixed;
     width: 120vw;
     height: 130vh;
     margin: 0;
@@ -445,7 +447,7 @@ background-repeat: no-repeat;*/
 .scene-text {
     position: absolute;
     /* left: 0; */
-    top: 20vh;
+    top: 30vh;
     text-align: center;
     width: 100%;
     margin: 0 auto;
@@ -453,6 +455,19 @@ background-repeat: no-repeat;*/
     font-size: 1.5em;
     opacity: 0.5;
     font-family: 'Nexa-Bold',serif;
+}
+
+.scene-close {
+    cursor: pointer;
+    background-image: url('../img/cross.svg');
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin:20px;
+    width: 40px;
+    height: 40px;
+    z-index: 71;
+    background-size: cover;
 }
 
 .scene {
@@ -565,7 +580,6 @@ background-repeat: no-repeat;*/
 #arc:hover {
     background-size: 120% 120%;
 }
-
 
 .leftDash,.rightDash{
   position: absolute;
