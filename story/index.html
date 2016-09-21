@@ -297,7 +297,7 @@
   <div id="box" class="scene-container">
     <div class="scene" id="troy">
     <div class="scene-text">Tale of <br><span style="font-size:1.9em">Troy</span></div>
-      <div id="achilies" class="image" story="4"></div>
+      <div id="achilies" class="image" story="1"></div>
     </div>
     <div class="scene" id="moses">
     <div class="scene-text">Tale of <br><span style="font-size:1.9em">Moses</span></div>
@@ -329,13 +329,12 @@
   </div>
   <div class="storyInnerWrap">
     <p class="storyText">
-    Lorem ipsum dolor sit amet, mundi ocurreret ei eum. Et principes omittantur vim
+
     </p>
   </div>
   <div class="rightDash">
   </div>
 </div>
-</body>
 <!-- <script type="text/javascript" src="index.js"></script> -->
 <script type="text/javascript" src="roll-over.js"></script>
 <script src="../js/jquery.min.js"> </script>
@@ -763,7 +762,7 @@ $('.menuList ul .active').css({
 
 
 $('.chooseStory').click(function() {
-  $('#box').show();
+  $('.scene-wrapper,#box').show();
   $('#noah').animate({left: '0vw'}, 400);
   $('#moses').animate({left: '0vw'}, 400);
   $('#desi').animate({left: '0vw'}, 400);
@@ -787,5 +786,6 @@ $('.image').click(function(){
 
 
 </script>
+</body>
 
 </html>

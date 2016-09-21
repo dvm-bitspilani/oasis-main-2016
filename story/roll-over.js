@@ -203,7 +203,7 @@ var oldSlide=-1;
 				oldSlide=slideNo;
 			}
 
-			$('.storyContentWrap').fadeIn();
+			$('.storyWrap').fadeIn();
 	//     clearTimeout( $.data( this, "scrollCheck" ) );
 	//     $.data( this, "scrollCheck", setTimeout(function() {
 	//       console.log('stop');
