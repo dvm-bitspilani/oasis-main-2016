@@ -635,7 +635,8 @@ function loadingdone() {
   setTimeout(function () {
     $('.loader').fadeOut('slow');
     // console.log('hi');
-    $('.container').css('display', 'block');
+    $('#fakeScroll').show();
+    $('.container').show();
     animate();
 
   },3000);

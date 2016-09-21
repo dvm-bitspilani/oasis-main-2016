@@ -84,7 +84,7 @@ height: 7000px;
 top: 0;
 z-index: -1;
   /*width: 100vw;*/
-  display: block;
+  display: none;
   overflow-y: scroll;
 }
 .wrap{
