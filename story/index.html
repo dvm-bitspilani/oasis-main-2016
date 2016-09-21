@@ -19,7 +19,10 @@
         fadeOutTime: 1000,
         onProgress: function(p,l,t) {
           var animateRing = document.querySelector('#animateRing');
-          // animateRing
+          naim.css({
+            property1: 'value1',
+            property2: 'value2'
+          });
         }
       });
     });
@@ -652,10 +655,10 @@ if (speedvar==maxSpeed){
 
 function loadingdone() {
   setTimeout(function () {
-    // $('.loader').fadeOut('slow');
+    $('.loader').fadeOut('slow');
     // console.log('hi');
     $('.container').css('display', 'block');
-    // animate();
+    animate();
 
   },3000);
 }
