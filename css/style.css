@@ -3532,6 +3532,7 @@ z-index: 15;
     margin-bottom: 7px;
     font-family: 'Nexa-Light', serif;
     font-size: 1em;
+    cursor: pointer;
 }
 
 /* Common style */
@@ -3539,6 +3540,8 @@ z-index: 15;
     margin: 40px auto 120px;
     max-width: 1000px;
     width: 90%;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .grid a {
@@ -4564,7 +4567,7 @@ g[id^="cat"] g {
 .scene-text {
     position: absolute;
     /* left: 0; */
-    bottom: 20vh;
+    top: 30vh;
     text-align: center;
     width: 100%;
     margin: 0 auto;
