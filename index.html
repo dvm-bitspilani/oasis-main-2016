@@ -2539,10 +2539,24 @@ id="innerLeft">
                               <img src="img/nodp.png" />
                               <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
                               <figcaption>
+                                <h2>Rajat Thakur</h2>
+                                <p>Graphic Designer</p>
+                                <button>
+                                  <img src="img/behance_icon.png" onclick="parent.open('')">
+                                  <img src="img/linkedin_icon.png" onclick="parent.open('')">
+                                </button>
+                              </figcaption>
+                            </figure>
+                          </a>
+                          <a href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+                            <figure>
+                              <img src="img/nodp.png" />
+                              <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
+                              <figcaption>
                                 <h2>Anup Bhutada</h2>
                                 <p>Graphic Designer</p>
                                 <button>
-                                  <img src="img/git_icon.png" onclick="parent.open('')">
+                                  <img src="img/behance_icon.png" onclick="parent.open('')">
                                   <img src="img/linkedin_icon.png" onclick="parent.open('')">
                                 </button>
                               </figcaption>
@@ -2556,7 +2570,7 @@ id="innerLeft">
                                 <h2>Harshil Choudhary</h2>
                                 <p>Graphic Designer</p>
                                 <button>
-                                  <img src="img/git_icon.png" onclick="parent.open('')">
+                                  <img src="img/behance_icon.png" onclick="parent.open('')">
                                   <img src="img/linkedin_icon.png" onclick="parent.open('')">
                                 </button>
                               </figcaption>
@@ -2570,7 +2584,7 @@ id="innerLeft">
                                 <h2>Arjun Tyagi</h2>
                                 <p>Co-ordinator</p>
                                 <button>
-                                  <img src="img/git_icon.png" onclick="parent.open('')">
+                                  <img src="img/behance_icon.png" onclick="parent.open('')">
                                   <img src="img/linkedin_icon.png" onclick="parent.open('')">
                                 </button>
                               </figcaption>
@@ -2616,6 +2630,7 @@ id="innerLeft">
                 <div class="scene-close"></div>
               </div>
               <div class="social-icon-wrapper">
+                <div id="developers-trigger" ></div>
                 <div id="youtube" ></div>
                 <div id="twitter" ></div>
                 <div id="fb" ></div>
@@ -3072,10 +3087,10 @@ $('.contacts-trigger').click(function() {
   })
 });
 
-$('.developers-trigger').click(function() {
+$('#developers-trigger').click(function() {
   $('#developers').fadeIn('400', function() {
     $('#storybutton').fadeOut();
-    $('#contacts').fadeOut();
+    // $('#contacts').fadeOut();
     $(this).css('display', 'flex');
     $('.black-back').click(function() {
       $('#storybutton').fadeIn();

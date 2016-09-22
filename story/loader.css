@@ -471,6 +471,7 @@ background-repeat: no-repeat;*/
     height: 40px;
     z-index: 71;
     background-size: cover;
+    display: none;
 }
 
 .scene {
