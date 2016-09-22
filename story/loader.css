@@ -1,0 +1,603 @@
+
+
+@font-face {
+  font-family: 'Monthoers';
+  src:url('../fonts/Monthoers.ttf');
+}
+
+@font-face {
+    font-family: "Nexa-Bold";
+    src: url('../fonts/Nexa Bold.otf');
+}
+
+#inkCanvas{
+  z-index: 80;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x:hidden;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+}
+
+
+.cd-transition-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 15;
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+  /*visibility: hidden;*/
+  overflow: hidden;
+}
+.cd-transition-layer .bg-layer {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateY(-50%) translateX(-1.78%);
+  height: 100%;
+  /* our sprite is composed of 25 frames */
+  width: 2800%;
+  background: url('out3.png') no-repeat 0 0;
+  background-size: 100% 100%;
+}
+
+.inkAnim{
+animation: cd-sprite 2s steps(27);
+animation-fill-mode: forwards;
+}
+
+@keyframes cd-sprite {
+  0% {
+    transform: translateY(-50%) translateX(-1.78%);
+  }
+  100% {
+    transform: translateY(-50%) translateX(-98.22%);
+  }
+}
+
+
+#storyWrap{
+  position: absolute;
+  /*background: yellow;*/
+  top:0;
+  transition: all 0.5s;
+  width: 100vw;
+  /*left: -10vw;*/
+  height: inherit;
+}
+canvas {
+    height: 100vh;
+    width: 100vw;
+
+    /*display: block;*/
+}
+#fakeScroll{
+  position: absolute;
+height: 7000px;
+top: 0;
+z-index: -1;
+  /*width: 100vw;*/
+  display: block;
+  overflow-y: scroll;
+}
+.wrap{
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+/*.blurImg{
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+}
+.blurImg imgstroke: rgb(44, 62, 80);
+stroke-dasharray: 820;
+stroke-dashoffset: 820;
+stroke-width: 17;
+fill: transparent;{
+  width: 100vw;
+}*/
+
+
+.loader{
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  background-size: cover;
+}
+
+
+.loader svg{
+  width: 50vw;
+  height: 50vh;
+  transform: translate(50%,50%);
+
+
+}
+
+/*.loader #path5{
+  stroke: rgb(44, 62, 80);
+stroke-dasharray: 820;
+stroke-dashoffset: 820;
+stroke-width: 17;
+fill: transparent;
+}*/
+
+.loader #animateRing{
+  fill:none;
+  stroke:#780303;
+  stroke-width:10.71;
+  stroke-opacity:1;
+  stroke-dasharray: 1360;
+  stroke-dashoffset: 1360;
+
+  /*animation: dash 5s linear forwards;*/
+  /*animation-delay: 2s;*/
+
+}
+
+@keyframes dash {
+to {
+  stroke-dashoffset:0;
+}
+}
+
+.lineMO{
+  stroke: rgb(44, 62, 80);
+  stroke-dasharray: 820;
+  stroke-dashoffset: 820;
+  stroke-width: 17;
+  fill: transparent;
+}
+
+
+.scroll {
+  position: fixed;
+  left: 0;
+  height: 100%;
+  width: 4vw;
+  z-index: 6;
+}
+
+.scroll ellipse{
+  cursor:pointer;
+}
+@media only screen and (max-width: 800px) {
+
+.scroll {
+  position: fixed;
+  left: 0;
+  height: 100%;
+  width: 6vw;
+  z-index: 6;
+}
+}
+
+
+/*story content*/
+
+.storyContentWrap{
+  position: fixed;;
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  bottom: 2vh;
+  padding: 15px;
+  /*background: rgba(0,0,0,0.6);*/
+  /*min-height: 3.7vh;*/
+
+}
+
+.storyInnerWrap{
+  width: 50%;
+  text-align: center;
+}
+
+.storyContentWrap p{
+  color:rgba(255,255,255,0.7);
+  font-family:'Monthoers',sans-serif;
+  font-size: 1.6em;
+  margin: 0;
+}
+
+@media screen and (max-width:400px) {
+  .storyInnerWrap{
+    width: 80%;
+  }
+
+  .storyContentWrap p{
+    font-size: 1.4em;
+
+  }
+}
+
+
+/*side nav*/
+
+
+
+#inkCanvas {
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      top:0;
+      left: 0;
+      z-index: 999;
+    }
+
+
+
+
+/*   side nav*/
+
+
+
+.side-nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    min-width: 195px;
+    width: 14vw;
+    background: rgba(41,41,41,0.9);
+    transition: all 0.5s;
+    z-index: 10;
+    display: flex;
+    opacity: 0;
+    transform: translateX(-14vw);
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.ham {
+    cursor: pointer;
+    position: fixed;
+    top: 2vh;
+    left: 1vw;
+    width: 80px;
+    height: 80px;
+    /* height: 13vh; */
+    /*background-image: url('../img/ham.svg');
+background-size: contain;
+background-repeat: no-repeat;*/
+    z-index: 15;
+}
+
+.chooseStory{
+  cursor: pointer;
+  position: fixed;
+  top: 2vh;
+  right: 1vw;
+  width: 66px;
+  z-index: 15;
+}
+
+.chooseStory img{
+  width: 66px;
+}
+
+.ham svg {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.ham path {
+    fill: none;
+    -webkit-transition: stroke-dashoffset 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25), stroke-dasharray 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25);
+    -moz-transition: stroke-dashoffset 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25), stroke-dasharray 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25);
+    -o-transition: stroke-dashoffset 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25), stroke-dasharray 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25);
+    -ms-transition: stroke-dashoffset 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25), stroke-dasharray 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25);
+    transition: stroke-dashoffset 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25), stroke-dasharray 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25);
+    stroke-width: 20.2727px;
+    stroke-linecap: round;
+    stroke: #fff;
+    opacity: 0.4;
+    stroke-dashoffset: 0px;
+}
+
+.ham path#top, .ham path#bottom {
+    stroke-dasharray: 240px 950px;
+}
+
+.ham path#middle {
+    stroke-dasharray: 240px 240px;
+}
+
+.cross path#top, .cross path#bottom {
+    stroke-dashoffset: -650px;
+    stroke-dashoffset: -650px;
+}
+
+.cross path#middle {
+    stroke-dashoffset: -115px;
+    stroke-dasharray: 1px 220px;
+}
+
+.logo {
+    /* position: absolute; */
+    /* top: 11vh; */
+    /* left: 7vh; */
+    width: 195px;
+    height: 31.35vh;
+    background-image: url('../img/oasis-logo.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+
+.storyType {
+    /* position: absolute; */
+    /* top: 30vh; */
+    /* left: 4.6vh; */
+    width: 195px;
+    height: 25vh;
+    margin-bottom: 10px;
+}
+
+.storyType svg {
+    height: 100%;
+    width: 100%;
+}
+
+.bar {
+    /* position: absolute; */
+    /* top: 51vh; */
+    /* left: 15%; */
+    width: 75%;
+    margin: 0 auto;
+    height: 4px;
+    background: rgb(191, 191, 191);
+    opacity: 0.9;
+}
+
+.menuList {
+    /* position: absolute; */
+    /* top: 56vh; */
+    /* left: 5.6vh; */
+    /* width: 20vh; */
+    /* height: 18vh; */
+}
+
+.menuList ul {
+    list-style: none;
+    color: white;
+}
+
+.menuList ul .active {
+    color: #fbb040;
+}
+
+.menuList ul li {
+    cursor: pointer;
+    font-family: 'Moon-Bold', sans-serif;
+    margin: 8px 0;
+    opacity: 0.7;
+    font-size: 3vh;
+}
+
+.sideBar {
+    position: absolute;
+    top: 10vh;
+    height: 86vh;
+    width: 1vh;
+    background: #eee;
+    left: 1vh;
+    opacity: 0.2;
+    z-index: 4;
+}
+
+@font-face {
+    font-family: "Moon";
+    src: url("../fonts/Moon Light.otf");
+}
+
+@font-face {
+    font-family: "Moon-Bold";
+    src: url("../fonts/Moon Bold.otf");
+    /*font-weight: bold;*/
+}
+
+
+
+/* scene*/
+
+
+
+.scene-wrapper {
+    display: none;
+    color:white;
+}
+
+.scene-container {
+    position: fixed;
+    width: 120vw;
+    height: 130vh;
+    margin: 0;
+    padding: 0;
+    left: -14vw;
+    top: -15vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    overflow: hidden;
+    transition: all 200ms ease;
+    z-index: 70;
+}
+
+.scene-text {
+    position: absolute;
+    /* left: 0; */
+    top: 30vh;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    transform: rotate(-10deg);
+    font-size: 1.5em;
+    opacity: 0.5;
+    font-family: 'Nexa-Bold',serif;
+}
+
+.scene-close {
+    cursor: pointer;
+    background-image: url('../img/cross.svg');
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin:20px;
+    width: 40px;
+    height: 40px;
+    z-index: 71;
+    background-size: cover;
+}
+
+.scene {
+    width: 40vw;
+    height: 130vh;
+    margin: 0;
+    padding: 0;
+    transform: rotate(10deg);
+}
+
+.scene-corner {
+    width: 50vw;
+    height: 140vh;
+    margin: 0;
+    padding: 0;
+    transform: rotate(10deg);
+}
+
+#troy {
+    position: relative;
+    left: -40vw;
+}
+
+#moses {
+    position: relative;
+    /*transform: translateX(-60vw) rotate(10deg);*/
+    left: -60vw;
+}
+
+#desi {
+    /*transform: translateX(70vw) rotate(10deg);*/
+    position: relative;
+    left: 70vw;
+}
+
+#noah {
+    /*transform: translateX(50vw) rotate(10deg);*/
+    position: relative;
+    left: 50vw;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+#nigger {
+    background-image: url("../img/moses-strip.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+    transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    -o-transition: all 1s ease;
+}
+
+#nigger:hover {
+    background-size: 120% 120%;
+}
+
+#achilies {
+    background-image: url("../img/troy-strip.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+    transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    -o-transition: all 1s ease;
+}
+
+#achilies:hover {
+    background-size: 120% 120%;
+}
+
+#ram {
+    background-image: url("../img/maha-strip.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+    transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    -o-transition: all 1s ease;
+}
+
+#ram:hover {
+    background-size: 120% 120%;
+}
+
+#arc {
+    background-image: url("../img/noah-strip.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+    transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    -o-transition: all 1s ease;
+}
+
+#arc:hover {
+    background-size: 120% 120%;
+}
+
+.leftDash,.rightDash{
+  position: absolute;
+  width: 18%;
+  top: 50%;
+border-bottom: 3px solid rgba(255,255,255,0.7);
+}
+
+
+.leftDash{
+  left:6%;
+
+}
+.rightDash{
+  right:6%;
+
+}
+
+
+.container{
+  display: none;
+}
