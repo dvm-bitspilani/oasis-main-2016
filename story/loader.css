@@ -603,3 +603,23 @@ border-bottom: 3px solid rgba(255,255,255,0.7);
 .container{
   display: none;
 }
+
+
+#blurImg{
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  filter: blur(5px);
+
+}
+
+#plainImg{
+  position: absolute;
+  top: 0;
+  width: 100vw;
+
+}
+
+#plainImg img, #blurImg img{
+  width:100%;  
+}

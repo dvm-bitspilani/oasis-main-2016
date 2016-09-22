@@ -24,13 +24,22 @@
   <meta property="og:type" content="website" />
   <title>OASIS 2016 | OF GODS AND MEN | BITS Pilani</title>
   <link rel="icon" type="image/png" href="../img/favicon.png">
-  <script type="text/javascript" src="gl-matrix-2.3.2min.js"></script>
   <link rel="stylesheet" href="loader.css" media="screen" title="no title" charset="utf-8">
   <script src="../js/queryloader2.min.js" type="text/javascript"></script>
   <style type="text/css">
   </style>
   <script type="text/javascript">
+
+  var sNo = window.location.hash.charAt(1);
+
     window.addEventListener('DOMContentLoaded', function() {
+
+
+      var loader=document.querySelector('.loader');
+      console.log(loader);
+      loader.style.background='url("../img/loaderbg'+sNo+'.jpg")';
+
+
       "use strict";
       var oldP=1740,newP;
       var ql = new QueryLoader2(document.querySelector('body'), {
@@ -49,7 +58,7 @@
           animateEle.setAttribute('dur','0.2s');
           animateEle.setAttribute('fill','freeze');
           animateEle.beginElement();
-          console.log(oldP,newP,p);
+          // console.log(oldP,newP,p);
           oldP=newP;
         //   if (Math.floor(p)>99) {          // loadingdone();
         //
@@ -374,6 +383,16 @@
   </div>
 </div>
 
+<div id="fallbackStory">
+  <div id="plainImg">
+    <img src="moses.jpg" alt="" />
+  </div>
+  <div id="blurImg">
+    <img src="moses.jpg" alt="" />
+  </div>
+</div>
+
+
 </div>
 <div id="storyWrap">
   <div id="fakeScroll"></div>
@@ -386,22 +405,34 @@
 </div>
 
 
+
+
+
 <!-- <script type="text/javascript" src="index.js"></script> -->
+<script type="text/javascript" src="gl-matrix-2.3.2min.js"></script>
 <script type="text/javascript" src="roll-over.js"></script>
 <script src="../js/jquery.min.js"> </script>
 <script src="../js/jquery.ba-throttle-debounce.js"> </script>
 <script type="text/javascript">
 
+var imgHeight;
+
   document.body.onload = function init(imgLoadingDone=false) {
-  
+
+    $('#box').hide();
+    $('#fallbackStory').hide();
+  if(window.innerWidth<600){
+      fallback();
+}else{
 
     // loadingdone();
-    $('#box').hide();
 
     setTimeout(function(){
       $(window).scrollTop(0);
 
     },1000);
+
+
 
     RollOver.init({
       canvas: 'rollover-bg',
@@ -411,7 +442,116 @@
       originOffset: [0, -0.75],
       recover: [1.1, 1],
     });
-  };
+  }
+}
+
+
+function fallback(){
+
+  var story=[
+    {
+      src:'troy',
+      no:8,
+      size:1411,
+      scroll:16.1,
+      text:[
+        ""
+      ]
+    },
+    {
+      src:'moses',
+      no:10,
+      size:1457,
+      scroll:20,
+      text:[
+        "",
+        "The woman sets her baby afloat in the Nile. She will never see him again.It is the only way to save him. She prays to God. Her daughter weeps quietly.",
+        "The baby is now a man. He sees an Egyptian beat a Hebrew. He intervenes. He kills the Egyptian. The Pharaoh wants to kill him. This is his justice. God helps his prophet escape.",
+        "The cruelties against the Hebrews continue. God has had enough. He sends his messenger to save the Hebrews.",
+        "The Pharaoh will not let the Hebrews leave his kingdom. God brings ten plagues upon Egypt. The Pharaoh relents.",
+        "Moses will lead the Hebrews to Israel. The Red Sea stands in his way. Moses raises his staff. The Sea trembles. The Sea gives way."
+      ]
+    },
+    {
+      src:'mahabharat',
+      no:8,
+      size:1311,
+      scroll:16,
+      text:[
+        "Hastinapur is ruled by the Duryodhan, eldest among the Kauravas.",
+        "Yudhishthir, eldest of the Pandavas, rules Indraprasth.",
+        "Draupadi is the Pandavas’ wife. They love her dearly.",
+        "A jealous Duryodhan invites Yudhishthir for a game of dice, and cheats so as to take over Indraprasth. Yudhishthir gambles away not only his kingdom, but also his brothers and even himself.",
+        "Yudhishthir also loses his wife, who is disgraced in front of the entire court. The Pandavas are infuriated at the Kauravas for trying to dishonour their wife.",
+        "They promise to wage war. War the likes of which neither Man nor God has seen."
+      ]
+    },
+
+    {
+      src:'noah',
+      no:12,
+      size:1444,
+      scroll:24,
+      text:[
+        ""
+      ]
+    }
+
+  ]
+
+  var ringArr=[
+    14.772,
+    87.146,
+  160.746,
+  234.347,
+  310.4 ,
+384
+  ]
+
+
+  $('#fallbackStory').show();
+  // $('#storyWrap').css({
+  //   'opacity':0
+  // });
+$('#storyWrap').remove();
+  $(window).scroll($.debounce( 250, true, function(){
+    $('#blurImg').fadeIn();
+
+} ) );
+$(window).scroll($.debounce( 250, function(){
+  $('#blurImg').fadeOut();
+
+} ) );
+setTimeout(function () {
+  $('.loader').fadeOut('slow');
+  $('#fakeScroll').show();
+  $('.container').show();
+  animate();
+
+},1000);
+var oldSlide=-1;
+
+  window.addEventListener('scroll', function(e) {
+    var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
+    imgHeight = document.querySelector('#plainImg img');
+    var slideNo = parseInt(st /(parseInt(imgHeight.height)/6));
+    console.log(slideNo,sNo,st,(parseInt(imgHeight.height)/6));
+
+    $('#currentRing').attr('cy',ringArr[slideNo]);
+
+    if(oldSlide!=slideNo){
+      $('.storyContentWrap').fadeOut(400);
+      setTimeout(function(){
+        $('.storyText').html(story[sNo].text[slideNo]);
+        $('.storyContentWrap').fadeIn();
+      },400);
+      oldSlide=slideNo;
+    }
+
+    lastScrollTop = st;
+
+  });
+}
 
   var css3AnimationSupport = (function(){
     var div = document.createElement('div'),
@@ -693,13 +833,6 @@ function loadingdone() {
 }
 
 
-$('.loader').css({
-  background:'url("../img/loaderbg'+sNo+'.jpg")'
-})
-
-
-var sNo = window.location.hash.charAt(1);
-
 var colorPattern=[
 '#8f44ad',
 '#FBB040',
@@ -712,10 +845,18 @@ $('#currentRing').attr('stroke',colorPattern[sNo-1]);
 setTimeout(function () {
 	$('.slide').click(function(){
 		var slide = $(this).attr('slide')-1;
-		console.log('hi',parseInt(fakeScroll.style.height)*slide/6);
-		$('html, body').animate({
-			scrollTop:parseInt(fakeScroll.style.height)*slide/6
-		},800);
+    var getHeight;
+    var fakeScroll=document.getElementById('fakeScroll');
+    if(fakeScroll!==null){
+      getHeight=parseInt(fakeScroll.style.height)
+    }
+    else{
+      getHeight=imgHeight.height;
+    }
+    console.log('hi',getHeight*slide/6);
+    $('html, body').animate({
+      scrollTop:getHeight*slide/6
+    },800);
 	});
 
 },500);
@@ -729,6 +870,7 @@ $('.ham').click(function(){
     $('.side-nav').css({
      transform:'translateX(0px)'
    });
+   $('.side-nav').show();
 
 
     menu="on";
@@ -744,6 +886,7 @@ $('.ham').click(function(){
       height: '100vh'
     });
     $('.newdiv').click(function() {
+      $('.side-nav').hide();
       $('.side-nav').css({
        transform:'translateX(-190px)'
      });
@@ -753,6 +896,7 @@ $('.ham').click(function(){
     });
   }
   else{
+    $('.side-nav').hide();
     $('.side-nav').css({
      transform:'translateX(-190px)'
    });
