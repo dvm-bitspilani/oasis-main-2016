@@ -138,12 +138,12 @@ fill: transparent;
 .loader #animateRing{
   fill:none;
   stroke:#780303;
-  stroke-width:10.71;
+  stroke-width:15;
   stroke-opacity:1;
-  stroke-dasharray: 1360;
-  stroke-dashoffset: 1360;
+  stroke-dasharray: 1720;
+  stroke-dashoffset: 1720;
 
-  /*animation: dash 5s linear forwards;*/
+  animation: dash 5s linear forwards;
   /*animation-delay: 2s;*/
 
 }
