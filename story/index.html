@@ -29,6 +29,62 @@
   <style type="text/css">
   </style>
   <script type="text/javascript">
+
+
+  var story=[
+    {
+      src:'troy',
+      no:8,
+      size:1411,
+      scroll:16.1,
+      text:[
+        ""
+      ]
+    },
+    {
+      src:'moses',
+      no:10,
+      size:1457,
+      scroll:20,
+      text:[
+        "",
+        "The woman sets her baby afloat in the Nile. She will never see him again.It is the only way to save him. She prays to God. Her daughter weeps quietly.",
+        "The baby is now a man. He sees an Egyptian beat a Hebrew. He intervenes. He kills the Egyptian. The Pharaoh wants to kill him. This is his justice. God helps his prophet escape.",
+        "The cruelties against the Hebrews continue. God has had enough. He sends his messenger to save the Hebrews.",
+        "The Pharaoh will not let the Hebrews leave his kingdom. God brings ten plagues upon Egypt. The Pharaoh relents.",
+        "Moses will lead the Hebrews to Israel. The Red Sea stands in his way. Moses raises his staff. The Sea trembles. The Sea gives way."
+      ]
+    },
+    {
+      src:'mahabharat',
+      no:8,
+      size:1311,
+      scroll:16,
+      text:[
+        "Hastinapur is ruled by the Duryodhan, eldest among the Kauravas.",
+        "Yudhishthir, eldest of the Pandavas, rules Indraprasth.",
+        "Draupadi is the Pandavas’ wife. They love her dearly.",
+        "A jealous Duryodhan invites Yudhishthir for a game of dice, and cheats so as to take over Indraprasth. Yudhishthir gambles away not only his kingdom, but also his brothers and even himself.",
+        "Yudhishthir also loses his wife, who is disgraced in front of the entire court. The Pandavas are infuriated at the Kauravas for trying to dishonour their wife.",
+        "They promise to wage war. War the likes of which neither Man nor God has seen."
+      ]
+    },
+
+    {
+      src:'noah',
+      no:12,
+      size:1444,
+      scroll:24,
+      text:[
+        ""
+      ]
+    }
+
+  ]
+
+
+  var sNo = window.location.hash.charAt(1);
+
   var imgPre=[];
   var imgSrcPre=[];
 
@@ -46,10 +102,23 @@
   }
 
   loadImg();
+    //
+    // function loadTile(imgSrc) {
+    //   return new Promise(function (res) {
+    //     var img = new Image();
+    //     img.src = this.src;
+    //     img.onload = function () {
+    //       return res(img);
+    //     };
+    //   });
+    // }
+
+
+  </script>
+
   </script>
   <!-- <script type="text/javascript">
 
-  var sNo = window.location.hash.charAt(1);
 
     window.addEventListener('DOMContentLoaded', function() {
 
@@ -1006,21 +1075,6 @@ $('.image').click(function(){
   window.location.href = "./#"+storyNo;
   location.reload();
 });
-
-
-
-  //
-	// function loadTile(imgSrc) {
-	//   return new Promise(function (res) {
-	//     var img = new Image();
-	//     img.src = this.src;
-	//     img.onload = function () {
-	//       return res(img);
-	//     };
-	//   });
-	// }
-
-
 </script>
 <script type="text/javascript" src="roll-over.js"></script>
 
