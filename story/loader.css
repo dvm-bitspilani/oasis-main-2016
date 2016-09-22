@@ -461,7 +461,7 @@ background-repeat: no-repeat;*/
 .scene-close {
     cursor: pointer;
     background-image: url('../img/cross.svg');
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     margin:20px;
