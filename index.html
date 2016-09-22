@@ -3774,10 +3774,13 @@ function loadingdone () {
 
 // Events
 
+
 var movementStrength = 200;
 var height = movementStrength / $(window).height();
 var width = movementStrength / $(window).width();
 var px = 0;
+
+if ($(window).innerWidth()>600) { 
 $("#box").mousemove(function(e){
   var pageX = e.pageX - ($("#box").width()/ 2);
   var pageY = e.pageY - ($("#box").height() / 2);
@@ -3804,6 +3807,7 @@ $("#box").mousemove(function(e){
   console.log($("#box").width());
 
 });
+}
 
 $('#storybutton').click(function() {
   $('.scene-wrapper').show();

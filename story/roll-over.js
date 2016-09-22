@@ -603,6 +603,7 @@ var imgLoadingDone=false;
 			imgSrcs.push('img/'+story[sNo].src+i+'.jpg');
 		}
 
+
 	  initBackgroundTexture(imgSrcs).then(function(){initSamplingScreen();imgLoadingDone=true;imgLoadedFunc(imgLoadingDone);});
 	  initSampleTexture();
 
