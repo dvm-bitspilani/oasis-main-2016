@@ -173,6 +173,8 @@ return /******/ (function(modules) { // webpackBootstrap
 fakeScroll.style.height=(story[sNo].size*story[sNo].no)+'px';
 
 var oldSlide=-1;
+
+var imgLoadingDone=false;
 // console.log((story[sNo].size*story[sNo].no),fakeScroll.style.height);
 	function scrollHandling(){
 	  var offset = 0;
@@ -227,6 +229,18 @@ var oldSlide=-1;
 
 
 
+	}
+
+	function imgLoadedFunc(imgLoading){
+		if(imgLoading==true){
+			setTimeout(function () {
+				$('.loader').fadeOut('slow');
+				$('#fakeScroll').show();
+				$('.container').show();
+				animate();
+
+			},1000);
+		}
 	}
 
 
@@ -589,9 +603,8 @@ var oldSlide=-1;
 			imgSrcs.push('img/'+story[sNo].src+i+'.jpg');
 		}
 
-	  initBackgroundTexture(imgSrcs).then(function () {
-	  	console.log('blabla');
-	  }).then(initSamplingScreen);
+
+	  initBackgroundTexture(imgSrcs).then(function(){initSamplingScreen();imgLoadingDone=true;imgLoadedFunc(imgLoadingDone);});
 	  initSampleTexture();
 
 	  initMainScreen();

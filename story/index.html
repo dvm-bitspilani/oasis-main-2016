@@ -51,16 +51,10 @@
           animateEle.beginElement();
           console.log(oldP,newP,p);
           oldP=newP;
-          if (Math.floor(p)>99) {          // loadingdone();
-            setTimeout(function () {
-              $('.loader').fadeOut('slow');
-              $('#fakeScroll').show();
-              $('.container').show();
-              animate();
-
-            },1000);
-         }
-        }
+        //   if (Math.floor(p)>99) {          // loadingdone();
+        //
+        // }
+      }
       });
     });
   </script>
@@ -398,7 +392,9 @@
 <script src="../js/jquery.ba-throttle-debounce.js"> </script>
 <script type="text/javascript">
 
-  document.body.onload = function init() {
+  document.body.onload = function init(imgLoadingDone=false) {
+  
+
     // loadingdone();
     $('#box').hide();
 
