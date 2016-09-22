@@ -6,9 +6,9 @@
 	 xml:space="preserve">
 <rect x="40.447" y="40.447" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -55.0799 132.9746)" opacity="0.5" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-miterlimit="10" width="185.055" height="185.055"/>
 <g>
-	
+
 		<line opacity="0.7" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-miterlimit="10" x1="85.907" y1="85.907" x2="180.041" y2="180.042"/>
-	
+
 		<line opacity="0.7" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-miterlimit="10" x1="180.042" y1="85.907" x2="85.907" y2="180.042"/>
 </g>
 </svg>

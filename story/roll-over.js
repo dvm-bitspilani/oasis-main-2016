@@ -152,7 +152,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    src:'noah',
 	    no:12,
 			size:1444,
-			scroll:25,
+			scroll:24,
 			text:[
 				""
 			]

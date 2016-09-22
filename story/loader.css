@@ -138,12 +138,12 @@ fill: transparent;
 .loader #animateRing{
   fill:none;
   stroke:#780303;
-  stroke-width:10.71;
+  stroke-width:15;
   stroke-opacity:1;
-  stroke-dasharray: 1360;
-  stroke-dashoffset: 1360;
+  stroke-dasharray: 1720;
+  stroke-dashoffset: 1720;
 
-  /*animation: dash 5s linear forwards;*/
+  animation: dash 5s linear forwards;
   /*animation-delay: 2s;*/
 
 }
@@ -195,6 +195,7 @@ to {
   justify-content: center;
   bottom: 2vh;
   padding: 15px;
+  z-index: 3;
   /*background: rgba(0,0,0,0.6);*/
   /*min-height: 3.7vh;*/
 
@@ -265,10 +266,10 @@ to {
 .ham {
     cursor: pointer;
     position: fixed;
-    top: 2vh;
+    top: 17px;
     left: 1vw;
-    width: 80px;
-    height: 80px;
+    width: 9vh;
+    height: 9vh;
     /* height: 13vh; */
     /*background-image: url('../img/ham.svg');
 background-size: contain;
@@ -279,14 +280,15 @@ background-repeat: no-repeat;*/
 .chooseStory{
   cursor: pointer;
   position: fixed;
-  top: 2vh;
-  right: 1vw;
-  width: 66px;
-  z-index: 15;
+  top: 0;
+    right: 0;
+    width: 7vh;
+    z-index: 15;
+    margin: 20px;
 }
 
 .chooseStory img{
-  width: 66px;
+  width: 7vh;
 }
 
 .ham svg {
@@ -459,12 +461,12 @@ background-repeat: no-repeat;*/
 .scene-close {
     cursor: pointer;
     background-image: url('../img/cross.svg');
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     margin:20px;
-    width: 40px;
-    height: 40px;
+    width: 7vh;
+    height: 7vh;
     z-index: 71;
     background-size: cover;
 }
