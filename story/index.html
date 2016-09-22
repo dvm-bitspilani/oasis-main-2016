@@ -504,6 +504,10 @@
 <script src="../js/jquery.ba-throttle-debounce.js"> </script>
 <script type="text/javascript">
 
+
+window.addEventListener('load',function(){
+  console.log('hi');
+})
 var imgHeight;
 
 var story=[
@@ -876,8 +880,8 @@ var sNo=window.location.hash.charAt(1);
 var bg = new Image();
 bg.src = "../img/loaderbg.jpg";
 var myImage = new Image();
-// myImage.src = "../img/mask.png";
-myImage.src = "../img/loaderbg.jpg";
+myImage.src = "../img/mask.png";
+// myImage.src = "../img/loaderbg.jpg";
 
 // myImage.addEventListener("load", loadImage, false);
 //

@@ -4124,6 +4124,7 @@ g[id^="cat"] g {
     }
 }
 
+
 #Layer_1 {
     width: 100vw;
     position: absolute;
@@ -4181,6 +4182,23 @@ g[id^="cat"] g {
     background-size: 100% 100%;
     /*background-repeat: repeat;*/
     z-index: 70;
+    display: flex;
+justify-content: center;
+}
+
+.eventText{
+  position: relative;
+width: 60%;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 60%;
+top: 20%;
+overflow-y: scroll;
+padding: 0 27px;
+color: black;
+font-size: 1.1em;
+
 }
 
 .contacts-wrapper {
@@ -4632,12 +4650,12 @@ g[id^="cat"] g {
     transform: rotate(10deg);
 }
 
-@media screen and (max-width: 600px) {  
+@media screen and (max-width: 600px) {
     .scene {
         transform: rotate(0deg);
     }
 
-    
+
     .scene-container {
         position: absolute;
         width: 100vw;
@@ -4723,7 +4741,7 @@ g[id^="cat"] g {
         background-image: url("../img/moses-strip.jpg");
         background-repeat: no-repeat;
         background-position: center center;
-         background-size: initial!important; 
+         background-size: initial!important;
         transition: all 1s ease;
         -moz-transition: all 1s ease;
         -ms-transition: all 1s ease;
@@ -4739,7 +4757,7 @@ g[id^="cat"] g {
         background-image: url("../img/troy-strip.jpg");
         background-repeat: no-repeat;
         background-position: center center;
-         background-size: initial!important; 
+         background-size: initial!important;
         transition: all 1s ease;
         -moz-transition: all 1s ease;
         -ms-transition: all 1s ease;
@@ -4755,7 +4773,7 @@ g[id^="cat"] g {
         background-image: url("../img/maha-strip.jpg");
         background-repeat: no-repeat;
         background-position: center center;
-         background-size: initial!important; 
+         background-size: initial!important;
         transition: all 1s ease;
         -moz-transition: all 1s ease;
         -ms-transition: all 1s ease;
@@ -4771,7 +4789,7 @@ g[id^="cat"] g {
         background-image: url("../img/noah-strip.jpg");
         background-repeat: no-repeat;
         background-position: center center;
-         background-size: initial!important; 
+         background-size: initial!important;
         transition: all 1s ease;
         -moz-transition: all 1s ease;
         -ms-transition: all 1s ease;
@@ -4783,7 +4801,7 @@ g[id^="cat"] g {
         background-size: initial!important;
     }
 
-} 
+}
 
 .scene-corner {
     width: 50vw;

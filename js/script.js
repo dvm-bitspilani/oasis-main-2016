@@ -113,6 +113,7 @@ else{
     $('.eventData').animate({
        width:'0%'
      },600);
+     $('.eventText').hide();
     setTimeout(function(){
     $('#outerRightIn').removeClass('moveRightOuter');
     $('.eventListRightIn').removeClass('moveRightEventList');
@@ -202,6 +203,7 @@ console.log(event);
       $('.eventData').animate({
          width:'0%'
        },600);
+       $('.eventText').hide();
       setTimeout(function(){
       $('#outerRightIn').removeClass('moveRightOuter');
       $('.eventListRightIn').removeClass('moveRightEventList');
@@ -224,6 +226,8 @@ console.log(event);
          $('.eventData').animate({
             width:evPageVal
           },600);
+
+          $('.eventText').show();
           setTimeout(function(){
             $('#outerRightIn').addClass('moveRightOuter');
             $('.eventListRightIn').addClass('moveRightEventList');
@@ -248,9 +252,11 @@ console.log(event);
 
 
     else{
+
       $('.eventData').animate({
          width:evPageVal
        },600);
+       $('.eventText').show();
       // var eventDataPaper = document.getElementById('eventPageRect');
       // var animate1=eventDataPaper.childNodes[1];
       // ani1.setAttribute('from','0');
@@ -333,8 +339,27 @@ console.log(event);
         animate.beginElement();
         $ele.attr('on',false);
     }
-
+    var data=[];
     $(".events-trigger").click(function(){
+      // ajax
+      data=[{"category": "Dance", "events": [{"is_kernel": true, "short_desc": "A group dance event", "id": 1, "name": "Choreo"}, {"is_kernel": true, "short_desc": "Group dance event - showcasing the freestyle form.", "id": 7, "name": "Street Dance"}, {"is_kernel": false, "short_desc": "Classical dance contest", "id": 40, "name": "Tandav"}, {"is_kernel": true, "short_desc": "A solo dance event.", "id": 48, "name": "Desert Duel"}, {"is_kernel": true, "short_desc": "A group dance competition.", "id": 54, "name": "Razzmatazz"}]}, {"category": "Drama", "events": [{"is_kernel": true, "short_desc": "The fashion show at oasis 2015.", "id": 2, "name": "FashP"}, {"is_kernel": true, "short_desc": "Portray a play, pertaining to a theme", "id": 3, "name": "Mime"}, {"is_kernel": true, "short_desc": "Click here to know more", "id": 5, "name": "Stage Play"}, {"is_kernel": true, "short_desc": "Nukkad Natak to propagate social and political messages", "id": 6, "name": "Street Play"}, {"is_kernel": true, "short_desc": "A movie making competition.", "id": 36, "name": "Metamorphosis"}, {"is_kernel": false, "short_desc": "Bring out the actor in you on a real stage", "id": 38, "name": "Apt to Act"}, {"is_kernel": false, "short_desc": "", "id": 69, "name": "Femina Miss India"}]}, {"category": "Music", "events": [{"is_kernel": true, "short_desc": "Musical extravaganza from the Indian heartland", "id": 8, "name": "Tarang"}, {"is_kernel": false, "short_desc": "Ttalent hunt for the most versatile singer", "id": 9, "name": "Andholika"}, {"is_kernel": true, "short_desc": "An A\\u2019capella competition", "id": 10, "name": "Pitch Perfect"}, {"is_kernel": false, "short_desc": "A classical music event - both Carnatic and Hindustani styles", "id": 39, "name": "Swaranjali"}, {"is_kernel": false, "short_desc": "Calling all drummers to exhibit their expertise.", "id": 49, "name": "Drums Duel"}, {"is_kernel": true, "short_desc": "Set free the rapper in you.", "id": 50, "name": "Rap Wars"}, {"is_kernel": false, "short_desc": "A non-competitive event open for all music lovers.", "id": 51, "name": "Free Jam"}, {"is_kernel": true, "short_desc": "Come experience the battle of bands.", "id": 60, "name": "Rocktaves"}, {"is_kernel": false, "short_desc": "Solo guitar competition for acoustic and electric guitarists.", "id": 62, "name": "Axetacy"}, {"is_kernel": false, "short_desc": "The old Indian tradition in a new flavour.", "id": 66, "name": "Antakshari"}]}, {"category": "online", "events": [{"is_kernel": false, "short_desc": "Photography event", "id": 11, "name": "Exposure"}, {"is_kernel": false, "short_desc": "Different forms of word games", "id": 18, "name": "Wordwars"}, {"is_kernel": false, "short_desc": "Build a story around a given set of constraints", "id": 35, "name": "Down The Line"}, {"is_kernel": false, "short_desc": "Make a vine.", "id": 37, "name": "10 Seconds to Fame"}]}, {"category": "Quizzing", "events": [{"is_kernel": false, "short_desc": "Click here to know more", "id": 12, "name": "Movie Quiz"}, {"is_kernel": false, "short_desc": "Bollywood Quiz", "id": 30, "name": "Filmy Muqabla"}, {"is_kernel": false, "short_desc": "Click here to know more", "id": 31, "name": "Oasis Quiz"}, {"is_kernel": false, "short_desc": "Self Explanatory!", "id": 46, "name": "Entertainment Quiz"}, {"is_kernel": false, "short_desc": "Test your knowledge of music", "id": 58, "name": "Music Quiz"}, {"is_kernel": false, "short_desc": "Test your knowledge of the world.", "id": 65, "name": "Theme Quiz"}]}, {"category": "Misc", "events": [{"is_kernel": false, "short_desc": "", "id": 13, "name": "Triathlon"}, {"is_kernel": false, "short_desc": "Spell it out", "id": 14, "name": "Spell Bee"}, {"is_kernel": false, "short_desc": "Plan an impeccable suicide", "id": 15, "name": "Suicide at Midnight"}, {"is_kernel": false, "short_desc": "Convey the given word without using words that are Taboo", "id": 16, "name": "Taboo"}, {"is_kernel": false, "short_desc": "Test knowledge of the Hindi language", "id": 17, "name": "Cocktail"}, {"is_kernel": false, "short_desc": "A fun new take on the traditional board game", "id": 32, "name": "Speed Scrabble"}, {"is_kernel": false, "short_desc": "Be the king of words.", "id": 33, "name": "Wordstock"}, {"is_kernel": false, "short_desc": "Battle of poetry", "id": 41, "name": "Poetry, Slam!"}, {"is_kernel": false, "short_desc": "Solve the clues, take the treasure", "id": 42, "name": "Treasure Hunt"}, {"is_kernel": false, "short_desc": "Find as many items on the list within the given time", "id": 44, "name": "Beg, Borrow, Steal"}, {"is_kernel": false, "short_desc": "Showcase your poetry skills.", "id": 52, "name": "OASIS Reading Session(ORS)"}, {"is_kernel": false, "short_desc": "Make it out of waste..!!", "id": 68, "name": "Protest Out Of Waste"}, {"is_kernel": false, "short_desc": "", "id": 71, "name": "Movie Screening"}, {"is_kernel": false, "short_desc": "", "id": 72, "name": "Gaming"}, {"is_kernel": false, "short_desc": "", "id": 73, "name": "Adventure Zone"}, {"is_kernel": false, "short_desc": "", "id": 74, "name": "Zorbing"}]}, {"category": "Oratory", "events": [{"is_kernel": false, "short_desc": "Attend to problems residing in our country and beyond", "id": 29, "name": "Mock Parliament"}, {"is_kernel": false, "short_desc": "Be the Mister and Miss Oasis 2015.", "id": 43, "name": "Mister and Miss Oasis"}, {"is_kernel": false, "short_desc": "Short for BITS Language Aptitude Battle", "id": 57, "name": "BLAB"}, {"is_kernel": false, "short_desc": "Test your speaking skills against the others.", "id": 63, "name": "Bol Baby Bol"}, {"is_kernel": true, "short_desc": "Annual 2-on-2 parliamentary style freshers\\u2019 debating event.", "id": 64, "name": "Oasis Debate"}, {"is_kernel": false, "short_desc": "Do you have it in you to be a master at bluff ?", "id": 67, "name": "Bluffmaster"}]}, {"category": "Art", "events": [{"is_kernel": false, "short_desc": "Sketching Competition for art enthusiasts.", "id": 53, "name": "Contrasto"}, {"is_kernel": false, "short_desc": "Face and hand painting competition.", "id": 55, "name": "Splash"}, {"is_kernel": false, "short_desc": "A guided tour of the photographic world.", "id": 61, "name": "Exposure Exhibition"}]}];
+
+
+      data.map(function(i){
+        console.log('CATEGORY '+i.category);
+        i.events.map(function(i2){
+          console.log(i2.name)
+        })
+      });
+      $.ajax({
+        type:'GET',
+        url:'http://bits-oasis.org/2016/events/summary/',
+        dataType:'jsonp',
+        success:function(response){
+          data=[{"category": "Dance", "events": [{"is_kernel": true, "short_desc": "A group dance event", "id": 1, "name": "Choreo"}, {"is_kernel": true, "short_desc": "Group dance event - showcasing the freestyle form.", "id": 7, "name": "Street Dance"}, {"is_kernel": false, "short_desc": "Classical dance contest", "id": 40, "name": "Tandav"}, {"is_kernel": true, "short_desc": "A solo dance event.", "id": 48, "name": "Desert Duel"}, {"is_kernel": true, "short_desc": "A group dance competition.", "id": 54, "name": "Razzmatazz"}]}, {"category": "Drama", "events": [{"is_kernel": true, "short_desc": "The fashion show at oasis 2015.", "id": 2, "name": "FashP"}, {"is_kernel": true, "short_desc": "Portray a play, pertaining to a theme", "id": 3, "name": "Mime"}, {"is_kernel": true, "short_desc": "Click here to know more", "id": 5, "name": "Stage Play"}, {"is_kernel": true, "short_desc": "Nukkad Natak to propagate social and political messages", "id": 6, "name": "Street Play"}, {"is_kernel": true, "short_desc": "A movie making competition.", "id": 36, "name": "Metamorphosis"}, {"is_kernel": false, "short_desc": "Bring out the actor in you on a real stage", "id": 38, "name": "Apt to Act"}, {"is_kernel": false, "short_desc": "", "id": 69, "name": "Femina Miss India"}]}, {"category": "Music", "events": [{"is_kernel": true, "short_desc": "Musical extravaganza from the Indian heartland", "id": 8, "name": "Tarang"}, {"is_kernel": false, "short_desc": "Ttalent hunt for the most versatile singer", "id": 9, "name": "Andholika"}, {"is_kernel": true, "short_desc": "An A\\u2019capella competition", "id": 10, "name": "Pitch Perfect"}, {"is_kernel": false, "short_desc": "A classical music event - both Carnatic and Hindustani styles", "id": 39, "name": "Swaranjali"}, {"is_kernel": false, "short_desc": "Calling all drummers to exhibit their expertise.", "id": 49, "name": "Drums Duel"}, {"is_kernel": true, "short_desc": "Set free the rapper in you.", "id": 50, "name": "Rap Wars"}, {"is_kernel": false, "short_desc": "A non-competitive event open for all music lovers.", "id": 51, "name": "Free Jam"}, {"is_kernel": true, "short_desc": "Come experience the battle of bands.", "id": 60, "name": "Rocktaves"}, {"is_kernel": false, "short_desc": "Solo guitar competition for acoustic and electric guitarists.", "id": 62, "name": "Axetacy"}, {"is_kernel": false, "short_desc": "The old Indian tradition in a new flavour.", "id": 66, "name": "Antakshari"}]}, {"category": "online", "events": [{"is_kernel": false, "short_desc": "Photography event", "id": 11, "name": "Exposure"}, {"is_kernel": false, "short_desc": "Different forms of word games", "id": 18, "name": "Wordwars"}, {"is_kernel": false, "short_desc": "Build a story around a given set of constraints", "id": 35, "name": "Down The Line"}, {"is_kernel": false, "short_desc": "Make a vine.", "id": 37, "name": "10 Seconds to Fame"}]}, {"category": "Quizzing", "events": [{"is_kernel": false, "short_desc": "Click here to know more", "id": 12, "name": "Movie Quiz"}, {"is_kernel": false, "short_desc": "Bollywood Quiz", "id": 30, "name": "Filmy Muqabla"}, {"is_kernel": false, "short_desc": "Click here to know more", "id": 31, "name": "Oasis Quiz"}, {"is_kernel": false, "short_desc": "Self Explanatory!", "id": 46, "name": "Entertainment Quiz"}, {"is_kernel": false, "short_desc": "Test your knowledge of music", "id": 58, "name": "Music Quiz"}, {"is_kernel": false, "short_desc": "Test your knowledge of the world.", "id": 65, "name": "Theme Quiz"}]}, {"category": "Misc", "events": [{"is_kernel": false, "short_desc": "", "id": 13, "name": "Triathlon"}, {"is_kernel": false, "short_desc": "Spell it out", "id": 14, "name": "Spell Bee"}, {"is_kernel": false, "short_desc": "Plan an impeccable suicide", "id": 15, "name": "Suicide at Midnight"}, {"is_kernel": false, "short_desc": "Convey the given word without using words that are Taboo", "id": 16, "name": "Taboo"}, {"is_kernel": false, "short_desc": "Test knowledge of the Hindi language", "id": 17, "name": "Cocktail"}, {"is_kernel": false, "short_desc": "A fun new take on the traditional board game", "id": 32, "name": "Speed Scrabble"}, {"is_kernel": false, "short_desc": "Be the king of words.", "id": 33, "name": "Wordstock"}, {"is_kernel": false, "short_desc": "Battle of poetry", "id": 41, "name": "Poetry, Slam!"}, {"is_kernel": false, "short_desc": "Solve the clues, take the treasure", "id": 42, "name": "Treasure Hunt"}, {"is_kernel": false, "short_desc": "Find as many items on the list within the given time", "id": 44, "name": "Beg, Borrow, Steal"}, {"is_kernel": false, "short_desc": "Showcase your poetry skills.", "id": 52, "name": "OASIS Reading Session(ORS)"}, {"is_kernel": false, "short_desc": "Make it out of waste..!!", "id": 68, "name": "Protest Out Of Waste"}, {"is_kernel": false, "short_desc": "", "id": 71, "name": "Movie Screening"}, {"is_kernel": false, "short_desc": "", "id": 72, "name": "Gaming"}, {"is_kernel": false, "short_desc": "", "id": 73, "name": "Adventure Zone"}, {"is_kernel": false, "short_desc": "", "id": 74, "name": "Zorbing"}]}, {"category": "Oratory", "events": [{"is_kernel": false, "short_desc": "Attend to problems residing in our country and beyond", "id": 29, "name": "Mock Parliament"}, {"is_kernel": false, "short_desc": "Be the Mister and Miss Oasis 2015.", "id": 43, "name": "Mister and Miss Oasis"}, {"is_kernel": false, "short_desc": "Short for BITS Language Aptitude Battle", "id": 57, "name": "BLAB"}, {"is_kernel": false, "short_desc": "Test your speaking skills against the others.", "id": 63, "name": "Bol Baby Bol"}, {"is_kernel": true, "short_desc": "Annual 2-on-2 parliamentary style freshers\\u2019 debating event.", "id": 64, "name": "Oasis Debate"}, {"is_kernel": false, "short_desc": "Do you have it in you to be a master at bluff ?", "id": 67, "name": "Bluffmaster"}]}, {"category": "Art", "events": [{"is_kernel": false, "short_desc": "Sketching Competition for art enthusiasts.", "id": 53, "name": "Contrasto"}, {"is_kernel": false, "short_desc": "Face and hand painting competition.", "id": 55, "name": "Splash"}, {"is_kernel": false, "short_desc": "A guided tour of the photographic world.", "id": 61, "name": "Exposure Exhibition"}]}];
+          console.log(data);
+        }
+      })
       $('.events-wrapper').fadeIn();
       $('#inner').fadeIn(1000);
 
@@ -365,6 +390,7 @@ console.log(event);
         $curEle.attr('on',false);
         console.log($curEle);
         $(this).fadeOut();
+        $('.eventText').show();
 
       $('.eventData').animate({
          width:'0%'
