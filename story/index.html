@@ -562,6 +562,14 @@ var story=[
 
     $('#box').hide();
     $('#fallbackStory').hide();
+
+    setTimeout(function () {
+      $('.loader').fadeOut('slow');
+      $('#fakeScroll').show();
+      $('.container').show();
+      animate();
+
+    },1000);
   if(window.innerWidth<600){
       fallback();
 }else{
