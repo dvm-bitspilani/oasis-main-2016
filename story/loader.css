@@ -24,6 +24,10 @@ body, html {
     background: #000;
 }
 
+body{
+  background:url('../img/loaderbg.jpg');
+}
+
 
 .cd-transition-layer {
   position: fixed;
@@ -116,7 +120,6 @@ fill: transparent;{
   height: 100vh;
   z-index: 999;
   background-size: cover;
-  background:url('../img/inkbg.jpg');
 }
 
 
