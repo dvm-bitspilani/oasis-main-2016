@@ -589,7 +589,9 @@ var oldSlide=-1;
 			imgSrcs.push('img/'+story[sNo].src+i+'.jpg');
 		}
 
-	  initBackgroundTexture(imgSrcs).then(initSamplingScreen);
+	  initBackgroundTexture(imgSrcs).then(function () {
+	  	console.log('blabla');
+	  }).then(initSamplingScreen);
 	  initSampleTexture();
 
 	  initMainScreen();
