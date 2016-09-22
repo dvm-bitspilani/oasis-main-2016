@@ -31,6 +31,7 @@
   <script type="text/javascript">
     window.addEventListener('DOMContentLoaded', function() {
       "use strict";
+      var oldP=1740,newP;
       var ql = new QueryLoader2(document.querySelector('body'), {
         barColor: "transparent",
         backgroundColor: "transparent",
@@ -40,10 +41,24 @@
         fadeOutTime: 1000,
         onProgress: function(p,l,t) {
           var animateRing = document.querySelector('#animateRing');
-          // naim.css({
-          //   property1: 'value1',
-          //   property2: 'value2'
-          // });
+          var animateEle=animateRing.childNodes[1];
+          newP=1740*(1-p/100);
+          animateEle.setAttribute('from',oldP);
+          animateEle.setAttribute('to',newP);
+          animateEle.setAttribute('dur','0.2s');
+          animateEle.setAttribute('fill','freeze');
+          animateEle.beginElement();
+          console.log(oldP,newP,p);
+          oldP=newP;
+          if (Math.floor(p)>99) {          // loadingdone();
+            setTimeout(function () {
+              $('.loader').fadeOut('slow');
+              $('#fakeScroll').show();
+              $('.container').show();
+              animate();
+
+            },1000);
+         }
         }
       });
     });
@@ -178,6 +193,7 @@
     </div>
   </div>
 </div>
+
 <div class="container">
   <div  class="scroll">
     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -347,6 +363,7 @@
       <div id="arc" class="image" story="4"></div>
     </div>
   </div>
+    <div class="scene-close"></div>
 </div>
 
 
@@ -381,7 +398,7 @@
 <script type="text/javascript">
 
   document.body.onload = function init() {
-    loadingdone();
+    // loadingdone();
     $('#box').hide();
 
     setTimeout(function(){
@@ -621,12 +638,12 @@ var canvas = document.querySelector("#inkCanvas");
 var context = canvas.getContext("2d");
 var sNo=window.location.hash.charAt(1);
 var bg = new Image();
-bg.src = "../img/inkbg"+sNo+".jpg";
+bg.src = "../img/loaderbg"+sNo+".jpg";
 var myImage = new Image();
 myImage.src = "../img/mask.png";
 
 // myImage.addEventListener("load", loadImage, false);
-
+//
 // function loadImage(e) {
 //   animate();
 // }
@@ -680,7 +697,7 @@ function loadingdone() {
 
 
 $('.loader').css({
-  background:'url("../img/inkbg'+sNo+'.jpg")'
+  background:'url("../img/loaderbg'+sNo+'.jpg")'
 })
 
 
@@ -796,19 +813,31 @@ $('.menuList ul .active').css({
 
 $('.chooseStory').click(function() {
   $('.scene-wrapper,#box').show();
+  $(this).hide();
+  $('.scene-close').show();
   $('#noah').animate({left: '0vw'}, 400);
   $('#moses').animate({left: '0vw'}, 400);
   $('#desi').animate({left: '0vw'}, 400);
   $('#troy').animate({left: '0vw'}, 400);
 });
 
-$('.logoNav').click(function() {
-  $('#noah').animate({left: '-40vw'}, 400);
+
+
+
+$('.scene-close').click(function() {
+  $(this).hide();
+  $('.chooseStory').show();
+  $('#troy').animate({left: '-40vw'}, 400);
   $('#moses').animate({left: '-60vw'}, 400);
   $('#desi').animate({left: '70vw'}, 400);
-  $('#troy').animate({left: '50vw'}, 400);
+  $('#noah').animate({left: '50vw'}, 400);
   $('#storybutton').fadeIn();
   $('.lite-wrapper').fadeOut();
+  setTimeout(function(){
+    $('.scene-wrapper').fadeOut();
+
+  },400);
+  // $(this).fadeOut();
 });
 
 $('.image').click(function(){
