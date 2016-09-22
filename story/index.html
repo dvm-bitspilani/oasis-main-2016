@@ -28,6 +28,25 @@
   <!-- <script src="../js/queryloader2.min.js" type="text/javascript"></script> -->
   <style type="text/css">
   </style>
+  <script type="text/javascript">
+  var imgPre=[];
+  var imgSrcPre=[];
+
+  for(var i=1;i<=story[sNo-1].no;i++){
+    imgPre.push('img/'+story[sNo-1].src+i+'.jpg');
+  }
+
+  function loadImg(){
+    imgPre.map(function(i,e){
+      var img = new Image();
+      img.src = i;
+      imgSrcPre.push(img);
+      console.log(imgSrcPre[e]);
+    })
+  }
+
+  loadImg();
+  </script>
   <!-- <script type="text/javascript">
 
   var sNo = window.location.hash.charAt(1);
@@ -410,12 +429,63 @@
 
 <!-- <script type="text/javascript" src="index.js"></script> -->
 <script type="text/javascript" src="gl-matrix-2.3.2min.js"></script>
-<script type="text/javascript" src="roll-over.js"></script>
 <script src="../js/jquery.min.js"> </script>
 <script src="../js/jquery.ba-throttle-debounce.js"> </script>
 <script type="text/javascript">
 
 var imgHeight;
+
+var story=[
+  {
+    src:'troy',
+    no:8,
+    size:1411,
+    scroll:16.1,
+    text:[
+      ""
+    ]
+  },
+  {
+    src:'moses',
+    no:10,
+    size:1457,
+    scroll:20,
+    text:[
+      "",
+      "The woman sets her baby afloat in the Nile. She will never see him again.It is the only way to save him. She prays to God. Her daughter weeps quietly.",
+      "The baby is now a man. He sees an Egyptian beat a Hebrew. He intervenes. He kills the Egyptian. The Pharaoh wants to kill him. This is his justice. God helps his prophet escape.",
+      "The cruelties against the Hebrews continue. God has had enough. He sends his messenger to save the Hebrews.",
+      "The Pharaoh will not let the Hebrews leave his kingdom. God brings ten plagues upon Egypt. The Pharaoh relents.",
+      "Moses will lead the Hebrews to Israel. The Red Sea stands in his way. Moses raises his staff. The Sea trembles. The Sea gives way."
+    ]
+  },
+  {
+    src:'mahabharat',
+    no:8,
+    size:1311,
+    scroll:16,
+    text:[
+      "Hastinapur is ruled by the Duryodhan, eldest among the Kauravas.",
+      "Yudhishthir, eldest of the Pandavas, rules Indraprasth.",
+      "Draupadi is the Pandavas’ wife. They love her dearly.",
+      "A jealous Duryodhan invites Yudhishthir for a game of dice, and cheats so as to take over Indraprasth. Yudhishthir gambles away not only his kingdom, but also his brothers and even himself.",
+      "Yudhishthir also loses his wife, who is disgraced in front of the entire court. The Pandavas are infuriated at the Kauravas for trying to dishonour their wife.",
+      "They promise to wage war. War the likes of which neither Man nor God has seen."
+    ]
+  },
+
+  {
+    src:'noah',
+    no:12,
+    size:1444,
+    scroll:24,
+    text:[
+      ""
+    ]
+  }
+
+]
+
 
   document.body.onload = function init(imgLoadingDone=false) {
 
@@ -448,56 +518,6 @@ var imgHeight;
 
 function fallback(){
 
-  var story=[
-    {
-      src:'troy',
-      no:8,
-      size:1411,
-      scroll:16.1,
-      text:[
-        ""
-      ]
-    },
-    {
-      src:'moses',
-      no:10,
-      size:1457,
-      scroll:20,
-      text:[
-        "",
-        "The woman sets her baby afloat in the Nile. She will never see him again.It is the only way to save him. She prays to God. Her daughter weeps quietly.",
-        "The baby is now a man. He sees an Egyptian beat a Hebrew. He intervenes. He kills the Egyptian. The Pharaoh wants to kill him. This is his justice. God helps his prophet escape.",
-        "The cruelties against the Hebrews continue. God has had enough. He sends his messenger to save the Hebrews.",
-        "The Pharaoh will not let the Hebrews leave his kingdom. God brings ten plagues upon Egypt. The Pharaoh relents.",
-        "Moses will lead the Hebrews to Israel. The Red Sea stands in his way. Moses raises his staff. The Sea trembles. The Sea gives way."
-      ]
-    },
-    {
-      src:'mahabharat',
-      no:8,
-      size:1311,
-      scroll:16,
-      text:[
-        "Hastinapur is ruled by the Duryodhan, eldest among the Kauravas.",
-        "Yudhishthir, eldest of the Pandavas, rules Indraprasth.",
-        "Draupadi is the Pandavas’ wife. They love her dearly.",
-        "A jealous Duryodhan invites Yudhishthir for a game of dice, and cheats so as to take over Indraprasth. Yudhishthir gambles away not only his kingdom, but also his brothers and even himself.",
-        "Yudhishthir also loses his wife, who is disgraced in front of the entire court. The Pandavas are infuriated at the Kauravas for trying to dishonour their wife.",
-        "They promise to wage war. War the likes of which neither Man nor God has seen."
-      ]
-    },
-
-    {
-      src:'noah',
-      no:12,
-      size:1444,
-      scroll:24,
-      text:[
-        ""
-      ]
-    }
-
-  ]
 
   var ringArr=[
     14.772,
@@ -988,7 +1008,22 @@ $('.image').click(function(){
 });
 
 
+
+  //
+	// function loadTile(imgSrc) {
+	//   return new Promise(function (res) {
+	//     var img = new Image();
+	//     img.src = this.src;
+	//     img.onload = function () {
+	//       return res(img);
+	//     };
+	//   });
+	// }
+
+
 </script>
+<script type="text/javascript" src="roll-over.js"></script>
+
 </body>
 
 </html>

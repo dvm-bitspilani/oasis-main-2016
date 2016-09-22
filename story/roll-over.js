@@ -328,11 +328,11 @@ var imgLoadingDone=false;
 	  });
 	}
 
-	function loadTile(imgSrc) {
+	function loadTile(imgSrc,i) {
 	  return new Promise(function (res) {
 	    var img = new Image();
-	    img.src = imgSrc;
-	    imgSrcGl = imgSrc;
+			console.log(imgSrcPre[i],i);
+	    img.src = imgSrcPre[i].src;
 	    img.onload = function () {
 	      return res(img);
 	    };
@@ -357,7 +357,7 @@ var imgLoadingDone=false;
 	}
 
 	function initBackgroundTexture(imgSrcs) {
-	  return Promise.all(imgSrcs.map(loadTile)).then(initTileTextures);
+	  return Promise.all(imgSrcs.map(loadTile,i)).then(initTileTextures);
 	}
 
 	function initSampleTextureFramebuffer() {
