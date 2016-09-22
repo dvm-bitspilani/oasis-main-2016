@@ -504,6 +504,20 @@
 <script src="../js/jquery.ba-throttle-debounce.js"> </script>
 <script type="text/javascript">
 
+window.addEventListener('load',function(){
+
+  console.log('hi');
+  RollOver.init({
+      canvas: 'rollover-bg',
+      mode: RollOver.modes.PARABOLIC,
+      factor: [0, 0],
+      multiplier: [0.1, 0],
+      originOffset: [0, -0.75],
+      recover: [1.1, 1],
+    });
+
+})
+
 var imgHeight;
 
 var story=[
@@ -583,14 +597,7 @@ var story=[
 
 
 
-    RollOver.init({
-      canvas: 'rollover-bg',
-      mode: RollOver.modes.PARABOLIC,
-      factor: [0, 0],
-      multiplier: [0.1, 0],
-      originOffset: [0, -0.75],
-      recover: [1.1, 1],
-    });
+    
   }
 }
 
