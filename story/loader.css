@@ -426,15 +426,12 @@ background-repeat: no-repeat;*/
 
 /* scene*/
 
-
-
 .scene-wrapper {
-    display: none;
-    color:white;
+    /*display: none;*/
 }
 
 .scene-container {
-    position: fixed;
+    position: absolute;
     width: 120vw;
     height: 130vh;
     margin: 0;
@@ -460,17 +457,18 @@ background-repeat: no-repeat;*/
     font-size: 1.5em;
     opacity: 0.5;
     font-family: 'Nexa-Bold',serif;
+    color:white;
 }
 
 .scene-close {
     cursor: pointer;
     background-image: url('../img/cross.svg');
-    position: fixed;
+    position: absolute;
     top: 0;
     right: 0;
     margin:20px;
-    width: 7vh;
-    height: 7vh;
+    width: 40px;
+    height: 40px;
     z-index: 71;
     background-size: cover;
 }
@@ -481,6 +479,161 @@ background-repeat: no-repeat;*/
     margin: 0;
     padding: 0;
     transform: rotate(10deg);
+}
+
+@media screen and (max-width: 600px) {
+    .scene {
+        transform: rotate(0deg);
+    }
+
+
+    .scene-container {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        left: 0;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        overflow: hidden;
+        transition: all 200ms ease;
+        z-index: 70;
+    }
+
+    .scene-text {
+        position: absolute;
+        /* left: 0; */
+        top: 3vh;
+        text-align: center;
+        width: 100%!important;
+        margin: 0 auto;
+        transform: rotate(0deg);
+        font-size: 1.5em;
+        opacity: 0.7;
+        font-family: 'Nexa-Bold',serif;
+        color: white;
+    }
+
+    .scene-close {
+        cursor: pointer;
+        background-image: url('../img/cross.svg');
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin:20px;
+        width: 40px;
+        height: 40px;
+        z-index: 71;
+        background-size: cover;
+        display: none;
+    }
+
+    .scene {
+        width: 100vw;
+        height: 25vh;
+        margin: 0;
+        padding: 0;
+        /*transform: rotate(10deg);*/
+    }
+
+    #troy {
+        position: relative;
+        left: -40vw;
+    }
+
+    #moses {
+        position: relative;
+        /*transform: translateX(-60vw) rotate(10deg);*/
+        left: -60vw;
+    }
+
+    #desi {
+        /*transform: translateX(70vw) rotate(10deg);*/
+        position: relative;
+        left: 70vw;
+    }
+
+    #noah {
+        /*transform: translateX(50vw) rotate(10deg);*/
+        position: relative;
+        left: 50vw;
+    }
+
+    .image {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        cursor: pointer;
+    }
+
+    #nigger {
+        background-image: url("../img/moses-strip.jpg");
+        background-repeat: no-repeat;
+        background-position: center center;
+         background-size: initial!important;
+        transition: all 1s ease;
+        -moz-transition: all 1s ease;
+        -ms-transition: all 1s ease;
+        -webkit-transition: all 1s ease;
+        -o-transition: all 1s ease;
+    }
+
+    #nigger:hover {
+        background-size: initial!important;
+    }
+
+    #achilies {
+        background-image: url("../img/troy-strip.jpg");
+        background-repeat: no-repeat;
+        background-position: center center;
+         background-size: initial!important;
+        transition: all 1s ease;
+        -moz-transition: all 1s ease;
+        -ms-transition: all 1s ease;
+        -webkit-transition: all 1s ease;
+        -o-transition: all 1s ease;
+    }
+
+    #achilies:hover {
+        background-size: initial!important;
+    }
+
+    #ram {
+        background-image: url("../img/maha-strip.jpg");
+        background-repeat: no-repeat;
+        background-position: center center;
+         background-size: initial!important;
+        transition: all 1s ease;
+        -moz-transition: all 1s ease;
+        -ms-transition: all 1s ease;
+        -webkit-transition: all 1s ease;
+        -o-transition: all 1s ease;
+    }
+
+    #ram:hover {
+        background-size: initial!important;
+    }
+
+    #arc {
+        background-image: url("../img/noah-strip.jpg");
+        background-repeat: no-repeat;
+        background-position: center center;
+         background-size: initial!important;
+        transition: all 1s ease;
+        -moz-transition: all 1s ease;
+        -ms-transition: all 1s ease;
+        -webkit-transition: all 1s ease;
+        -o-transition: all 1s ease;
+    }
+
+    #arc:hover {
+        background-size: initial!important;
+    }
+
 }
 
 .scene-corner {

@@ -311,7 +311,7 @@
       fadeOutTime: 1000,
       onProgress: function(p,l,t) {
         console.log(p, l, t);
-        $('.loader_text > span').text(Math.floor(p)+'%');
+        document.querySelector('.loader_text > span').innerHTML = Math.floor(p)+'%';
        if (Math.floor(p)>99) {          // loadingdone();
         setTimeout(function () {
           $('.scene-wrapper').hide();
@@ -321,7 +321,7 @@
             $('.loader_text').fadeOut();
             $('.container').css('display', 'block');
             animate();
-          },3000);
+          },100);
       }}
     })
   })
@@ -3008,7 +3008,7 @@ $("#box").mousemove(function(e){
 }
 
 $('#storybutton').click(function() {
-  $('.scene-wrapper').show();
+  $('.scene-wrapper').fadeIn(100);
   $(this).fadeOut();
   $('#noah').animate({left: '0vw'}, 400);
   $('#moses').animate({left: '0vw'}, 400);
