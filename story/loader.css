@@ -116,6 +116,7 @@ fill: transparent;{
   height: 100vh;
   z-index: 999;
   background-size: cover;
+  background:url('../img/inkbg.jpg');
 }
 
 
@@ -621,5 +622,5 @@ border-bottom: 3px solid rgba(255,255,255,0.7);
 }
 
 #plainImg img, #blurImg img{
-  width:100%;  
+  width:100%;
 }

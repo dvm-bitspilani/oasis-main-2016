@@ -35,9 +35,9 @@
     window.addEventListener('DOMContentLoaded', function() {
 
 
-      var loader=document.querySelector('.loader');
-      console.log(loader);
-      loader.style.background='url("../img/loaderbg'+sNo+'.jpg")';
+      // var loader=document.querySelector('.loader');
+      // console.log(loader);
+      // loader.style.background='url("../img/loaderbg'+sNo+'.jpg")';
 
 
       "use strict";
@@ -775,7 +775,7 @@ var canvas = document.querySelector("#inkCanvas");
 var context = canvas.getContext("2d");
 var sNo=window.location.hash.charAt(1);
 var bg = new Image();
-bg.src = "../img/loaderbg"+sNo+".jpg";
+bg.src = "../img/loaderbg.jpg";
 var myImage = new Image();
 myImage.src = "../img/mask.png";
 
