@@ -13,12 +13,12 @@
 			<stop  offset="1" style="stop-color:#613D30"/>
 		</linearGradient>
 		<polygon fill="url(#SVGID_1_)" points="223.354,139.736 268.077,164.488 271.146,155.081 234.254,126.971 		"/>
-		
+
 			<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="304.0869" y1="103.7363" x2="323.998" y2="103.7363" gradientTransform="matrix(1 -0.0079 0.0079 1 -37.8628 -1.2505)">
 			<stop  offset="0" style="stop-color:#94675C"/>
 			<stop  offset="1" style="stop-color:#613D30"/>
 		</linearGradient>
-		<polygon fill="url(#SVGID_2_)" points="267.08,104.591 282.533,108.89 284.608,107.357 286.935,97.285 286.882,91 276.928,91.078 
+		<polygon fill="url(#SVGID_2_)" points="267.08,104.591 282.533,108.89 284.608,107.357 286.935,97.285 286.882,91 276.928,91.078
 					"/>
 		<g>
 			<path fill="#8C6559" d="M248.973,145.018c0,0,2.152-0.46,2.812-0.741c0.66-0.282,3.657,1.517,3.657,1.517l-1.117,5.806
@@ -38,18 +38,18 @@
 	<g>
 		<polygon fill="#613D30" points="152.468,142.53 128.424,102.136 118.888,103.844 144.191,146.958 		"/>
 		<polygon fill="#E3D9CF" points="242.248,278.98 241.934,308.459 217.003,293.643 146.053,154.732 155.736,148.233 		"/>
-		
+
 			<linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="346.2637" y1="148.4014" x2="393.9297" y2="148.4014" gradientTransform="matrix(-1 -0.0079 -0.0079 1 523.7227 -1.2505)">
 			<stop  offset="0" style="stop-color:#94675C"/>
 			<stop  offset="1" style="stop-color:#613D30"/>
 		</linearGradient>
 		<polygon fill="url(#SVGID_3_)" points="176.335,138.203 131.612,162.955 128.544,153.548 165.435,125.438 		"/>
-		
+
 			<linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="390.2656" y1="102.8848" x2="410.1729" y2="102.8848" gradientTransform="matrix(-1 -0.0079 -0.0079 1 523.7227 -1.2505)">
 			<stop  offset="0" style="stop-color:#94675C"/>
 			<stop  offset="1" style="stop-color:#613D30"/>
 		</linearGradient>
-		<polygon fill="url(#SVGID_4_)" points="132.608,103.059 117.157,107.358 115.08,105.825 112.76,95.754 112.807,89.467 
+		<polygon fill="url(#SVGID_4_)" points="132.608,103.059 117.157,107.358 115.08,105.825 112.76,95.754 112.807,89.467
 			122.761,89.545 		"/>
 		<g>
 			<path fill="#8C6559" d="M150.718,143.485c0,0-2.151-0.458-2.813-0.74c-0.658-0.281-3.655,1.517-3.655,1.517l1.112,5.806
@@ -895,7 +895,7 @@
 			c0.046-0.009,0.128-0.034,0.128-0.028C211.956,209.285,211.747,209.484,211.47,209.461z"/>
 	</g>
 	<g>
-		
+
 			<image overflow="visible" opacity="0.75" width="687" height="223" xlink:href="634E274C.png"  transform="matrix(0.24 0 0 0.24 120.7158 216.8955)">
 		</image>
 		<g>
