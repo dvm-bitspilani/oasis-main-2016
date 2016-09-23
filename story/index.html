@@ -516,7 +516,7 @@
 
 $('.side-nav').hide();
 window.addEventListener('load',function(){
-
+if(window.innerWidth>500){
   RollOver.init({
       canvas: 'rollover-bg',
       mode: RollOver.modes.PARABOLIC,
@@ -527,7 +527,7 @@ window.addEventListener('load',function(){
     });
 
 })
-
+}
 var imgHeight;
 
 var story=[
