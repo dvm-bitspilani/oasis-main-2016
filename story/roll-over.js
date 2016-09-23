@@ -114,8 +114,8 @@ return /******/ (function(modules) { // webpackBootstrap
 			src:'troy',
 			no:8,
 			size:1411,
-			scroll:16.3,
-			factor:((window.innerWidth+1767.2)/1907.24),
+			scroll:16.2,
+			factor:1.808163 + ((-104023.9 - 1.808163)/(1 + Math.pow((window.innerWidth/0.0813613),1.353512))),
 			text:[
 				"The Greeks declare war on Troy.",
         "They sail to Troy. They hope to win.",
@@ -130,8 +130,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    src:'moses',
 	    no:10,
 			size:1457,
-			scroll:20,
-			factor:((window.innerWidth+1841.52)/1935.24),
+			scroll:20.15,
+			factor:1.692557 + ((1.094227 - 1.692557)/(1 + Math.pow((window.innerWidth/780.0849),4.124781))),
 			text:[
 				"Once upon a time in Middle East",
 				"The woman sets her baby afloat in the Nile. She will never see him again.It is the only way to save him. She prays to God. Her daughter weeps quietly.",
@@ -146,7 +146,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    no:8,
 			size:1311,
 			scroll:16,
-			factor:(0.0005724059*window.innerWidth + 0.8666266),
+			factor:1.778638 + ((-0.1464718 - 1.778638)/(1 + Math.pow((window.innerWidth/418.5947),1.941783))),
 			text:[
 				"Hastinapur is ruled by the Duryodhan, eldest among the Kauravas.",
 				"Yudhishthir, eldest of the Pandavas, rules Indraprasth.",
@@ -162,7 +162,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    no:12,
 			size:1444,
 			scroll:24,
-			factor:((window.innerWidth+1822.17)/1935),
+			factor:1.708105 + ((0.8527001 - 1.708105)/(1 + Math.pow((window.innerWidth/655.3957),3.114937))),
 			text:[
 				"Noah was the chosen one. God asked him to build an ark.",
 				"Noah listened. God's will was his command.",
@@ -426,7 +426,7 @@ var imgLoadingDone=false;
 	    var buffer = gl.createBuffer();
 	    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
 	    x1 = -1;
-	    y1 = -1 * (1.42+ 2 * idx);
+	    y1 = -1 * (story[sNo].factor+ 2 * idx);
 	    // y1 = -1;
 	    x2 = x1 + 2;
 	    y2 = y1 + 2;
