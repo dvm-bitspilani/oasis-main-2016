@@ -114,7 +114,8 @@ return /******/ (function(modules) { // webpackBootstrap
 			src:'troy',
 			no:8,
 			size:1411,
-			scroll:17.1,
+			scroll:16.3,
+			factor:((window.innerWidth+1767.2)/1907.24),
 			text:[
 				"The Greeks declare war on Troy.",
         "They sail to Troy. They hope to win.",
@@ -130,6 +131,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    no:10,
 			size:1457,
 			scroll:20,
+			factor:((window.innerWidth+1841.52)/1935.24),
 			text:[
 				"Once upon a time in Middle East",
 				"The woman sets her baby afloat in the Nile. She will never see him again.It is the only way to save him. She prays to God. Her daughter weeps quietly.",
@@ -144,6 +146,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    no:8,
 			size:1311,
 			scroll:16,
+			factor:(0.0005724059*window.innerWidth + 0.8666266),
 			text:[
 				"Hastinapur is ruled by the Duryodhan, eldest among the Kauravas.",
 				"Yudhishthir, eldest of the Pandavas, rules Indraprasth.",
@@ -159,6 +162,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    no:12,
 			size:1444,
 			scroll:24,
+			factor:((window.innerWidth+1822.17)/1935),
 			text:[
 				"Noah was the chosen one. God asked him to build an ark.",
 				"Noah listened. God's will was his command.",
@@ -187,7 +191,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	]
 
 	var fakeScroll = document.getElementById('fakeScroll');
-fakeScroll.style.height=(story[sNo].size*story[sNo].no)+'px';
+fakeScroll.style.height=((story[sNo].size-(window.innerWidth/4.2))*story[sNo].no)*window.innerWidth/1080+'px';
 
 var oldSlide=-1;
 
@@ -257,6 +261,7 @@ var imgLoadingDone=false;
 			},1000);
 		}
 	}
+
 
 
 
@@ -421,7 +426,7 @@ var imgLoadingDone=false;
 	    var buffer = gl.createBuffer();
 	    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
 	    x1 = -1;
-	    y1 = -1 * (1.5+ 2 * idx);
+	    y1 = -1 * (1.42+ 2 * idx);
 	    // y1 = -1;
 	    x2 = x1 + 2;
 	    y2 = y1 + 2;
