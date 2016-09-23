@@ -460,6 +460,7 @@ console.log(event);
         if(!(innerEve.contains(ev.target)||eventDataSheet.contains(ev.target))){
 
           history.replaceState({}, document.title, window.location.pathname);
+	  $('#storybutton').fadeIn();	
           eventData="off";
 
           event="off";
@@ -504,7 +505,7 @@ console.log(event);
       });
     },100);
     }
-      $('#storybutton').fadeIn();
+     
   });
 
 var innerEve = $('#innerEve');
