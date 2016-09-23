@@ -1104,7 +1104,8 @@ $('.scene-close').click(function() {
 
 $('.image,.story-snip').click(function(){
   var storyNo=$(this).attr('story');
-  window.location.href = "./story/#"+storyNo;
+  window.location.href = "./#"+storyNo;
+  location.reload();
 });
 
 
