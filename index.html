@@ -331,16 +331,16 @@
   <div class="nav">
     <div class="navWrap">
       <div class="leftNav">
-        <div class="navItem about-trigger">ABOUT</div>
-        <div class="navItem events-trigger">EVENTS</div>
+        <div class="navItem about-trigger"><a href="#about">ABOUT</a></div>
+        <div class="navItem events-trigger"><a href="#events">EVENTS</a></div>
         <div class="navItem sponsors-trigger">
           <a href="/sponsors/" target="_blank">SPONSOR
           </a>
         </div>
       </div>
       <div class="rightNav">
-        <div class="navItem contacts-trigger">CONTACT</div>
-        <div class="navItem archive-trigger">ARCHIVE</div>
+        <div class="navItem contacts-trigger"><a href="#contacts">CONTACT</a></div>
+        <div class="navItem archive-trigger"><a href="#archive">ARCHIVE</a></div>
         <div class="navItem" id=""><a href="http://bits-oasis.org/2016/register" target="_blank" style="text-decoration:none;color:#2B1A15">REGISTER</a></div>
 
       </div>
@@ -460,14 +460,14 @@
 
   <div class="menuList">
     <ul>
-      <li><a href="../"  style="text-decoration:none;color:inherit">HOME</a></li>
-      <li><a href="../#about"  style="text-decoration:none;color:inherit">ABOUT</a></li>
+      <li ><a href="../"  style="text-decoration:none;color:inherit">HOME</a></li>
+      <li class="about-trigger"><a href="#about"  style="text-decoration:none;color:inherit">ABOUT</a></li>
       <li class="active">STORY</a></li>
       <li><a href="http://bits-oasis.org/2016/register"  style="text-decoration:none;color:inherit">REGISTER</a></a></li>
-      <li class="events-trigger"><a href="../#events"  style="text-decoration:none;color:inherit">EVENTS</a></li>
-      <li><a href="../#events"  style="text-decoration:none;color:inherit">ARCHIVES</a></li>
-      <li><a href="../#events"  style="text-decoration:none;color:inherit">SPONSORS</a></li>
-      <li class="contacts-trigger"><a href="../#events"  style="text-decoration:none;color:inherit">CONTACTS</a></li>
+      <li class="events-trigger"><a href="#events"  style="text-decoration:none;color:inherit">EVENTS</a></li>
+      <li class="arvhive-trigger"><a href="#archive"  style="text-decoration:none;color:inherit">ARCHIVES</a></li>
+      <li class="sponsors-trigger"><a href="#sponsors"  style="text-decoration:none;color:inherit">SPONSORS</a></li>
+      <li class="contacts-trigger"><a href="#contacts"  style="text-decoration:none;color:inherit">CONTACTS</a></li>
     </ul>
   </div>
   <div class="sideBar"></div>
@@ -2987,6 +2987,8 @@ $('.about-trigger').click(function() {
     $('.black-back').click(function() {
       $('#storybutton').fadeIn();
       $('#about').fadeOut();
+      window.location.hash='';
+      history.replaceState({}, document.title, "/");
     });
   }).children().click(function(e) {
     return false;
@@ -3001,6 +3003,10 @@ $('.archive-trigger').click(function() {
     $('.black-back').click(function() {
       $('#storybutton').fadeIn();
       $('#archive').fadeOut();
+
+      window.location.hash='';
+      history.replaceState({}, document.title, "/");
+
     });
   }).children().click(function(e) {
     return false;
@@ -3014,6 +3020,9 @@ $('.contacts-trigger').click(function() {
     $('.black-back').click(function() {
       $('#storybutton').fadeIn();
       $('#contacts').fadeOut();
+      window.location.hash='';
+      history.replaceState({}, document.title, "/");
+
     });
   }).children().click(function(e) {
     return false;
@@ -3073,6 +3082,12 @@ $('.image,.story-snip').click(function(){
   init();
 
 })();
+
+var hashUrl=window.location.hash.substr(1);
+setTimeout(function(){
+  $('.'+hashUrl+'-trigger').click();
+
+},4000);
 
 </script>
 

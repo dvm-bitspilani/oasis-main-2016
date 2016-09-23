@@ -435,9 +435,9 @@
     <li class="active">STORY</a></li>
     <li><a href="http://bits-oasis.org/2016/register"  style="text-decoration:none;color:inherit">REGISTER</a></a></li>
     <li class="events-trigger"><a href="../#events"  style="text-decoration:none;color:inherit">EVENTS</a></li>
-    <li><a href="../#events"  style="text-decoration:none;color:inherit">ARCHIVES</a></li>
-    <li><a href="../#events"  style="text-decoration:none;color:inherit">SPONSORS</a></li>
-    <li class="contacts-trigger"><a href="../#events"  style="text-decoration:none;color:inherit">CONTACTS</a></li>
+    <li><a href="../#archive"  style="text-decoration:none;color:inherit">ARCHIVES</a></li>
+    <li><a href="../#sponsors"  style="text-decoration:none;color:inherit">SPONSORS</a></li>
+    <li class="contacts-trigger"><a href="../#contacts"  style="text-decoration:none;color:inherit">CONTACTS</a></li>
   </ul>
 </div>
 <div class="sideBar"></div>
@@ -525,9 +525,9 @@ if(window.innerWidth>500){
       originOffset: [0, -0.75],
       recover: [1.1, 1],
     });
+  }
 
-})
-}
+});
 var imgHeight;
 
 var story=[
@@ -661,7 +661,7 @@ var oldSlide=-1;
     if(oldSlide!=slideNo){
       $('.storyContentWrap').fadeOut(400);
       setTimeout(function(){
-        $('.storyText').html(story[sNo].text[slideNo]);
+        $('.storyText').html(story[sNo-1].text[slideNo]);
         $('.storyContentWrap').fadeIn();
       },400);
       oldSlide=slideNo;
