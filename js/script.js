@@ -458,8 +458,8 @@ console.log(event);
         var innerEve = document.getElementById('innerEve');
         var eventDataSheet = document.querySelector('.eventData');
         if(!(innerEve.contains(ev.target)||eventDataSheet.contains(ev.target))){
-        
-          history.replaceState({}, document.title, "/");
+
+          history.replaceState({}, document.title, window.location.pathname);
           eventData="off";
 
           event="off";

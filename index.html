@@ -2988,7 +2988,7 @@ $('.about-trigger').click(function() {
       $('#storybutton').fadeIn();
       $('#about').fadeOut();
       window.location.hash='';
-      history.replaceState({}, document.title, "/");
+      history.replaceState({}, document.title, window.location.pathname);
     });
   }).children().click(function(e) {
     return false;
@@ -3005,7 +3005,7 @@ $('.archive-trigger').click(function() {
       $('#archive').fadeOut();
 
       window.location.hash='';
-      history.replaceState({}, document.title, "/");
+      history.replaceState({}, document.title, window.location.pathname);
 
     });
   }).children().click(function(e) {
@@ -3021,7 +3021,7 @@ $('.contacts-trigger').click(function() {
       $('#storybutton').fadeIn();
       $('#contacts').fadeOut();
       window.location.hash='';
-      history.replaceState({}, document.title, "/");
+      history.replaceState({}, document.title, window.location.pathname);
 
     });
   }).children().click(function(e) {
