@@ -116,7 +116,13 @@ return /******/ (function(modules) { // webpackBootstrap
 			size:1411,
 			scroll:16.1,
 			text:[
-				""
+				"The Greeks declare war on Troy.",
+        "They sail to Troy. They hope to win.",
+        "The Trojans see the Greeks. They prepare for war.",
+        "They set the beach on fire. Victory is almost theirs.",
+        "The Greeks have fled. But they have left behind a present.",
+        "Greeks hidden inside the wooden horse come out during the night. They attack.",
+				"The city of Troy is reduced to ruins."
 			]
 		},
 	  {
@@ -154,7 +160,12 @@ return /******/ (function(modules) { // webpackBootstrap
 			size:1444,
 			scroll:24,
 			text:[
-				""
+				"Noah was the chosen one. God asked him to build an ark.",
+				"Noah listened. God's will was his command.",
+				"Noah listened. God's will was his command.",
+				"A great flood was coming.",
+				"Many would perish. Evil would be purged.",
+				"The good would survive."
 			]
 	  }
 

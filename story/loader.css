@@ -431,7 +431,7 @@ background-repeat: no-repeat;*/
 }
 
 .scene-container {
-    position: absolute;
+    position: fixed;
     width: 120vw;
     height: 130vh;
     margin: 0;
@@ -463,7 +463,7 @@ background-repeat: no-repeat;*/
 .scene-close {
     cursor: pointer;
     background-image: url('../img/cross.svg');
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     margin:20px;
@@ -780,4 +780,9 @@ border-bottom: 3px solid rgba(255,255,255,0.7);
 
 #plainImg img, #blurImg img{
   width:100%;
+}
+
+
+.story-snip{
+  cursor: pointer;
 }

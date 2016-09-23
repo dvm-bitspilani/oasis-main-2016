@@ -37,12 +37,17 @@
     {
       src:'troy',
       no:8,
-      size:1411,
+      size:1413,
       scroll:16.1,
       text:[
-        ""
-      ]
-    },
+        "The Greeks declare war on Troy.",
+        "They sail to Troy. They hope to win.",
+        "The Trojans see the Greeks. They prepare for war.",
+        "They set the beach on fire. Victory is almost theirs.",
+        "The Greeks have fled. But they have left behind a present.",
+        "Greeks hidden inside the wooden horse come out during the night. They attack."
+        ]
+      },
     {
       src:'moses',
       no:10,
@@ -78,7 +83,12 @@
       size:1444,
       scroll:24,
       text:[
-        ""
+        "Noah was the chosen one. God asked him to build an ark.",
+        "Noah listened. God's will was his command.",
+        "Noah listened. God's will was his command.",
+        "A great flood was coming.",
+        "Many would perish. Evil would be purged.",
+        "The good would survive."
       ]
     }
 
@@ -504,6 +514,7 @@
 <script src="../js/jquery.ba-throttle-debounce.js"> </script>
 <script type="text/javascript">
 
+$('.side-nav').hide();
 window.addEventListener('load',function(){
 
   RollOver.init({
@@ -583,7 +594,7 @@ var story=[
       animate();
 
     },1000);
-  if(window.innerWidth<600){
+  if(window.innerWidth<500){
       fallback();
 }else{
 
@@ -602,6 +613,7 @@ var story=[
 
 
 function fallback(){
+  imgHeight = document.querySelector('#plainImg img');
 
 
   var ringArr=[
@@ -618,6 +630,9 @@ function fallback(){
   // $('#storyWrap').css({
   //   'opacity':0
   // });
+console.log('./'+story[sNo-1].src+'.jpg');
+  $('#plainImg img').attr('src','./'+story[sNo-1].src+'.jpg');
+  $('#blurImg img').attr('src','./'+story[sNo-1].src+'.jpg');
 $('#storyWrap').remove();
   $(window).scroll($.debounce( 250, true, function(){
     $('#blurImg').fadeIn();
@@ -638,7 +653,6 @@ var oldSlide=-1;
 
   window.addEventListener('scroll', function(e) {
     var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
-    imgHeight = document.querySelector('#plainImg img');
     var slideNo = parseInt(st /(parseInt(imgHeight.height)/6));
     console.log(slideNo,sNo,st,(parseInt(imgHeight.height)/6));
 
@@ -972,11 +986,11 @@ setTimeout(function () {
 var menu="off";
 $('.ham').click(function(){
   if(menu=="off"){
-    $("#side-nav").css("opacity","100");
+    $('.side-nav').show();
+    $(".side-nav").css("opacity","100");
     $('.side-nav').css({
      transform:'translateX(0px)'
    });
-   $('.side-nav').show();
 
 
     menu="on";
@@ -1015,6 +1029,7 @@ $('.ham').click(function(){
 });
 
 $('.newdiv').click(function() {
+  $('.side-nav').hide();
   $('.side-nav').css({
    transform:'translateX(-190px)'
  });
@@ -1060,7 +1075,7 @@ $('.menuList ul .active').css({
 
 $('.chooseStory').click(function() {
   $('.scene-wrapper,#box').show();
-  $(this).hide();
+  // $(this).hide();
   $('.scene-close').show();
   $('#noah').animate({left: '0vw'}, 400);
   $('#moses').animate({left: '0vw'}, 400);
@@ -1087,11 +1102,11 @@ $('.scene-close').click(function() {
   // $(this).fadeOut();
 });
 
-$('.image').click(function(){
+$('.image,.story-snip').click(function(){
   var storyNo=$(this).attr('story');
-  window.location.href = "./#"+storyNo;
-  location.reload();
+  window.location.href = "./story/#"+storyNo;
 });
+
 
 var movementStrength = 200;
 var height = movementStrength / $(window).height();
