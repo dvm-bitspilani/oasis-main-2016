@@ -5759,6 +5759,7 @@ lightbox: 200;
     margin: 10px 0;
     width: 32px;
     height: 32px;
+    cursor: pointer;
 }
 
 .social-icon-wrapper > #fb {

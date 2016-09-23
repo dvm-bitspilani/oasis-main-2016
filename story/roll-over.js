@@ -114,7 +114,7 @@ return /******/ (function(modules) { // webpackBootstrap
 			src:'troy',
 			no:8,
 			size:1411,
-			scroll:16.1,
+			scroll:17.1,
 			text:[
 				"The Greeks declare war on Troy.",
         "They sail to Troy. They hope to win.",
@@ -131,7 +131,7 @@ return /******/ (function(modules) { // webpackBootstrap
 			size:1457,
 			scroll:20,
 			text:[
-				"",
+				"Once upon a time in Middle East",
 				"The woman sets her baby afloat in the Nile. She will never see him again.It is the only way to save him. She prays to God. Her daughter weeps quietly.",
 		   	"The baby is now a man. He sees an Egyptian beat a Hebrew. He intervenes. He kills the Egyptian. The Pharaoh wants to kill him. This is his justice. God helps his prophet escape.",
 			  "The cruelties against the Hebrews continue. God has had enough. He sends his messenger to save the Hebrews.",
@@ -171,6 +171,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	]
 
+	// if(window.innerWidth>700){
+	// 	story.map(function(e){
+	// 		e.scroll=e.scroll*1.1;
+	// 	})
+	// }
+
 	var ringArr=[
 	  14.772,
 	  87.146,
@@ -201,6 +207,7 @@ var imgLoadingDone=false;
 
 	    var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
 	    offset+=((st-lastScrollTop)/parseInt(fakeScroll.style.height)*story[sNo].scroll);
+			console.log(aspect,offset);
 	    gl.uniform2f(program.uTextureOffset, 0, offset);
 
 			var slideNo = Math.round(st /(parseInt(fakeScroll.style.height)/6));
@@ -503,6 +510,7 @@ var imgLoadingDone=false;
 	    aspect.y = heightRatio / widthRatio;
 	    initialTextureOffset.y = 0;
 	  }
+
 
 	  gl.uniform2f(program.uBGAspect, aspect.x, aspect.y);
 	  gl.uniform2f(program.uInitialTextureOffset, initialTextureOffset.x, initialTextureOffset.y);
