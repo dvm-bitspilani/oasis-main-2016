@@ -577,7 +577,7 @@ var story=[
     $('#fallbackStory').hide();
 
     setTimeout(function () {
-      $('.loader').hide();
+      $('.loader').fadeOut();
       $('#fakeScroll').show();
       $('.container').show();
       animate();
@@ -628,7 +628,7 @@ $(window).scroll($.debounce( 250, function(){
 
 } ) );
 setTimeout(function () {
-  $('.loader').hide();
+  $('.loader').fadeOut();
   $('#fakeScroll').show();
   $('.container').show();
   animate();
