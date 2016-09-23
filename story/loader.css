@@ -778,6 +778,12 @@ border-bottom: 3px solid rgba(255,255,255,0.7);
 
 }
 
+@media screen and (min-width:500px) {
+  #plainImg,#blurImg{
+    display: none;
+  }
+}
+
 #plainImg img, #blurImg img{
   width:100%;
 }
