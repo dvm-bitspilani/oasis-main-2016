@@ -514,6 +514,7 @@
 <script src="../js/jquery.ba-throttle-debounce.js"> </script>
 <script type="text/javascript">
 
+
 $('.side-nav,.scene-wrapper').hide();
 window.addEventListener('load',function(){
 if(window.innerWidth>500){
@@ -526,6 +527,13 @@ if(window.innerWidth>500){
       recover: [1.1, 1],
     });
   }
+
+
+  if (!window.chrome) {
+  $(window).scroll(function(){
+  $('#rollover-bg').css('position','absolute');
+  $('#rollover-bg').css('top',$(window).scrollTop());
+  })}
 
 });
 var imgHeight;
