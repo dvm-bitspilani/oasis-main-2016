@@ -310,7 +310,7 @@
       minimumTime: 2000,
       fadeOutTime: 1000,
       onProgress: function(p,l,t) {
-        $('.loader_text > span').text(Math.floor(p)+'%');
+        document.querySelector('.loader_text > span').innerHTML = Math.floor(p)+'%';
        if (Math.floor(p)>99) {          // loadingdone();
         setTimeout(function () {
           $('.scene-wrapper').hide();
@@ -320,7 +320,7 @@
             $('.loader_text').fadeOut();
             $('.container').css('display', 'block');
             animate();
-          },3000);
+          },100);
       }}
     })
   })
@@ -2244,25 +2244,25 @@ id="innerLeft">
                     <div class="litecont">
                       <div class="archives">
                         <div class="card">
-                          <a target="_blank" href="/oasis15main">
+                          <a target="_blank" href="/2015main">
                             <img src="img/oasis15m.png" alt="Trolltunga Norway" width="320" height="190">
                             <div class="desc">Oasis'15 Main</div>
                           </a>
                         </div>
                         <div class="card">
-                          <a target="_blank" href="/oasis15intro">
+                          <a target="_blank" href="/2015intro">
                             <img src="img/oasis15i.png" alt="Trolltunga Norway" width="320" height="190">
                             <div class="desc">Oasis'15 Intro</div>
                           </a>
                         </div>
                         <div class="card">
-                          <a target="_blank" href="/oasis14main">
+                          <a target="_blank" href="/2014main">
                             <img src="img/oasis14m.png" alt="Trolltunga Norway" width="320" height="190">
                             <div class="desc">Oasis'14 Main</div>
                           </a>
                         </div>
                         <div class="card">
-                          <a target="_blank" href="/oasis14intro">
+                          <a target="_blank" href="/2014intro">
                             <img src="img/oasis14i.png" alt="Trolltunga Norway" width="320" height="190">
                             <div class="desc">Oasis'14 Intro</div>
                           </a>
@@ -2383,10 +2383,24 @@ id="innerLeft">
                               <img src="img/nodp.png" />
                               <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
                               <figcaption>
+                                <h2>Rajat Thakur</h2>
+                                <p>Graphic Designer</p>
+                                <button>
+                                  <img src="img/behance_icon.png" onclick="parent.open('')">
+                                  <img src="img/linkedin_icon.png" onclick="parent.open('')">
+                                </button>
+                              </figcaption>
+                            </figure>
+                          </a>
+                          <a href="#" data-path-hover="m 180,34.57627 -180,0 L 0,0 180,0 z">
+                            <figure>
+                              <img src="img/nodp.png" />
+                              <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,218 0,0 180,0 z"/></svg>
+                              <figcaption>
                                 <h2>Anup Bhutada</h2>
                                 <p>Graphic Designer</p>
                                 <button>
-                                  <img src="img/git_icon.png" onclick="parent.open('')">
+                                  <img src="img/behance_icon.png" onclick="parent.open('')">
                                   <img src="img/linkedin_icon.png" onclick="parent.open('')">
                                 </button>
                               </figcaption>
@@ -2400,7 +2414,7 @@ id="innerLeft">
                                 <h2>Harshil Choudhary</h2>
                                 <p>Graphic Designer</p>
                                 <button>
-                                  <img src="img/git_icon.png" onclick="parent.open('')">
+                                  <img src="img/behance_icon.png" onclick="parent.open('')">
                                   <img src="img/linkedin_icon.png" onclick="parent.open('')">
                                 </button>
                               </figcaption>
@@ -2414,7 +2428,7 @@ id="innerLeft">
                                 <h2>Arjun Tyagi</h2>
                                 <p>Co-ordinator</p>
                                 <button>
-                                  <img src="img/git_icon.png" onclick="parent.open('')">
+                                  <img src="img/behance_icon.png" onclick="parent.open('')">
                                   <img src="img/linkedin_icon.png" onclick="parent.open('')">
                                 </button>
                               </figcaption>
@@ -2460,6 +2474,7 @@ id="innerLeft">
                 <div class="scene-close"></div>
               </div>
               <div class="social-icon-wrapper">
+                <div id="developers-trigger" ></div>
                 <div id="youtube" ></div>
                 <div id="twitter" ></div>
                 <div id="fb" ></div>
@@ -2852,7 +2867,7 @@ $("#box").mousemove(function(e){
 }
 
 $('#storybutton').click(function() {
-  $('.scene-wrapper').show();
+  $('.scene-wrapper').fadeIn(100);
   $(this).fadeOut();
   $('#noah').animate({left: '0vw'}, 400);
   $('#moses').animate({left: '0vw'}, 400);
@@ -2916,10 +2931,10 @@ $('.contacts-trigger').click(function() {
   })
 });
 
-$('.developers-trigger').click(function() {
+$('#developers-trigger').click(function() {
   $('#developers').fadeIn('400', function() {
     $('#storybutton').fadeOut();
-    $('#contacts').fadeOut();
+    // $('#contacts').fadeOut();
     $(this).css('display', 'flex');
     $('.black-back').click(function() {
       $('#storybutton').fadeIn();

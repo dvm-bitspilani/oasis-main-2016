@@ -5784,3 +5784,11 @@ lightbox: 200;
 .social-icon-wrapper > #youtube:hover {
     background: url('../img/youtube_hover.png');
 }
+
+.social-icon-wrapper > #developers-trigger {
+    background: url('../img/dev_icon.png');
+}
+
+.social-icon-wrapper > #developers-trigger:hover {
+    background: url('../img/dev_hover.png');
+}
