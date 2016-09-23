@@ -460,7 +460,7 @@ console.log(event);
         if(!(innerEve.contains(ev.target)||eventDataSheet.contains(ev.target))){
 
           history.replaceState({}, document.title, window.location.pathname);
-	  $('#storybutton').fadeIn();	
+	  $('#storybutton').fadeIn();
           eventData="off";
 
           event="off";
@@ -479,8 +479,8 @@ console.log(event);
         $curEle.attr('on',false);
         console.log($curEle);
       }
+      $('.eventText,.eventTitle').hide();
         $(this).fadeOut();
-        $('.eventText,.eventTitle').show();
 
       $('.eventData').animate({
          width:'0%'
@@ -505,7 +505,7 @@ console.log(event);
       });
     },100);
     }
-     
+
   });
 
 var innerEve = $('#innerEve');
