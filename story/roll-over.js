@@ -196,7 +196,6 @@ var imgLoadingDone=false;
 	function scrollHandling(){
 	  var offset = 0;
 	  var lastScrollTop = 0;
-		console.log('gr');
 
 	  window.addEventListener('scroll', function(e) {
 	    if(isNaN(offset)){
@@ -207,7 +206,6 @@ var imgLoadingDone=false;
 
 	    var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
 	    offset+=((st-lastScrollTop)/parseInt(fakeScroll.style.height)*story[sNo].scroll);
-			console.log(aspect,offset);
 	    gl.uniform2f(program.uTextureOffset, 0, offset);
 
 			var slideNo = Math.round(st /(parseInt(fakeScroll.style.height)/6));
@@ -239,7 +237,6 @@ var imgLoadingDone=false;
 	//         $('#currentRing').attr('cy',ringArr[i]);
 	//         console.log('hi',window.pageYOffset);
 	//       }
-				console.log(st);
 	      lastScrollTop = st;
 
 	});
@@ -349,7 +346,6 @@ var imgLoadingDone=false;
 	function loadTile(imgSrc,i) {
 	  return new Promise(function (res) {
 	    var img = new Image();
-			console.log(imgSrcPre[i],i);
 	    img.src = imgSrcPre[i].src;
 	    img.onload = function () {
 	      return res(img);

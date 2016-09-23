@@ -109,7 +109,6 @@
       var img = new Image();
       img.src = i;
       imgSrcPre.push(img);
-      console.log(imgSrcPre[e]);
     })
   }
 
@@ -514,8 +513,10 @@
 <script src="../js/jquery.ba-throttle-debounce.js"> </script>
 <script type="text/javascript">
 
-
-$('.side-nav,.scene-wrapper').hide();
+$('.side-nav').css({
+      'visibility': 'hidden'
+});
+$('.scene-wrapper').hide();
 window.addEventListener('load',function(){
 if(window.innerWidth>500){
   RollOver.init({
@@ -638,7 +639,6 @@ function fallback(){
   // $('#storyWrap').css({
   //   'opacity':0
   // });
-console.log('./'+story[sNo-1].src+'.jpg');
   $('#plainImg img').attr('src','./'+story[sNo-1].src+'.jpg');
   $('#blurImg img').attr('src','./'+story[sNo-1].src+'.jpg');
 $('#storyWrap').remove();
@@ -662,7 +662,6 @@ var oldSlide=-1;
   window.addEventListener('scroll', function(e) {
     var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
     var slideNo = parseInt(st /(parseInt(imgHeight.height)/6));
-    console.log(slideNo,sNo,st,(parseInt(imgHeight.height)/6));
 
     $('#currentRing').attr('cy',ringArr[slideNo]);
 
@@ -994,7 +993,10 @@ setTimeout(function () {
 var menu="off";
 $('.ham').click(function(){
   if(menu=="off"){
-    $('.side-nav').show();
+
+    $('.side-nav').css({
+          'visibility': 'visible'
+    });
     $(".side-nav").css("opacity","100");
     $('.side-nav').css({
      transform:'translateX(0px)'
@@ -1014,7 +1016,10 @@ $('.ham').click(function(){
       height: '100vh'
     });
     $('.newdiv').click(function() {
-      $('.side-nav').hide();
+
+      $('.side-nav').css({
+            'visibility': 'hidden'
+      });
       $('.side-nav').css({
        transform:'translateX(-190px)'
      });
@@ -1024,7 +1029,9 @@ $('.ham').click(function(){
     });
   }
   else{
-    $('.side-nav').hide();
+    $('.side-nav').css({
+      'visibility': 'hidden'
+});
     $('.side-nav').css({
      transform:'translateX(-190px)'
    });
@@ -1037,7 +1044,9 @@ $('.ham').click(function(){
 });
 
 $('.newdiv').click(function() {
-  $('.side-nav').hide();
+  $('.side-nav').css({
+      'visibility': 'hidden'
+});
   $('.side-nav').css({
    transform:'translateX(-190px)'
  });
@@ -1146,10 +1155,14 @@ $("#box").mousemove(function(e){
     });
     px = e.pageX;
   }
-  console.log($("#box").width());
 
 });
 }
+
+
+console.clear();
+	console.log("%c \n\n\n\xa9  Department of Visual Media, BITS Pilani", 'font-size: 15px; font-weight: bold; font-family: Arial');
+
 
 </script>
 <script type="text/javascript" src="roll-over.js"></script>

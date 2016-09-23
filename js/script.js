@@ -100,7 +100,6 @@ else if(window.innerWidth<2000)
     // reset($ele);
     var no = $ele.attr('id').charAt(3);
     $ele.attr('on',true);
-    console.log($ele);
     var eleChild=$ele.children()[0];
     // console.log($(eleChild));
     // ele = $ele.get(0);
@@ -111,10 +110,8 @@ else if(window.innerWidth<2000)
     $(eleChild).css({
       'transform':'translate('+pos[no-1]+')'
     });
-    console.log(event);
     if(eventData=="off"){
     option=(event=="off")?'#midWrap':'#eventListWrap';
-    console.log(option);
     $(option).css({
       'transform':'scale(0)'
     });
@@ -187,7 +184,6 @@ else{
 }
     event="on";
 reset($curEle);
-console.log(event);
 
     // $('#midWrap').fadeOut();
     // $('#eventListWrap').fadeIn();
@@ -244,7 +240,6 @@ console.log(event);
 
     eventDesc.map(function(i,e){
       if(eventName.toLowerCase()==i.name.toLowerCase()){
-        console.log();
         $('.eventTitle h4').html(i.name);
         $('.eventText').html(i.desc);
       }
@@ -393,7 +388,6 @@ console.log(event);
       $ele=$curEle;
        var animate=$ele.children()[0];
         var no = $ele.attr('id').charAt(3);
-        console.log(no);
         animate.setAttribute('from',pos[no-1]);
         animate.setAttribute('to','0 0');
         animate.setAttribute('fill','freeze');
@@ -477,7 +471,6 @@ console.log(event);
           transform:'translate(0,0)'
         });
         $curEle.attr('on',false);
-        console.log($curEle);
       }
       $('.eventText,.eventTitle').hide();
         $(this).fadeOut();

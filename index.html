@@ -2781,7 +2781,6 @@ var checkScrollSpeed = (function(settings){
 var time1,time2;
 $(window).scroll(function(){
  speed = checkScrollSpeed();
- console.log(speed);
  if(Math.abs(speed)>50){
    $('.paint').addClass('startAnim');
    time1 = new Date().getTime();
@@ -3126,6 +3125,10 @@ setTimeout(function(){
   $('.'+hashUrl+'-trigger').click();
 
 },4000);
+
+
+console.clear();
+console.log("%c \n\n\n\xa9  Department of Visual Media, BITS Pilani", 'font-size: 15px; font-weight: bold; font-family: Arial');
 
 </script>
 
