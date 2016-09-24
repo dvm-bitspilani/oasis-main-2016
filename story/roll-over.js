@@ -252,16 +252,29 @@ var imgLoadingDone=false;
 
 	function imgLoadedFunc(imgLoading){
 		if(imgLoading==true){
+			var animateRing = document.querySelector('#animateRing');
+			var animateEle=animateRing.childNodes[1];
+
+
 			setTimeout(function () {
+
+			animateEle.setAttribute('from',parseInt($(animateRing).css('stroke-dashoffset')));
+			animateEle.setAttribute('to','0');
+			animateEle.setAttribute('dur','0.5s');
+			animateEle.setAttribute('fill','freeze');
+			animateEle.beginElement();
+			setTimeout(function(){
+
 				$('.loader').fadeOut('slow');
 				$('#fakeScroll').show();
 				$('.container').show();
 				if(window.innerWidth>600)
-					animate();
-					else{
-						$('#inkCanvas').hide();
-					}
-			},1000);
+				animate();
+				else{
+					$('#inkCanvas').hide();
+				}
+			},500);
+		},2000);
 		}
 	}
 
