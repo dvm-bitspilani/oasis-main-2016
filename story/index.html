@@ -30,6 +30,31 @@
   <link rel="prefetch" href="fragment-shader.glsl">
   <script src="../js/queryloader2.min.js" type="text/javascript"></script>
   <style type="text/css">
+  .loader_text {
+      position: absolute;
+      bottom: 20px;
+      z-index: 999;
+      font-family: 'Verdana',sans-serif;
+      margin: 0 auto;
+      width: 100vw;
+      text-align: center;
+      opacity: 0.75;
+      font-size: 1.2em;
+      color: #bab9be;
+      animation: toggle 2s linear infinite;
+  }
+
+  @keyframes toggle {
+    0%{
+      opacity: 0.75;
+    }
+    50%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 0.75;
+    }
+  }
   </style>
   <script type="text/javascript">
 
@@ -295,6 +320,9 @@
                repeatCount="1"
                fill="freeze"
                /></ellipse></svg>
+    </div>
+    <div class="loader_text" >
+      Loading ...</div>
     </div>
   </div>
 </div>
