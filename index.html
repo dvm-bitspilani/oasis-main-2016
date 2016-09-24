@@ -321,7 +321,11 @@
             $('.loader-wrapper').fadeOut('slow');
             $('.loader_text').fadeOut();
             $('.container').css('display', 'block');
-            animate();
+            if(window.innerWidth>600)
+              animate();
+            else{
+              $('#inkCanvas').hide();
+            }
           },100);
       }}
     })
@@ -692,7 +696,8 @@
   fit-margin-left="0"
   fit-margin-right="0"
   fit-margin-bottom="0" />
-  <g id="innerEve">
+  <g id="innerEve"
+  transform="matrix(1.125,0,0,1.125,-74.999995,-28.125001)">
     <g
     id="eventPage"
     >
@@ -1511,13 +1516,13 @@ inkscape:label="#g24867">
 <g id="eventSelect">
   <g class="eventListRightIn">
    <line style="fill:none" id="line21191" y2="108.646" x2="789.87299" y1="580.52002" x1="647.11603"></line><text id="text21193" transform="matrix(0.2896,-0.9572,0.9572,0.2896,681.0977,468.2031)">
-  <tspan style="font-size:40px;font-family:BigNoodleTitling;fill:#ffffff" id="tspan21109" font-size="40" y="0" x="0" class="event-name"></tspan></text><line style="fill:none" id="line21145" y2="265.94" x2="1028.274" y1="603.21698" x1="668.70697"></line><text id="text21147" transform="matrix(0.7294,-0.6841,0.6841,0.7294,752.001,525.0879)">
-  <tspan style="font-size:40px;font-family:BigNoodleTitling;fill:#ffffff" id="tspan21109" font-size="40" y="0" x="0" class="event-name"></tspan></text><line style="fill:none" id="line21105" y2="510.91901" x2="1155.0179" y1="623.22601" x1="674.98401"></line><text id="text21107" transform="matrix(0.9737,-0.2278,0.2278,0.9737,804.1211,593.0146)">
-  <tspan style="font-size:40px;font-family:BigNoodleTitling;fill:#ffffff" id="tspan21109" font-size="40" y="0" x="0" class="event-name"></tspan></text><line style="fill:none" id="line21075" y2="783.03699" x2="1149.405" y1="640.28101" x1="677.53198"></line><text id="text21077" transform="matrix(0.9572,0.2896,-0.2896,0.9572,830.9902,686.707)">
-  <tspan style="font-size:40px;font-family:BigNoodleTitling;fill:#ffffff" id="tspan21079" font-size="40" y="0" x="0" class="event-name">Exposure Exhibition</tspan></text><line style="fill:none" id="line21047" y2="1033.7271" x2="1007.076" y1="674.15997" x1="669.79999"></line><text id="text21049" transform="matrix(0.6841,0.7294,-0.7294,0.6841,786.6621,798.7461)">
-  <tspan style="font-size:40px;font-family:BigNoodleTitling;fill:#ffffff" id="tspan21051" font-size="40" y="0" x="0" class="event-name">Splash</tspan></text><line style="fill:none" id="line21025" y2="1147.955" x2="750.48798" y1="667.92401" x1="638.18201"></line>
+  <tspan style="font-size:45px;font-family:BigNoodleTitling;fill:#ffffff" id="tspan21109" font-size="40" y="0" x="0" class="event-name"></tspan></text><line style="fill:none" id="line21145" y2="265.94" x2="1028.274" y1="603.21698" x1="668.70697"></line><text id="text21147" transform="matrix(0.7294,-0.6841,0.6841,0.7294,752.001,525.0879)">
+  <tspan style="font-size:45px;font-family:BigNoodleTitling;fill:#ffffff" id="tspan21109" font-size="40" y="0" x="0" class="event-name"></tspan></text><line style="fill:none" id="line21105" y2="510.91901" x2="1155.0179" y1="623.22601" x1="674.98401"></line><text id="text21107" transform="matrix(0.9737,-0.2278,0.2278,0.9737,804.1211,593.0146)">
+  <tspan style="font-size:45px;font-family:BigNoodleTitling;fill:#ffffff" id="tspan21109" font-size="40" y="0" x="0" class="event-name"></tspan></text><line style="fill:none" id="line21075" y2="783.03699" x2="1149.405" y1="640.28101" x1="677.53198"></line><text id="text21077" transform="matrix(0.9572,0.2896,-0.2896,0.9572,830.9902,686.707)">
+  <tspan style="font-size:45px;font-family:BigNoodleTitling;fill:#ffffff" id="tspan21079" font-size="40" y="0" x="0" class="event-name">Exposure Exhibition</tspan></text><line style="fill:none" id="line21047" y2="1033.7271" x2="1007.076" y1="674.15997" x1="669.79999"></line><text id="text21049" transform="matrix(0.6841,0.7294,-0.7294,0.6841,786.6621,798.7461)">
+  <tspan style="font-size:45px;font-family:BigNoodleTitling;fill:#ffffff" id="tspan21051" font-size="40" y="0" x="0" class="event-name">Splash</tspan></text><line style="fill:none" id="line21025" y2="1147.955" x2="750.48798" y1="667.92401" x1="638.18201"></line>
    <text id="text21027" transform="matrix(0.2278,0.9737,-0.9737,0.2278,678.9951,842.3701)">
-   <tspan style="font-size:40px;font-family:BigNoodleTitling;fill:#ffffff" id="tspan21029" font-size="40" y="0" x="0" class="event-name">Contrasto</tspan></text>
+   <tspan style="font-size:45px;font-family:BigNoodleTitling;fill:#ffffff" id="tspan21029" font-size="40" y="0" x="0" class="event-name">Contrasto</tspan></text>
 
 
 
@@ -1531,15 +1536,15 @@ inkscape:label="#g24867">
 </g>
 <g class="eventListLeftIn">
  <line style="fill:none" id="line20993" y2="674.88898" x2="632.211" y1="1149.153" x1="489.01901"></line><text id="text20995" transform="matrix(0.289,-0.9573,0.9573,0.289,533.292,1002.5127)">
-  <tspan style="font-size:40px;font-family:BigNoodleTitling;fill:#ffffff" id="tspan20997" font-size="40" y="0" x="0" class="event-name"></tspan></text><line style="fill:none" id="line20973" y2="663.73199" x2="605.12701" y1="1002.861" x1="243.98599"></line><text id="text20975" transform="matrix(0.729,-0.6845,0.6845,0.729,385.8916,869.6045)">
-  <tspan style="font-size:40px;font-family:BigNoodleTitling;fill:#ffffff" id="tspan20977" font-size="40" y="0" x="0" class="event-name"></tspan></text><line style="fill:none" id="line20959" y2="657.58698" x2="595.23602" y1="770.711" x1="112.916"></line><text id="text20961" transform="matrix(0.2283,0.9736,-0.9736,0.2283,504.2314,205.8555)">
-  <tspan style="font-size:40px;font-family:BigNoodleTitling;fill:#ffffff" id="tspan20963" font-size="40" y="0" x="0" class="event-name"></tspan>
+  <tspan style="font-size:45px;font-family:BigNoodleTitling;fill:#ffffff" id="tspan20997" font-size="40" y="0" x="0" class="event-name"></tspan></text><line style="fill:none" id="line20973" y2="663.73199" x2="605.12701" y1="1002.861" x1="243.98599"></line><text id="text20975" transform="matrix(0.729,-0.6845,0.6845,0.729,385.8916,869.6045)">
+  <tspan style="font-size:45px;font-family:BigNoodleTitling;fill:#ffffff" id="tspan20977" font-size="40" y="0" x="0" class="event-name"></tspan></text><line style="fill:none" id="line20959" y2="657.58698" x2="595.23602" y1="770.711" x1="112.916"></line><text id="text20961" transform="matrix(0.2283,0.9736,-0.9736,0.2283,504.2314,205.8555)">
+  <tspan style="font-size:45px;font-family:BigNoodleTitling;fill:#ffffff" id="tspan20963" font-size="40" y="0" x="0" class="event-name"></tspan>
   </text><line style="fill:none" id="line20917" y2="634.013" x2="587.17902" y1="490.82001" x1="112.916"></line><text id="text20919" transform="matrix(0.9573,0.289,-0.289,0.9573,237.2666,528.3643)">
-  <tspan style="font-size:40px;font-family:BigNoodleTitling;fill:#ffffff" id="tspan20921" font-size="40" y="0" x="0" class="event-name"></tspan></text><line style="fill:none" id="line20895" y2="597.92297" x2="578.11798" y1="236.783" x1="238.99001"></line><text id="text20897" transform="matrix(0.6845,0.729,-0.729,0.6845,280.7749,307.1226)">
-  <tspan style="font-size:40px;font-family:BigNoodleTitling;fill:#ffffff" id="tspan20899" font-size="40" y="0" x="0" class="event-name"></tspan>
+  <tspan style="font-size:45px;font-family:BigNoodleTitling;fill:#ffffff" id="tspan20921" font-size="40" y="0" x="0" class="event-name"></tspan></text><line style="fill:none" id="line20895" y2="597.92297" x2="578.11798" y1="236.783" x1="238.99001"></line><text id="text20897" transform="matrix(0.6845,0.729,-0.729,0.6845,280.7749,307.1226)">
+  <tspan style="font-size:45px;font-family:BigNoodleTitling;fill:#ffffff" id="tspan20899" font-size="40" y="0" x="0" class="event-name"></tspan>
   </text><line style="fill:none" id="line20873" y2="585.79102" x2="604.578" y1="103.47" x1="491.45499"></line>
  <text id="text20875" transform="matrix(0.2283,0.9736,-0.9736,0.2283,504.2314,205.8555)">
- <tspan style="font-size:40px;font-family:BigNoodleTitling;fill:#ffffff" id="tspan20877" font-size="40" y="0" x="0" class="event-name"></tspan></text>
+ <tspan style="font-size:45px;font-family:BigNoodleTitling;fill:#ffffff" id="tspan20877" font-size="40" y="0" x="0" class="event-name"></tspan></text>
 
 
 

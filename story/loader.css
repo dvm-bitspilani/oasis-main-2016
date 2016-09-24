@@ -74,6 +74,8 @@ animation-fill-mode: forwards;
   width: 100vw;
   /*left: -10vw;*/
   height: inherit;
+  -webkit-filter: blur(0px);
+  filter: blur(0px);
 }
 canvas {
     height: 100vh;

@@ -256,8 +256,11 @@ var imgLoadingDone=false;
 				$('.loader').fadeOut('slow');
 				$('#fakeScroll').show();
 				$('.container').show();
-				animate();
-
+				if(window.innerWidth>600)
+					animate();
+					else{
+						$('#inkCanvas').hide();
+					}
 			},1000);
 		}
 	}
