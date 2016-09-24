@@ -408,14 +408,14 @@ reset($curEle);
       // });
       $.ajax({
         type:'GET',
-        url:'http://bits-oasis.org/2016/events/summary/',
+        url:'./2016/events/summary/',
         success:function(response){
           data=response;
         }
       });
       $.ajax({
         type:'GET',
-        url:'http://bits-oasis.org/2016/events/description/',
+        url:'./2016/events/description/',
         success:function(response){
           eventDesc=response;
         }
