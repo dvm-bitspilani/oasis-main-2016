@@ -121,7 +121,7 @@ fill: transparent;{
   height: 100vh;
   z-index: 999;
   background-size: cover;
-  background:url('../img/loaderbg.jpg');
+  background:url('http://bits-oasis.org/assets-aws/img/loaderbg.jpg');
 }
 
 
@@ -277,7 +277,7 @@ to {
     width: 9vh;
     height: 9vh;
     /* height: 13vh; */
-    /*background-image: url('../img/ham.svg');
+    /*background-image: url('http://bits-oasis.org/assets-aws/img/ham.svg');
 background-size: contain;
 background-repeat: no-repeat;*/
     z-index: 15;
@@ -346,7 +346,7 @@ background-repeat: no-repeat;*/
     /* left: 7vh; */
     width: 195px;
     height: 31.35vh;
-    background-image: url('../img/oasis-logo.svg');
+    background-image: url('http://bits-oasis.org/assets-aws/img/oasis-logo.svg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center bottom;
@@ -464,7 +464,7 @@ background-repeat: no-repeat;*/
 
 .scene-close {
     cursor: pointer;
-    background-image: url('../img/cross.svg');
+    background-image: url('http://bits-oasis.org/assets-aws/img/cross.svg');
     position: fixed;
     top: 0;
     right: 0;
@@ -522,7 +522,7 @@ background-repeat: no-repeat;*/
 
     .scene-close {
         cursor: pointer;
-        background-image: url('../img/cross.svg');
+        background-image: url('http://bits-oasis.org/assets-aws/img/cross.svg');
         position: absolute;
         top: 0;
         right: 0;
@@ -574,7 +574,7 @@ background-repeat: no-repeat;*/
     }
 
     #nigger {
-        background-image: url("../img/moses-strip.jpg");
+        background-image: url("http://bits-oasis.org/assets-aws/img/moses-strip.jpg");
         background-repeat: no-repeat;
         background-position: center center;
          background-size: initial!important;
@@ -590,7 +590,7 @@ background-repeat: no-repeat;*/
     }
 
     #achilies {
-        background-image: url("../img/troy-strip.jpg");
+        background-image: url("http://bits-oasis.org/assets-aws/img/troy-strip.jpg");
         background-repeat: no-repeat;
         background-position: center center;
          background-size: initial!important;
@@ -606,7 +606,7 @@ background-repeat: no-repeat;*/
     }
 
     #ram {
-        background-image: url("../img/maha-strip.jpg");
+        background-image: url("http://bits-oasis.org/assets-aws/img/maha-strip.jpg");
         background-repeat: no-repeat;
         background-position: center center;
          background-size: initial!important;
@@ -622,7 +622,7 @@ background-repeat: no-repeat;*/
     }
 
     #arc {
-        background-image: url("../img/noah-strip.jpg");
+        background-image: url("http://bits-oasis.org/assets-aws/img/noah-strip.jpg");
         background-repeat: no-repeat;
         background-position: center center;
          background-size: initial!important;
@@ -679,7 +679,7 @@ background-repeat: no-repeat;*/
 }
 
 #nigger {
-    background-image: url("../img/moses-strip.jpg");
+    background-image: url("http://bits-oasis.org/assets-aws/img/moses-strip.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 100% 100%;
@@ -695,7 +695,7 @@ background-repeat: no-repeat;*/
 }
 
 #achilies {
-    background-image: url("../img/troy-strip.jpg");
+    background-image: url("http://bits-oasis.org/assets-aws/img/troy-strip.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 100% 100%;
@@ -711,7 +711,7 @@ background-repeat: no-repeat;*/
 }
 
 #ram {
-    background-image: url("../img/maha-strip.jpg");
+    background-image: url("http://bits-oasis.org/assets-aws/img/maha-strip.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 100% 100%;
@@ -727,7 +727,7 @@ background-repeat: no-repeat;*/
 }
 
 #arc {
-    background-image: url("../img/noah-strip.jpg");
+    background-image: url("http://bits-oasis.org/assets-aws/img/noah-strip.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 100% 100%;
