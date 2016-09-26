@@ -263,7 +263,7 @@ var imgLoadingDone=false;
 			animateEle.setAttribute('dur','0.5s');
 			animateEle.setAttribute('fill','freeze');
 			animateEle.beginElement();
-			setTimeout(function(){
+			// setTimeout(function(){
 
 				$('.loader').fadeOut('slow');
 				$('#fakeScroll').show();
@@ -392,7 +392,7 @@ var imgLoadingDone=false;
 	}
 
 	function initBackgroundTexture(imgSrcs) {
-	  return Promise.all(imgSrcs.map(loadTile,i)).then(initTileTextures);
+	  return Promise.all(imgSrcs.map(loadTile)).then(initTileTextures);
 	}
 
 	function initSampleTextureFramebuffer() {

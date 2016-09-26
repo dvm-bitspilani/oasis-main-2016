@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,6 +31,31 @@
   <link rel="prefetch" href="http://bits-oasis.org/assets-aws/story/fragment-shader.glsl">
   <script src="http://bits-oasis.org/assets-aws/js/queryloader2.min.js" type="text/javascript"></script>
   <style type="text/css">
+
+  @font-face {
+    font-family: 'Monthoers';
+    src:url('../fonts/Monthoers.ttf');
+  }
+
+  @font-face {
+      font-family: "Nexa-Bold";
+      src: url('../fonts/Nexa Bold.otf');
+  }
+
+
+
+  @font-face {
+      font-family: "Moon";
+      src: url("../fonts/Moon Light.otf");
+  }
+
+  @font-face {
+      font-family: "Moon-Bold";
+      src: url("../fonts/Moon Bold.otf");
+      /*font-weight: bold;*/
+  }
+
+
   .loader_text {
       position: absolute;
       bottom: 20px;
@@ -127,7 +153,7 @@
   var imgSrcPre=[];
 
   for(var i=1;i<=story[sNo-1].no;i++){
-    imgPre.push('./assets-aws/story/img/'+story[sNo-1].src+i+'.jpg');
+    imgPre.push('http://bits-oasis.org/assets-aws/story/img/'+story[sNo-1].src+i+'.jpg');
   }
 
   function loadImg(){
@@ -1191,7 +1217,7 @@ console.clear();
 
 
 </script>
-<script type="text/javascript" src="http://bits-oasis.org/assets-aws/story/roll-over.js"></script>
+<script type="text/javascript" src="roll-over.js"></script>
 
 </body>
 

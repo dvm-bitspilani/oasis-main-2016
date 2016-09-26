@@ -1,7 +1,4 @@
-@font-face {
-    font-family: BigNoodleTitling;
-    src: url('../fonts/big_noodle_titling.ttf');
-}
+
 
 html {
     padding: 0;
@@ -256,37 +253,6 @@ a:visited {
     text-align: center;
     opacity: 0.75;
     font-size: 0.7em;
-}
-
-@font-face {
-    font-family: 'Big Noodle';
-    src: url('../fonts/big_noodle_titling.ttf');
-}
-
-@font-face {
-    font-family: "Moon";
-    src: url("../fonts/Moon Light.otf");
-}
-
-@font-face {
-    font-family: "Moon-Bold";
-    src: url("../fonts/Moon Bold.otf");
-    /*font-weight: bold;*/
-}
-
-@font-face {
-    font-family: "Nexa-Light";
-    src: url('../fonts/Nexa Light.otf');
-}
-
-@font-face {
-    font-family: "Nexa-Bold";
-    src: url('../fonts/Nexa Bold.otf');
-}
-
-@font-face {
-  font-family: "Telegrafico";
-  src: url('../fonts/telegrafico.ttf');
 }
 
 #inkCanvas {
@@ -581,16 +547,7 @@ z-index: 15;
     z-index: 4;
 }
 
-@font-face {
-    font-family: "Moon";
-    src: url("../fonts/Moon Light.otf");
-}
 
-@font-face {
-    font-family: "Moon-Bold";
-    src: url("../fonts/Moon Bold.otf");
-    /*font-weight: bold;*/
-}
 
 .nav {
     display: flex;
@@ -869,21 +826,6 @@ z-index: 15;
         font-size: 16px;
     }
 
-    @font-face {
-        font-family: 'Big Noodle';
-        src: url('../fonts/big_noodle_titling.ttf');
-    }
-
-    @font-face {
-        font-family: "Moon";
-        src: url("../fonts/Moon Light.otf");
-    }
-
-    @font-face {
-        font-family: "Moon-Bold";
-        src: url("../fonts/Moon Bold.otf");
-        /*font-weight: bold;*/
-    }
 
     #inkCanvas {
         width: 100vw;
@@ -1170,16 +1112,7 @@ z-index: 15;
         z-index: 4;
     }
 
-    @font-face {
-        font-family: "Moon";
-        src: url("../fonts/Moon Light.otf");
-    }
 
-    @font-face {
-        font-family: "Moon-Bold";
-        src: url("../fonts/Moon Bold.otf");
-        /*font-weight: bold;*/
-    }
 
     .nav {
         display: flex;
@@ -1587,22 +1520,6 @@ z-index: 15;
         font-size: 16px;
     }
 
-    @font-face {
-        font-family: 'Big Noodle';
-        src: url('../fonts/big_noodle_titling.ttf');
-    }
-
-    @font-face {
-        font-family: "Moon";
-        src: url("../fonts/Moon Light.otf");
-    }
-
-    @font-face {
-        font-family: "Moon-Bold";
-        src: url("../fonts/Moon Bold.otf");
-        /*font-weight: bold;*/
-    }
-
     #inkCanvas {
         width: 100vw;
         height: 100vh;
@@ -1888,16 +1805,7 @@ z-index: 15;
         z-index: 4;
     }
 
-    @font-face {
-        font-family: "Moon";
-        src: url("../fonts/Moon Light.otf");
-    }
 
-    @font-face {
-        font-family: "Moon-Bold";
-        src: url("../fonts/Moon Bold.otf");
-        /*font-weight: bold;*/
-    }
 
     .nav {
         display: flex;
@@ -2305,21 +2213,6 @@ z-index: 15;
         font-size: 16px;
     }
 
-    @font-face {
-        font-family: 'Big Noodle';
-        src: url('../fonts/big_noodle_titling.ttf');
-    }
-
-    @font-face {
-        font-family: "Moon";
-        src: url("../fonts/Moon Light.otf");
-    }
-
-    @font-face {
-        font-family: "Moon-Bold";
-        src: url("../fonts/Moon Bold.otf");
-        /*font-weight: bold;*/
-    }
 
     #inkCanvas {
         width: 100vw;
@@ -2606,16 +2499,7 @@ z-index: 15;
         z-index: 4;
     }
 
-    @font-face {
-        font-family: "Moon";
-        src: url("../fonts/Moon Light.otf");
-    }
 
-    @font-face {
-        font-family: "Moon-Bold";
-        src: url("../fonts/Moon Bold.otf");
-        /*font-weight: bold;*/
-    }
 
     .nav {
         display: flex;
@@ -3050,7 +2934,7 @@ z-index: 15;
 
 .valign .valign__content {
     background: rgba(0,0,0,0.2);
-    font-family: 'BigNoodleTitling',sans-serif;
+    font-family: 'Big Noodle',sans-serif;
     text-decoration: none;
     vertical-align: middle;
     display: inline-block;
