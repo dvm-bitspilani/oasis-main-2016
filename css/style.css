@@ -3396,6 +3396,7 @@ z-index: 15;
 }
 
 .fb_link {
+  display: none;
     position: absolute;
     background: url('../img/fb_icon.png');
     background-repeat: no-repeat;
