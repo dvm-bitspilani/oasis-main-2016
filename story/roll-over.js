@@ -263,7 +263,7 @@ var imgLoadingDone=false;
 			animateEle.setAttribute('dur','0.5s');
 			animateEle.setAttribute('fill','freeze');
 			animateEle.beginElement();
-			// setTimeout(function(){
+			setTimeout(function(){
 
 				$('.loader').fadeOut('slow');
 				$('#fakeScroll').show();
