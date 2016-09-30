@@ -692,6 +692,7 @@ z-index: 15;
 }
 
 .banner {
+  cursor: pointer;
 }
 
 .bangrp1 {
