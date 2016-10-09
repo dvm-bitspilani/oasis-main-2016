@@ -45,6 +45,36 @@ min-width: 350px;
 }
 
 
+.yatra-ad{
+
+    position: absolute;
+    bottom: 3vh;
+    left: 3vh;
+    /* background: white; */
+    /* color: #1d95b7; */
+    /* border: 0.1px solid white; */
+    padding: 9px;
+    border-radius: 6px;
+    font-size: 1em;
+    z-index: 1001;
+    cursor: pointer;
+    /* border-bottom-right-radius: 15px; */
+
+}
+
+.yatra-ad p{
+  margin: 6px 0px;
+    font-family: 'Big Noodle';
+    letter-spacing: 2.1px;
+}
+
+
+.yatra-ad img{
+  width: 130px;
+position: relative;
+margin: 0 auto;
+display: block;
+}
 @font-face {
     font-family: 'Big Noodle';
     src: url('../fonts/big_noodle_titling.ttf');
@@ -85,6 +115,10 @@ min-width: 350px;
     <div class="loader-wrapper">
       <div class="logo-large">
         <img src="img/logoLarge.png">
+      </div>
+      <div class="yatra-ad" onclick="window.open('https://www.yatra.com/')">
+        <p> Experience this Oasis with</p>
+        <img src="img/yatra.png">
       </div>
       <!--?xml version="1.0" encoding="utf-8"?-->
       <!-- Generator: Adobe Illustrator 19.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
@@ -557,7 +591,7 @@ min-width: 350px;
   </div>
   <div class="banner-wrapper">
     <div class="bangrp1">
-      <canvas id="ban1" class="banner b1" width="100" height="335" ></canvas>
+      <canvas id="ban1" class="banner b1" width="100" height="335" onclick="window.open('./rocktaves')"></canvas>
       <canvas id="ban2" class="banner b2" width="100" height="335" onclick="window.open('./profshow')"></canvas>
     </div>
     <div class="bangrp2">
