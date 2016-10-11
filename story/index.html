@@ -715,8 +715,11 @@ setTimeout(function () {
   $('.loader').fadeOut();
   $('#fakeScroll').show();
   $('.container').show();
-  animate();
-
+  if(window.innerWidth>600)
+    animate();
+  else{
+    $('#inkCanvas').hide();
+  }
 },1000);
 var oldSlide=-1;
 

@@ -268,9 +268,13 @@ var imgLoadingDone=false;
 				$('.loader').fadeOut('slow');
 				$('#fakeScroll').show();
 				$('.container').show();
-				if(window.innerWidth>600)
-				animate();
+				if(window.innerWidth>600){
+					animate();
+					console.log('hello2');
+
+				}
 				else{
+					console.log('hello1');
 					$('#inkCanvas').hide();
 				}
 			},500);
