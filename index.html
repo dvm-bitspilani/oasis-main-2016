@@ -1748,8 +1748,8 @@ inkscape:label="#g24867">
 <g class="eventListLeftIn">
  <line style="fill:none" id="line20993" y2="674.88898" x2="632.211" y1="1149.153" x1="489.01901"></line><text id="text20995" transform="matrix(0.289,-0.9573,0.9573,0.289,533.292,1002.5127)">
   <tspan style="font-size:45px;font-family:BigNoodleTitling;fill:#ffffff" id="tspan20997" font-size="40" y="0" x="0" class="event-name"></tspan></text><line style="fill:none" id="line20973" y2="663.73199" x2="605.12701" y1="1002.861" x1="243.98599"></line><text id="text20975" transform="matrix(0.729,-0.6845,0.6845,0.729,385.8916,869.6045)">
-  <tspan style="font-size:45px;font-family:BigNoodleTitling;fill:#ffffff" id="tspan20977" font-size="40" y="0" x="0" class="event-name"></tspan></text><line style="fill:none" id="line20959" y2="657.58698" x2="595.23602" y1="770.711" x1="112.916"></line><text id="text20961" transform="matrix(0.2283,0.9736,-0.9736,0.2283,504.2314,205.8555)">
-  <tspan style="font-size:45px;font-family:BigNoodleTitling;fill:#ffffff" id="tspan20963" font-size="40" y="0" x="0" class="event-name"></tspan>
+  <tspan style="font-size:45px;font-family:BigNoodleTitling;fill:#ffffff" id="tspan20977" font-size="40" y="0" x="0" class="event-name"></tspan></text><line style="fill:none" id="line20959" y2="657.58698" x2="595.23602" y1="770.711" x1="112.916"></line><text id="text20961"  transform="matrix(0.95634121,-0.29225244,0.29225244,0.95634121,0,0)" x="-50.681541" y="791.60779">
+  <tspan style="font-size:45px;font-family:BigNoodleTitling;fill:#ffffff" id="tspan20963" font-size="40" y="791.60779" x="-50.681541" class="event-name"></tspan>
   </text><line style="fill:none" id="line20917" y2="634.013" x2="587.17902" y1="490.82001" x1="112.916"></line><text id="text20919" transform="matrix(0.9573,0.289,-0.289,0.9573,237.2666,528.3643)">
   <tspan style="font-size:45px;font-family:BigNoodleTitling;fill:#ffffff" id="tspan20921" font-size="40" y="0" x="0" class="event-name"></tspan></text><line style="fill:none" id="line20895" y2="597.92297" x2="578.11798" y1="236.783" x1="238.99001"></line><text id="text20897" transform="matrix(0.6845,0.729,-0.729,0.6845,280.7749,307.1226)">
   <tspan style="font-size:45px;font-family:BigNoodleTitling;fill:#ffffff" id="tspan20899" font-size="40" y="0" x="0" class="event-name"></tspan>
@@ -3258,88 +3258,25 @@ $('.about-trigger').click(function() {
 
 
 
-$('.aftermovie-trigger').on('click',function() {
-  $('#misc-events').fadeIn('400', function() {
+
+
+$('.aftermovie-trigger').click(function() {
+  $('#aftermovie').fadeIn('400', function() {
+    $('.flexy').html('<iframe src="//youtube.com/embed/oQtWSvYR1vc?rel=0&amp;autoplay=1" frameborder="0"></iframe>');
     $('#storybutton').fadeOut();
     $(this).css('display', 'flex');
-    var dataString="";
-    for(var i=0;i<data.length;i++){
-    if(  data[i].category=='Misc')
-      {
-      data[i].events.map(function(e){
-        var ele='<div class="event1"> <h3>'+e.name+'</h3> </div>';
-        dataString+=ele;
-      });
-    }
-    }
-    console.log(dataString);
-    $(this).find('.litecont').html(dataString);
-    $('.event1 h3').on('click',function(){
-      var eveName=$(this).html();
-      $('#misc-events-desc').fadeIn('400', function() {
-        $(this).find('.litehead').html(eveName);
-        for(var i=0;i<eventDesc.length;i++){
-          if(eventDesc[i].name==eveName)
-          {
-            $(this).find('.litecont').html(eventDesc[i].desc);
-
-          }
-        }
-        $('#storybutton').fadeOut();
-        $(this).css('display', 'flex');
-        $(this).find('.black-back').click(function() {
-          $('#storybutton').fadeIn();
-          $('#misc-events-desc').fadeOut();
-
-          window.location.hash='';
-          history.replaceState({}, document.title, window.location.pathname);
-
-        });
-      }).children().click(function(e) {
-        return false;
-      })
-    })
-
-
     $('.black-back').click(function() {
-      if($("#misc-events-desc").is(":hidden")){
-
-
       $('#storybutton').fadeIn();
       $('.flexy iframe').remove();
-      $('#misc-events').fadeOut();
 
-
+      $('#aftermovie').fadeOut();
       window.location.hash='';
-
       history.replaceState({}, document.title, window.location.pathname);
-    }
     });
   }).children().click(function(e) {
     return false;
   })
 });
-
-
-
-
-// $('.aftermovie-trigger').click(function() {
-//   $('#aftermovie').fadeIn('400', function() {
-//     $('.flexy').html('<iframe src="//youtube.com/embed/oQtWSvYR1vc?rel=0&amp;autoplay=1" frameborder="0"></iframe>');
-//     $('#storybutton').fadeOut();
-//     $(this).css('display', 'flex');
-//     $('.black-back').click(function() {
-//       $('#storybutton').fadeIn();
-//       $('.flexy iframe').remove();
-//
-//       $('#aftermovie').fadeOut();
-//       window.location.hash='';
-//       history.replaceState({}, document.title, window.location.pathname);
-//     });
-//   }).children().click(function(e) {
-//     return false;
-//   })
-// });
 
 
 
@@ -3442,6 +3379,8 @@ console.clear();
 console.log("%c \n\n\n\xa9  Department of Visual Media, BITS Pilani", 'font-size: 15px; font-weight: bold; font-family: Arial');
 
 </script>
+
+
 
 
 <script>

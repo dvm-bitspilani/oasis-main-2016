@@ -1,4 +1,7 @@
+
+
 $(document).ready(function(){
+
   var tOrigin=[
   '0% 71%',
   '-2% -1%',
@@ -135,7 +138,7 @@ else if(window.innerWidth<2000)
             }
           }
         }
-      }
+      });
 
     },800);
 
@@ -412,6 +415,7 @@ reset($curEle);
 
 
 
+
     $(".events-trigger").click(function(){
       // ajax
 
@@ -424,14 +428,14 @@ reset($curEle);
       // });
       $.ajax({
         type:'GET',
-        url:'../2016/events/summary/',
+        url:'./2016/events/summary',
         success:function(response){
           data=response;
         }
       });
       $.ajax({
         type:'GET',
-        url:'../2016/events/description/',
+        url:'./2016/events/description',
         success:function(response){
           eventDesc=response;
         }
@@ -498,8 +502,6 @@ reset($curEle);
               $('#storybutton').fadeIn();
               $('#misc-events-desc').fadeOut();
 
-              window.location.hash='';
-              history.replaceState({}, document.title, window.location.pathname);
 
             });
           }).children().click(function(e) {
@@ -511,15 +513,14 @@ reset($curEle);
         $('.black-back').click(function() {
           if($("#misc-events-desc").is(":hidden")){
 
+            $('#text219').trigger('click');
 
           $('#storybutton').fadeIn();
           $('.flexy iframe').remove();
           $('#misc-events').fadeOut();
 
 
-          window.location.hash='';
 
-          history.replaceState({}, document.title, window.location.pathname);
         }
         });
       }).children().click(function(e) {
