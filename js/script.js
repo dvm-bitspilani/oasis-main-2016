@@ -118,18 +118,25 @@ else if(window.innerWidth<2000)
 
     setTimeout(function(){
 
+
       data.map(function(i){
         if(i.category.toLowerCase()==cat.toLowerCase()){
           var eventName=document.getElementsByClassName('event-name');
           for(var x=0;x<eventName.length;x++){
-            if(x<i.events.length)
+            if(x>=11){
+              eventName[x].setAttribute('id','otherEve-trigger');
+
+              eventName[x].innerHTML='Other';
+            }
+            else if(x<i.events.length)
             eventName[x].innerHTML=i.events[x].name;
             else {
               eventName[x].innerHTML='';
             }
           }
         }
-        });
+      }
+
     },800);
 
     setTimeout(function(){
@@ -165,7 +172,12 @@ else{
         if(i.category.toLowerCase()==cat.toLowerCase()){
           var eventName=document.getElementsByClassName('event-name');
           for(var x=0;x<eventName.length;x++){
-            if(x<i.events.length)
+            if(x>=11){
+              eventName[x].setAttribute('id','otherEve-trigger');
+
+              eventName[x].innerHTML='Other';
+            }
+            else if(x<i.events.length)
             eventName[x].innerHTML=i.events[x].name;
             else {
               eventName[x].innerHTML='';
@@ -394,8 +406,12 @@ reset($curEle);
         animate.beginElement();
         $ele.attr('on',false);
     }
+
     var data=[];
     var eventDesc=[];
+
+
+
     $(".events-trigger").click(function(){
       // ajax
 
@@ -408,14 +424,14 @@ reset($curEle);
       // });
       $.ajax({
         type:'GET',
-        url:'./2016/events/summary/',
+        url:'../2016/events/summary/',
         success:function(response){
           data=response;
         }
       });
       $.ajax({
         type:'GET',
-        url:'./2016/events/description/',
+        url:'../2016/events/description/',
         success:function(response){
           eventDesc=response;
         }
@@ -445,6 +461,72 @@ reset($curEle);
       $('#storybutton').fadeOut();
     }
     })
+
+
+
+
+    $(document).on('click','#otherEve-trigger',function() {
+      $('#misc-events').fadeIn('400', function() {
+        $('#storybutton').fadeOut();
+        $(this).css('display', 'flex');
+        var dataString="";
+        for(var i=0;i<data.length;i++){
+        if(  data[i].category=='Misc')
+          {
+          data[i].events.map(function(e){
+            var ele='<div class="event1"> <h3>'+e.name+'</h3> </div>';
+            dataString+=ele;
+          });
+        }
+        }
+        console.log(dataString);
+        $(this).find('.litecont').html(dataString);
+        $('.event1 h3').on('click',function(){
+          var eveName=$(this).html();
+          $('#misc-events-desc').fadeIn('400', function() {
+            $(this).find('.litehead').html(eveName);
+            for(var i=0;i<eventDesc.length;i++){
+              if(eventDesc[i].name==eveName)
+              {
+                $(this).find('.litecont').html(eventDesc[i].desc);
+
+              }
+            }
+            $('#storybutton').fadeOut();
+            $(this).css('display', 'flex');
+            $(this).find('.black-back').click(function() {
+              $('#storybutton').fadeIn();
+              $('#misc-events-desc').fadeOut();
+
+              window.location.hash='';
+              history.replaceState({}, document.title, window.location.pathname);
+
+            });
+          }).children().click(function(e) {
+            return false;
+          })
+        })
+
+
+        $('.black-back').click(function() {
+          if($("#misc-events-desc").is(":hidden")){
+
+
+          $('#storybutton').fadeIn();
+          $('.flexy iframe').remove();
+          $('#misc-events').fadeOut();
+
+
+          window.location.hash='';
+
+          history.replaceState({}, document.title, window.location.pathname);
+        }
+        });
+      }).children().click(function(e) {
+        return false;
+      })
+    });
+
 
     $('.events-wrapper').click(function(ev){
 

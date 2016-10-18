@@ -5725,3 +5725,38 @@ lightbox: 200;
     top: 0;
     left: 0;
 }
+
+
+.event1:hover{
+  background: white;
+color: #191919;
+}
+.event1{
+  padding: 14px 5px;
+/* height: 30vh; */
+/* top: 46px; */
+/* position: relative; */
+/* display: flex; */
+/*justify-content: center;*/
+/* align-items: center; */
+/* width: 90%; */
+display: inline-block;
+width: 24%;
+margin: 20px 2px;
+text-align: center;
+transition: all 0.2s;
+text-align: center;
+
+}
+
+
+.event1 h3{
+  margin:0;
+}
+
+
+
+.event_text{
+  height: 22vh;
+  overflow-y: scroll;
+}

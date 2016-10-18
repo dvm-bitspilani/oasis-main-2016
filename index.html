@@ -636,8 +636,8 @@ display: block;
     </a>
   </div>
   <div class="side-button" style="bottom: 26vh;background: rgba(0,0,0,0.8);">
-    <a href="https://docs.google.com/forms/d/1vtqIfile1ZrELEsuiv4Pv8UFQovBmO_kuEt6I9o_1hE/viewform?ts=5803875c&edit_requested=true" target="blank" style="text-decoration:none" >
-      <p>Bus Service</p>
+    <a href="http://bits-oasis.org/press/" target="blank" style="text-decoration:none" >
+      <p>Bus Servive</p>
     </a>
   </div>
 </div>
@@ -700,6 +700,71 @@ display: block;
     </div>
   </div>
 </div>
+
+<div class="lite-wrapper" id="misc-events" >
+  <div class="litebox">
+    <div class="black-back" style="display: block;">
+    </div>
+    <div class="litebox-mainContent-wrapper">
+      <div class="litehead">
+        Miscellaneous
+      </div>
+      <div class="litecont" >
+        <div class="event1">
+          <h3></h3>
+        </div>
+
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <div class="event-litebox kinetic-active ps-container" >
+      <div class="spinner" style="display:none">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="lite-wrapper" id="misc-events-desc" >
+  <div class="litebox">
+    <div class="black-back" style="display: block;">
+    </div>
+    <div class="litebox-mainContent-wrapper">
+      <div class="litehead">
+
+      </div>
+      <div class="litecont" style="display: flex;flex-direction: column; ">
+        <div class="flexy">
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <div class="event-litebox kinetic-active ps-container" >
+      <div class="spinner" style="display:none">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
 <div class="events-wrapper lite-box">
 
@@ -3190,23 +3255,93 @@ $('.about-trigger').click(function() {
   })
 });
 
-$('.side-button').click(function() {
-  $('#aftermovie').fadeIn('400', function() {
-    $('.flexy').html('<iframe src="//youtube.com/embed/oQtWSvYR1vc?rel=0&amp;autoplay=1" frameborder="0"></iframe>');
+
+
+
+$('.aftermovie-trigger').on('click',function() {
+  $('#misc-events').fadeIn('400', function() {
     $('#storybutton').fadeOut();
     $(this).css('display', 'flex');
+    var dataString="";
+    for(var i=0;i<data.length;i++){
+    if(  data[i].category=='Misc')
+      {
+      data[i].events.map(function(e){
+        var ele='<div class="event1"> <h3>'+e.name+'</h3> </div>';
+        dataString+=ele;
+      });
+    }
+    }
+    console.log(dataString);
+    $(this).find('.litecont').html(dataString);
+    $('.event1 h3').on('click',function(){
+      var eveName=$(this).html();
+      $('#misc-events-desc').fadeIn('400', function() {
+        $(this).find('.litehead').html(eveName);
+        for(var i=0;i<eventDesc.length;i++){
+          if(eventDesc[i].name==eveName)
+          {
+            $(this).find('.litecont').html(eventDesc[i].desc);
+
+          }
+        }
+        $('#storybutton').fadeOut();
+        $(this).css('display', 'flex');
+        $(this).find('.black-back').click(function() {
+          $('#storybutton').fadeIn();
+          $('#misc-events-desc').fadeOut();
+
+          window.location.hash='';
+          history.replaceState({}, document.title, window.location.pathname);
+
+        });
+      }).children().click(function(e) {
+        return false;
+      })
+    })
+
+
     $('.black-back').click(function() {
+      if($("#misc-events-desc").is(":hidden")){
+
+
       $('#storybutton').fadeIn();
       $('.flexy iframe').remove();
+      $('#misc-events').fadeOut();
 
-      $('#aftermovie').fadeOut();
+
       window.location.hash='';
+
       history.replaceState({}, document.title, window.location.pathname);
+    }
     });
   }).children().click(function(e) {
     return false;
   })
 });
+
+
+
+
+// $('.aftermovie-trigger').click(function() {
+//   $('#aftermovie').fadeIn('400', function() {
+//     $('.flexy').html('<iframe src="//youtube.com/embed/oQtWSvYR1vc?rel=0&amp;autoplay=1" frameborder="0"></iframe>');
+//     $('#storybutton').fadeOut();
+//     $(this).css('display', 'flex');
+//     $('.black-back').click(function() {
+//       $('#storybutton').fadeIn();
+//       $('.flexy iframe').remove();
+//
+//       $('#aftermovie').fadeOut();
+//       window.location.hash='';
+//       history.replaceState({}, document.title, window.location.pathname);
+//     });
+//   }).children().click(function(e) {
+//     return false;
+//   })
+// });
+
+
 
 
 $('.archive-trigger').click(function() {
