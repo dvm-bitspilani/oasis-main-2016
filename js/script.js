@@ -475,7 +475,7 @@ reset($curEle);
         $(this).css('display', 'flex');
         var dataString="";
         for(var i=0;i<data.length;i++){
-        if(  data[i].category=='Misc')
+        if(  data[i].category=='Misc' || data[i].category=='Literature')
           {
           data[i].events.map(function(e){
             var ele='<div class="event1"> <h3>'+e.name+'</h3> </div>';
