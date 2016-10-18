@@ -5700,6 +5700,10 @@ lightbox: 200;
     letter-spacing: 1.73px;
 }
 
+.side-button a:hover,.side-button a:focus{
+  color: white;
+}
+
 @media screen and (max-width:600px) {
   .side-button{
     font-size: 1em;
