@@ -5733,6 +5733,7 @@ color: #191919;
 }
 .event1{
   padding: 14px 5px;
+  cursor: pointer;
 /* height: 30vh; */
 /* top: 46px; */
 /* position: relative; */
